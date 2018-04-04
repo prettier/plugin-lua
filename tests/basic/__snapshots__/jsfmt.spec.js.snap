@@ -54,6 +54,7 @@ end
 
 while true do
 	print()
+	if print() then print() break print() end
 	end
 	repeat print()
 	until false
@@ -63,6 +64,11 @@ do
 	print()
 
 end
+
+print(#    cats)
+print(-    cats)
+print(not        cats)
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local foo, bar = 4
 
@@ -124,6 +130,11 @@ end
 
 while true do
 	print()
+	if print() then
+		print()
+		break
+		print()
+	end
 end
 repeat
 	print()
@@ -133,4 +144,8 @@ do
 	print()
 	print()
 end
+
+print(#cats)
+print(-cats)
+print(not cats)
 `;

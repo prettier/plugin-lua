@@ -27,8 +27,6 @@ const { makeString, isNextLineEmpty } = require("prettier").util;
 function genericPrint(path, options, print) {
   const node = path.getValue();
 
-  if (node === null) console.log(path);
-
   switch (node.type) {
     case "Chunk": {
       return path.call(
@@ -204,7 +202,11 @@ function genericPrint(path, options, print) {
     }
 
     case "UnaryExpression": {
-      return concat([node.operator, " ", path.call(print, "argument")]);
+      return concat([
+        node.operator,
+        node.operator.match(/^[a-zA-Z]+$/) ? " " : "",
+        path.call(print, "argument"),
+      ]);
     }
 
     case "ForGenericStatement": {
@@ -284,6 +286,10 @@ function genericPrint(path, options, print) {
         "until ",
         path.call(print, "condition"),
       ]);
+    }
+
+    case "BreakStatement": {
+      return "break";
     }
   }
 

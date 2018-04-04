@@ -51,6 +51,7 @@ end
 
 while true do
 	print()
+	if print() then print() break print() end
 	end
 	repeat print()
 	until false
@@ -60,3 +61,8 @@ do
 	print()
 
 end
+
+print(#    cats)
+print(-    cats)
+print(not        cats)
+
