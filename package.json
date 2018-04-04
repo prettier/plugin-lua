@@ -1,0 +1,29 @@
+{
+  "name": "@prettier/plugin-lua",
+  "version": "0.0.0-development",
+  "description": "Prettier Lua Plugin",
+  "repository": "prettier/prettier-lua",
+  "author": "Suchipi <me@suchipi.com>",
+  "license": "MIT",
+  "main": "src",
+  "files": ["src"],
+  "dependencies": {
+    "luaparse": "0.2.1",
+    "prettier": "prettier/prettier#c2ee047a5dbe4d2ad8ca7d766f4ed188d8ab7d46"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-unobtrusive": "^1.2.2",
+    "eslint-plugin-import": "2.10.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "jest": "22.4.3",
+    "jest-runner-eslint": "0.4.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "prettier": "prettier --plugin=. --parser=lua51"
+  },
+  "jest": {
+    "projects": ["<rootDir>/jest.*.config.js"]
+  }
+}

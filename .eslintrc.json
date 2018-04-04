@@ -1,0 +1,20 @@
+{
+  "extends": ["unobtrusive", "unobtrusive/import"],
+  "plugins": ["prettier"],
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "warn"
+  },
+  "overrides": [
+    {
+      "files": "tests/**/*.js",
+      "globals": {
+        "run_spec": true
+      }
+    }
+  ]
+}
