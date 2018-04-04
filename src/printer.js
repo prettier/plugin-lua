@@ -103,6 +103,38 @@ function genericPrint(path, options, print) {
         "]",
       ]);
     }
+    case "TableConstructorExpression": {
+      return concat([
+        "{",
+        indent(
+          concat([
+            hardline,
+            join(concat([",", hardline]), path.map(print, "fields")),
+          ])
+        ),
+        hardline,
+        "}",
+      ]);
+    }
+    case "TableValue": {
+      return path.call(print, "value");
+    }
+    case "TableKeyString": {
+      return concat([
+        path.call(print, "key"),
+        " = ",
+        path.call(print, "value"),
+      ]);
+    }
+    case "TableKey": {
+      return concat([
+        "[",
+        path.call(print, "key"),
+        "]",
+        " = ",
+        path.call(print, "value"),
+      ]);
+    }
   }
 
   return "";
@@ -111,7 +143,7 @@ function genericPrint(path, options, print) {
 function printStatementSequence(path, options, print) {
   const printed = [];
 
-  path.map((stmtPath, i) => {
+  path.map((stmtPath) => {
     const stmt = stmtPath.getValue();
 
     // Just in case the AST has been modified to contain falsy
