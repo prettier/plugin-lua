@@ -48,9 +48,6 @@ function genericPrint(path, options, print) {
     case "Identifier": {
       return node.name;
     }
-    case "NumericLiteral": {
-      return node.raw;
-    }
     case "FunctionDeclaration": {
       return concat([
         node.isLocal ? "local " : "",
@@ -85,6 +82,9 @@ function genericPrint(path, options, print) {
         ")",
       ]);
     }
+    case "BooleanLiteral":
+    case "NilLiteral":
+    case "NumericLiteral":
     case "StringLiteral": {
       return node.raw;
     }
