@@ -230,6 +230,31 @@ function genericPrint(path, options, print) {
         "end",
       ]);
     }
+    case "ForNumericStatement": {
+      return concat([
+        "for ",
+        path.call(print, "variable"),
+        " = ",
+        path.call(print, "start"),
+        ", ",
+        path.call(print, "end"),
+        node.step ? ", " : "",
+        node.step ? path.call(print, "step") : "",
+        " do",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+        hardline,
+        "end",
+      ]);
+    }
 
     case "DoStatement": {
       return concat([
@@ -290,6 +315,13 @@ function genericPrint(path, options, print) {
 
     case "BreakStatement": {
       return "break";
+    }
+
+    case "LabelStatement": {
+      return concat(["::", path.call(print, "label"), "::"]);
+    }
+    case "GotoStatement": {
+      return concat(["goto ", path.call(print, "label")]);
     }
   }
 
