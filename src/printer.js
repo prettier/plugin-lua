@@ -27,6 +27,8 @@ const { makeString, isNextLineEmpty } = require("prettier").util;
 function genericPrint(path, options, print) {
   const node = path.getValue();
 
+  if (node === null) console.log(path);
+
   switch (node.type) {
     case "Chunk": {
       return path.call(
@@ -52,8 +54,7 @@ function genericPrint(path, options, print) {
       return concat([
         node.isLocal ? "local " : "",
         "function",
-        node.identifier ? " " : "",
-        path.call(print, "identifier"),
+        node.identifier ? concat([" ", path.call(print, "identifier")]) : "",
         "(",
         join(", ", path.map(print, "parameters")),
         ")",

@@ -18,6 +18,7 @@ tbl["a"][4] = 3
 
 function MT:bla()
 end
+print(function() end)
 
 local tbl = {
 	1,
@@ -42,14 +43,6 @@ elseif true then
 else
 	elsecall()
 end
-
-
-if true then
-	print()
-else if true then
-	print()
-	end
-end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local foo, bar = 4
 
@@ -69,6 +62,9 @@ tbl["a"][4] = 3
 function MT:bla()
 
 end
+print(function()
+
+end)
 
 local tbl = {
 	1,
@@ -96,13 +92,5 @@ elseif true then
 	elseifcall()
 else
 	elsecall()
-end
-
-if true then
-	print()
-else
-	if true then
-		print()
-	end
 end
 `;

@@ -15,6 +15,7 @@ tbl["a"][4] = 3
 
 function MT:bla()
 end
+print(function() end)
 
 local tbl = {
 	1,
