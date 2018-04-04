@@ -1,1 +1,1 @@
-run_spec(__dirname, ["lua51"]);
+run_spec(__dirname, ["lua51"], { trailingComma: "all" });

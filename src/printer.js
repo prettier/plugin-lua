@@ -110,6 +110,7 @@ function genericPrint(path, options, print) {
           concat([
             hardline,
             join(concat([",", hardline]), path.map(print, "fields")),
+            options.trailingComma === "none" ? "" : ",",
           ])
         ),
         hardline,
@@ -133,6 +134,58 @@ function genericPrint(path, options, print) {
         "]",
         " = ",
         path.call(print, "value"),
+      ]);
+    }
+    case "LogicalExpression":
+    case "BinaryExpression": {
+      return concat([
+        path.call(print, "left"),
+        " ",
+        node.operator,
+        " ",
+        path.call(print, "right"),
+      ]);
+    }
+    case "IfStatement": {
+      return concat([
+        join(hardline, path.map(print, "clauses")),
+        hardline,
+        "end",
+      ]);
+    }
+
+    case "IfClause":
+    case "ElseifClause": {
+      return concat([
+        node.type === "ElseifClause" ? "else" : "",
+        "if ",
+        path.call(print, "condition"),
+        " then",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+      ]);
+    }
+    case "ElseClause": {
+      return concat([
+        "else ",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
       ]);
     }
   }
