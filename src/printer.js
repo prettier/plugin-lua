@@ -88,6 +88,21 @@ function genericPrint(path, options, print) {
     case "StringLiteral": {
       return node.raw;
     }
+    case "MemberExpression": {
+      return concat([
+        path.call(print, "base"),
+        node.indexer,
+        path.call(print, "identifier"),
+      ]);
+    }
+    case "IndexExpression": {
+      return concat([
+        path.call(print, "base"),
+        "[",
+        path.call(print, "index"),
+        "]",
+      ]);
+    }
   }
 
   return "";
