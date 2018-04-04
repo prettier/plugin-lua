@@ -83,10 +83,15 @@ function genericPrint(path, options, print) {
         ")",
       ]);
     }
+    case "StringCallExpression": {
+      return concat([path.call(print, "base"), path.call(print, "argument")]);
+    }
+
     case "BooleanLiteral":
     case "NilLiteral":
     case "NumericLiteral":
-    case "StringLiteral": {
+    case "StringLiteral":
+    case "VarargLiteral": {
       return node.raw;
     }
     case "MemberExpression": {
@@ -105,18 +110,22 @@ function genericPrint(path, options, print) {
       ]);
     }
     case "TableConstructorExpression": {
-      return concat([
-        "{",
-        indent(
-          concat([
-            hardline,
-            join(concat([",", hardline]), path.map(print, "fields")),
-            options.trailingComma === "none" ? "" : ",",
-          ])
-        ),
-        hardline,
-        "}",
-      ]);
+      if (node.fields.length === 0) {
+        return "{}";
+      } else {
+        return concat([
+          "{",
+          indent(
+            concat([
+              hardline,
+              join(concat([",", hardline]), path.map(print, "fields")),
+              options.trailingComma === "none" ? "" : ",",
+            ])
+          ),
+          hardline,
+          "}",
+        ]);
+      }
     }
     case "TableValue": {
       return path.call(print, "value");
@@ -188,6 +197,14 @@ function genericPrint(path, options, print) {
           ])
         ),
       ]);
+    }
+
+    case "ReturnStatement": {
+      return concat(["return ", join(", ", path.map(print, "arguments"))]);
+    }
+
+    case "UnaryExpression": {
+      return concat([node.operator, " ", path.call(print, "argument")]);
     }
   }
 
