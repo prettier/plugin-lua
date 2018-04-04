@@ -66,3 +66,18 @@ print(#    cats)
 print(-    cats)
 print(not        cats)
 
+::label::
+
+goto label
+
+for i=1,10 do
+	print()
+end
+
+for i=10,1,-1 do
+	print()
+end
+
+stringcall"hello"
+
+tablecall{2,4,6}

@@ -84,6 +84,9 @@ function genericPrint(path, options, print) {
     case "StringCallExpression": {
       return concat([path.call(print, "base"), path.call(print, "argument")]);
     }
+    case "TableCallExpression": {
+      return concat([path.call(print, "base"), path.call(print, "arguments")]);
+    }
 
     case "BooleanLiteral":
     case "NilLiteral":
