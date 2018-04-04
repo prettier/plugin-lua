@@ -40,3 +40,23 @@ elseif true then
 else
 	elsecall()
 end
+
+for k,v in next,t do
+	print(k,v,t)
+end
+
+for k,v in pairs(t) do
+	print(k,v,t)
+end
+
+while true do
+	print()
+	end
+	repeat print()
+	until false
+
+do
+	print   ()
+	print()
+
+end

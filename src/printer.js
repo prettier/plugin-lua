@@ -206,6 +206,85 @@ function genericPrint(path, options, print) {
     case "UnaryExpression": {
       return concat([node.operator, " ", path.call(print, "argument")]);
     }
+
+    case "ForGenericStatement": {
+      return concat([
+        "for ",
+        join(", ", path.map(print, "variables")),
+        " in ",
+        join(", ", path.map(print, "iterators")),
+        " do",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+        hardline,
+        "end",
+      ]);
+    }
+
+    case "DoStatement": {
+      return concat([
+        "do",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+        hardline,
+        "end",
+      ]);
+    }
+
+    case "WhileStatement": {
+      return concat([
+        "while ",
+        path.call(print, "condition"),
+        indent(
+          concat([
+            " do",
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+        hardline,
+        "end",
+      ]);
+    }
+
+    case "RepeatStatement": {
+      return concat([
+        "repeat",
+        indent(
+          concat([
+            hardline,
+            path.call(
+              (statementPath) =>
+                printStatementSequence(statementPath, options, print),
+              "body"
+            ),
+          ])
+        ),
+        hardline,
+        "until ",
+        path.call(print, "condition"),
+      ]);
+    }
   }
 
   return "";
