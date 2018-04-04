@@ -1,4 +1,4 @@
-local foo = 4
+local foo, bar = 4
 
 function bar()
     print("hi")
