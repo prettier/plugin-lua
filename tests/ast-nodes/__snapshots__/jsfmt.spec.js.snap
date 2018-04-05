@@ -151,11 +151,9 @@ do
   print("just do it!")
 end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 do
-
 end
 
 do
-
 end
 
 do
@@ -221,35 +219,27 @@ for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_bl
 end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 for k, v in pairs(i) do
-
 end
 
 for a, b, c, d, e, f, g, h, i, j, k, l in pairs(i) do
-
 end
 
 for a, b, c, d, e, f, g, h, i, j, k, l in m, n, o, p, q, r, s, t, u, v do
-
 end
 
 for file in pairs(files) do
-
 end
 
 for k, v in next, t do
-
 end
 
 for k in next, t do
-
 end
 
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day, or_two do
-
 end
 
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
-
 end
 
 for k, v in pairs(i) do
@@ -308,15 +298,12 @@ for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 
 end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 for i = 10, 20, 2 do
-
 end
 
 for i = 10, 20 do
-
 end
 
 for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
-
 end
 
 for i = 10, 20, 2 do
@@ -550,37 +537,28 @@ function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup
 end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function empty()
-
 end
 
 local function local_function()
-
 end
 
 (function()
-
 end)()(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
-
 end)()
 
 function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
-
 end
 
 function META:doIt()
-
 end
 
 function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
-
 end
 
 function response.parse()
-
 end
 
 function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
-
 end
 
 function empty()
@@ -810,7 +788,6 @@ vararg = ...
 vararg_parens = (...)
 
 function vararg_params(...)
-
 end
 `;
 
@@ -854,7 +831,6 @@ repeat
 until condition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 repeat
-
 until false
 
 repeat
@@ -1046,7 +1022,6 @@ while condition do
 end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 while empty do
-
 end
 
 while condition do

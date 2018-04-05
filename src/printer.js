@@ -49,16 +49,7 @@ function printNoParens(path, options, print) {
         "(",
         join(", ", path.map(print, "parameters")),
         ")",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
         hardline,
         "end",
       ]);
@@ -165,32 +156,11 @@ function printNoParens(path, options, print) {
         "if ",
         path.call(print, "condition"),
         " then",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
       ]);
     }
     case "ElseClause": {
-      return concat([
-        "else ",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
-      ]);
+      return concat(["else ", printIndentedBody(path, options, print)]);
     }
 
     case "ReturnStatement": {
@@ -212,16 +182,7 @@ function printNoParens(path, options, print) {
         " in ",
         join(", ", path.map(print, "iterators")),
         " do",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
         hardline,
         "end",
       ]);
@@ -237,16 +198,7 @@ function printNoParens(path, options, print) {
         node.step ? ", " : "",
         node.step ? path.call(print, "step") : "",
         " do",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
         hardline,
         "end",
       ]);
@@ -255,16 +207,7 @@ function printNoParens(path, options, print) {
     case "DoStatement": {
       return concat([
         "do",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
         hardline,
         "end",
       ]);
@@ -274,17 +217,8 @@ function printNoParens(path, options, print) {
       return concat([
         "while ",
         path.call(print, "condition"),
-        indent(
-          concat([
-            " do",
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        " do",
+        printIndentedBody(path, options, print),
         hardline,
         "end",
       ]);
@@ -293,16 +227,7 @@ function printNoParens(path, options, print) {
     case "RepeatStatement": {
       return concat([
         "repeat",
-        indent(
-          concat([
-            hardline,
-            path.call(
-              (statementPath) =>
-                printStatementSequence(statementPath, options, print),
-              "body"
-            ),
-          ])
-        ),
+        printIndentedBody(path, options, print),
         hardline,
         "until ",
         path.call(print, "condition"),
@@ -322,6 +247,23 @@ function printNoParens(path, options, print) {
   }
 
   return "";
+}
+
+function printIndentedBody(path, options, print) {
+  const node = path.getValue();
+
+  return node.body.length > 0
+    ? indent(
+        concat([
+          hardline,
+          path.call(
+            (statementPath) =>
+              printStatementSequence(statementPath, options, print),
+            "body"
+          ),
+        ])
+      )
+    : "";
 }
 
 function printStatementSequence(path, options, print) {
