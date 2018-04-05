@@ -17,14 +17,7 @@ const {
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
 
-// function print(
-//   // Path to the AST node to print
-//   path: FastPath,
-//   options: object,
-//   // Recursively print a child node
-//   print: (path: FastPath) => Doc
-// ): Doc;
-function genericPrint(path, options, print) {
+function printNoParens(path, options, print) {
   const node = path.getValue();
 
   switch (node.type) {
@@ -370,4 +363,13 @@ function isLastStatement(path) {
   return body && body[body.length - 1] === node;
 }
 
-module.exports = genericPrint;
+module.exports = function genericPrint(path, options, print) {
+  const printed = printNoParens(path, options, print);
+
+  const node = path.getValue();
+  if (node.inParens) {
+    return concat(["(", printed, ")"]);
+  } else {
+    return printed;
+  }
+};
