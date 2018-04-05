@@ -22,6 +22,9 @@ end
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
 end
 
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
+end
+
 for k,v in pairs(i) do
   print("hi")
 end
@@ -51,5 +54,9 @@ for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_bl
 end
 
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
+  print("hi")
+end
+
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
   print("hi")
 end

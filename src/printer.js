@@ -28,13 +28,64 @@ function printNoParens(path, options, print) {
         "body"
       );
     }
-    case "AssignmentStatement":
+    case "AssignmentStatement": {
+      return concat([
+        group(
+          concat([
+            concat([
+              indent(join(concat([",", line]), path.map(print, "variables"))),
+            ]),
+            line,
+          ])
+        ),
+        node.init.length > 0
+          ? concat([
+              "=",
+              group(
+                node.init.length === 1 &&
+                node.init[0].type === "TableConstructorExpression"
+                  ? concat([" ", path.call(print, "init", 0)])
+                  : indent(
+                      concat([
+                        line,
+                        concat([
+                          join(concat([",", line]), path.map(print, "init")),
+                        ]),
+                      ])
+                    )
+              ),
+            ])
+          : "",
+      ]);
+    }
     case "LocalStatement": {
       return concat([
-        node.type === "LocalStatement" ? "local " : "",
-        join(", ", path.map(print, "variables")),
+        group(
+          concat([
+            "local ",
+            concat([
+              indent(join(concat([",", line]), path.map(print, "variables"))),
+            ]),
+            line,
+          ])
+        ),
         node.init.length > 0
-          ? concat([" = ", join(", ", path.map(print, "init"))])
+          ? concat([
+              "=",
+              group(
+                node.init.length === 1 &&
+                node.init[0].type === "TableConstructorExpression"
+                  ? concat([" ", path.call(print, "init", 0)])
+                  : indent(
+                      concat([
+                        line,
+                        concat([
+                          join(concat([",", line]), path.map(print, "init")),
+                        ]),
+                      ])
+                    )
+              ),
+            ])
           : "",
       ]);
     }
@@ -47,7 +98,15 @@ function printNoParens(path, options, print) {
         "function",
         node.identifier ? concat([" ", path.call(print, "identifier")]) : "",
         "(",
-        join(", ", path.map(print, "parameters")),
+        group(
+          concat([
+            softline,
+            concat([
+              indent(join(concat([",", line]), path.map(print, "parameters"))),
+            ]),
+            softline,
+          ])
+        ),
         ")",
         printIndentedBody(path, options, print),
         hardline,
@@ -61,7 +120,15 @@ function printNoParens(path, options, print) {
       return concat([
         path.call(print, "base"),
         "(",
-        join(", ", path.map(print, "arguments")),
+        group(
+          concat([
+            softline,
+            concat([
+              indent(join(concat([",", line]), path.map(print, "arguments"))),
+            ]),
+            softline,
+          ])
+        ),
         ")",
       ]);
     }
@@ -177,11 +244,35 @@ function printNoParens(path, options, print) {
 
     case "ForGenericStatement": {
       return concat([
-        "for ",
-        join(", ", path.map(print, "variables")),
-        " in ",
-        join(", ", path.map(print, "iterators")),
-        " do",
+        "for",
+        group(
+          concat([
+            indent(
+              concat([
+                line,
+                concat([
+                  join(concat([",", line]), path.map(print, "variables")),
+                ]),
+              ])
+            ),
+            line,
+          ])
+        ),
+        "in",
+        group(
+          concat([
+            indent(
+              concat([
+                line,
+                concat([
+                  join(concat([",", line]), path.map(print, "iterators")),
+                ]),
+              ])
+            ),
+            line,
+          ])
+        ),
+        "do",
         printIndentedBody(path, options, print),
         hardline,
         "end",

@@ -1,6 +1,9 @@
 function empty()
 end
 
+function empty(one, two, three)
+end
+
 local function local_function()
 end
 
@@ -29,6 +32,10 @@ function empty()
   print("hi!")
 end
 
+function empty(one, two, three)
+  print("hi!")
+end
+
 local function local_function()
   print("hi!")
 end
@@ -62,6 +69,23 @@ function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup
 end
 
 function empty()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function empty(one, two, three)
 
 
 

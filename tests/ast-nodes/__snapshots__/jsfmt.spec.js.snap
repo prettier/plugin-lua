@@ -15,11 +15,63 @@ one = 1
 
 one, two = 1, 2
 
-one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
 
-numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
 
-one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
 `;
 
 exports[`binary-expression.lua - lua51-verify: binary-expression.lua 1`] = `
@@ -87,7 +139,8 @@ big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
 hat = 2 ^ 4
 concat = "a" .. "b" .. c
 
-everything = yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+everything =
+	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
 `;
 
 exports[`break-statement.lua - lua51-verify: break-statement.lua 1`] = `
@@ -122,7 +175,13 @@ foo()
 
 foo(one, two, three)
 
-foo(one, two, this_one_is_really_long_okay_like_so_long_look_at_this_wow, three, four)
+foo(
+one,
+	two,
+	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
+	three,
+	four
+)
 
 bar(67)(62)
 
@@ -186,6 +245,9 @@ end
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
 end
 
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
+end
+
 for k,v in pairs(i) do
   print("hi")
 end
@@ -217,7 +279,10 @@ end
 for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
   print("hi")
 end
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
+  print("hi")
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 for k, v in pairs(i) do
 end
 
@@ -236,10 +301,23 @@ end
 for k in next, t do
 end
 
-for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day, or_two do
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day, or_two do
 end
 
-for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day_or_two do
+end
+
+for this_is in
+	a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in,
+	a_day,
+	or_two
+do
 end
 
 for k, v in pairs(i) do
@@ -266,11 +344,25 @@ for k in next, t do
 	print("hi")
 end
 
-for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day, or_two do
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day, or_two do
 	print("hi")
 end
 
-for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day_or_two do
+	print("hi")
+end
+
+for this_is in
+	a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in,
+	a_day,
+	or_two
+do
 	print("hi")
 end
 `;
@@ -323,6 +415,9 @@ exports[`function-statement.lua - lua51-verify: function-statement.lua 1`] = `
 function empty()
 end
 
+function empty(one, two, three)
+end
+
 local function local_function()
 end
 
@@ -351,6 +446,10 @@ function empty()
   print("hi!")
 end
 
+function empty(one, two, three)
+  print("hi!")
+end
+
 local function local_function()
   print("hi!")
 end
@@ -384,6 +483,23 @@ function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup
 end
 
 function empty()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function empty(one, two, three)
 
 
 
@@ -539,43 +655,132 @@ end
 function empty()
 end
 
+function empty(one, two, three)
+end
+
 local function local_function()
 end
 
 (function()
-end)()(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
-end)()
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+	end
+)()
 
-function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 end
 
 function META:doIt()
 end
 
-function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 end
 
 function response.parse()
 end
 
-function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 end
 
 function empty()
 	print("hi!")
 end
 
+function empty(one, two, three)
+	print("hi!")
+end
+
 local function local_function()
 	print("hi!")
 end
 
 (function()
 	print("hi!")
-end)()(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
-	print("hi!")
-end)()
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+		print("hi!")
+	end
+)()
 
-function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 end
 
@@ -583,7 +788,19 @@ function META:doIt()
 	print("hi!")
 end
 
-function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 end
 
@@ -591,7 +808,19 @@ function response.parse()
 	print("hi!")
 end
 
-function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 end
 
@@ -601,6 +830,12 @@ function empty()
 	print("hi!")
 end
 
+function empty(one, two, three)
+	print("hi!")
+
+	print("hi!")
+end
+
 local function local_function()
 	print("hi!")
 
@@ -611,13 +846,42 @@ end
 	print("hi!")
 
 	print("hi!")
-end)()(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
-	print("hi!")
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+		print("hi!")
 
-	print("hi!")
-end)()
+		print("hi!")
+	end
+)()
 
-function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 
 	print("hi!")
@@ -629,7 +893,19 @@ function META:doIt()
 	print("hi!")
 end
 
-function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 
 	print("hi!")
@@ -641,7 +917,19 @@ function response.parse()
 	print("hi!")
 end
 
-function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
 	print("hi!")
 
 	print("hi!")
@@ -707,7 +995,8 @@ tbl[bcdefgh] = 7
 tbl[a] = 5
 tbl["a"] = 5
 tbl[42.6] = 5
-tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"] = 6
+tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"]
+= 6
 tbl[bcdefgh] = 7
 `;
 
@@ -806,11 +1095,63 @@ local one = 1
 
 local one, two = 1, 2
 
-local one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+local one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
 
-local numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+local numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
 
-local one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+local one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
 `;
 
 exports[`member-expression.lua - lua51-verify: member-expression.lua 1`] = `
@@ -820,7 +1161,8 @@ tbl.looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tbl.a = 5
 tbl.a().b().c().d().e()
-tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong = 6
+tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+= 6
 `;
 
 exports[`repeat-statement.lua - lua51-verify: repeat-statement.lua 1`] = `
@@ -897,6 +1239,47 @@ crazy_nesting = {
   [45.6] = { 45.6, 45.6, 45.6, 45.6 },
   [{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }] = { this_kills_the_crab }
 }
+
+local empty = {}
+
+local one_thing = { thing }
+
+local one_keyed_thing = { keyed = thing }
+
+local more_than_one_thing = { thing, thing }
+
+local more_than_one_keyed_thing = {
+  keyed = thing,
+  keyed = thing
+}
+
+local computed_keys = {
+  [1.0] = "one!",
+  [2.0] = "two!",
+  ["string"] = "string",
+  [2 + 2] = "minus one that's three quick maths",
+  [L"Welcome to City 17"] = "You have chosen, or, been chosen...",
+  [true] = false,
+
+  __index = function(self, key)
+    return rawget(self, key)
+  end
+}
+
+local crazy_nesting = {
+  a = {
+    b = {
+      c = {
+        d = {
+          e = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, foo = bar, ["aaaaa!!!!"] = "aaaaa!!!!" }
+        }
+      }
+    }
+  },
+  [{ please = "no" }] = { please = "yes" },
+  [45.6] = { 45.6, 45.6, 45.6, 45.6 },
+  [{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }] = { this_kills_the_crab }
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 empty = {}
 
@@ -931,6 +1314,113 @@ computed_keys = {
 }
 
 crazy_nesting = {
+	a = {
+		b = {
+			c = {
+				d = {
+					e = {
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						foo = bar,
+						["aaaaa!!!!"] = "aaaaa!!!!",
+					},
+				},
+			},
+		},
+	},
+	[{
+		please = "no",
+	}] = {
+		please = "yes",
+	},
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6,
+	},
+	[{
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+	}] = {
+		this_kills_the_crab,
+	},
+}
+
+local empty = {}
+
+local one_thing = {
+	thing,
+}
+
+local one_keyed_thing = {
+	keyed = thing,
+}
+
+local more_than_one_thing = {
+	thing,
+	thing,
+}
+
+local more_than_one_keyed_thing = {
+	keyed = thing,
+	keyed = thing,
+}
+
+local computed_keys = {
+	[1.0] = "one!",
+	[2.0] = "two!",
+	["string"] = "string",
+	[2 + 2] = "minus one that's three quick maths",
+	[L"Welcome to City 17"] = "You have chosen, or, been chosen...",
+	[true] = false,
+	__index = function(self, key)
+		return rawget(self, key)
+	end,
+}
+
+local crazy_nesting = {
 	a = {
 		b = {
 			c = {
