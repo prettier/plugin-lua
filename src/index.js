@@ -3,6 +3,7 @@
 const parse = require("./parser");
 const print = require("./printer");
 const options = require("./options");
+const { isValidIdentifier } = require("./util");
 
 const languages = [
   {
@@ -42,6 +43,20 @@ const parsers = {
 const printers = {
   luaparse: {
     print,
+    massageAstNode(node, newObj, parent) {
+      if (
+        node.type === "TableKey" &&
+        node.key.type === "StringLiteral" &&
+        isValidIdentifier(node.key.value)
+      ) {
+        // we convert TableKeys to TableKeyStrings
+        return {
+          type: "TableKeyString",
+          key: { type: "Identifier", name: node.key.value },
+          value: node.value,
+        };
+      }
+    },
   },
 };
 

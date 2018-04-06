@@ -16,6 +16,7 @@ const {
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
+const { isValidIdentifier } = require("./util");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
@@ -190,13 +191,23 @@ function printNoParens(path, options, print) {
       ]);
     }
     case "TableKey": {
-      return concat([
-        "[",
-        path.call(print, "key"),
-        "]",
-        " = ",
-        path.call(print, "value"),
-      ]);
+      if (
+        node.key.type === "StringLiteral" &&
+        isValidIdentifier(node.key.value)
+      ) {
+        // convert to TableKeyString
+        return concat([node.key.value, " = ", path.call(print, "value")]);
+      } else {
+        const isBlockString =
+          node.key.type === "StringLiteral" && node.key.raw[0] === "[";
+        return concat([
+          isBlockString ? "[ " : "[",
+          path.call(print, "key"),
+          isBlockString ? " ]" : "]",
+          " = ",
+          path.call(print, "value"),
+        ]);
+      }
     }
     case "LogicalExpression":
     case "BinaryExpression": {

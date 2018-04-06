@@ -56,6 +56,11 @@ local computed_keys = {
   [1.0] = "one!",
   [2.0] = "two!",
   ["string"] = "string",
+  ["string with spaces"] = "string",
+  [ [[oneword]] ] = 2,
+  [ [[
+    multi line string
+  ]] ] = "aa",
   [2 + 2] = "minus one that's three quick maths",
   [L"Welcome to City 17"] = "You have chosen, or, been chosen...",
   [true] = false,
