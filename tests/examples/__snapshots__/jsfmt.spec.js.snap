@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hook.lua - lua-verify: hook.lua 1`] = `
+
+hook.Add("hello", "okay", function(some, arguments)
+  doSomething()
+  return false
+end)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+hook.Add(
+	"hello",
+	"okay",
+	function(some, arguments)
+		doSomething()
+		return false
+	end
+)
+`;

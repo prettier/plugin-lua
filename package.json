@@ -21,6 +21,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watchAll --updateSnapshot",
     "prettier": "prettier --plugin=. --parser=lua"
   },
   "jest": {

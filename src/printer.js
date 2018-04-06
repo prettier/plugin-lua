@@ -123,10 +123,14 @@ function printNoParens(path, options, print) {
         "(",
         group(
           concat([
-            softline,
-            concat([
-              indent(join(concat([",", line]), path.map(print, "arguments"))),
-            ]),
+            indent(
+              concat([
+                softline,
+                concat([
+                  join(concat([",", line]), path.map(print, "arguments")),
+                ]),
+              ])
+            ),
             softline,
           ])
         ),

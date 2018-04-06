@@ -325,7 +325,7 @@ foo()
 foo(one, two, three)
 
 foo(
-one,
+	one,
 	two,
 	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
 	three,
@@ -376,7 +376,7 @@ foo()
 foo(one, two, three)
 
 foo(
-one,
+	one,
 	two,
 	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
 	three,
@@ -1074,7 +1074,7 @@ end
 
 (function()
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
@@ -1159,7 +1159,7 @@ end
 (function()
 	print("hi!")
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
@@ -1258,7 +1258,7 @@ end
 
 	print("hi!")
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
@@ -1599,7 +1599,7 @@ end
 
 (function()
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
@@ -1684,7 +1684,7 @@ end
 (function()
 	print('hi!')
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
@@ -1783,7 +1783,7 @@ end
 
 	print('hi!')
 end)()(
-function(
+	function(
 	lots,
 		und,
 		lotta_lots,
