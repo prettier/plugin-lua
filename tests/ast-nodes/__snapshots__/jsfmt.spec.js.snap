@@ -74,6 +74,80 @@ one,
 	thirteen
 `;
 
+exports[`assignment-statement.lua - lua51-verify: assignment-statement.lua 2`] = `
+one = 1
+
+one, two = 1, 2
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+
+numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+one = 1
+
+one, two = 1, 2
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
+
+numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+`;
+
 exports[`binary-expression.lua - lua51-verify: binary-expression.lua 1`] = `
 logical_and = ja and no
 logical_or = ja or no
@@ -143,7 +217,82 @@ everything =
 	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
 `;
 
+exports[`binary-expression.lua - lua51-verify: binary-expression.lua 2`] = `
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = "a" .. "b" .. c
+
+everything = yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = 'a' .. 'b' .. c
+
+everything =
+	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ '14' .. 15
+`;
+
 exports[`break-statement.lua - lua51-verify: break-statement.lua 1`] = `
+break
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+break
+`;
+
+exports[`break-statement.lua - lua51-verify: break-statement.lua 2`] = `
 break
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 break
@@ -197,6 +346,57 @@ bar[[
   a!!!
 ]]
 
+bar"a"
+`;
+
+exports[`call-statement.lua - lua51-verify: call-statement.lua 2`] = `
+foo()
+
+foo(one, two, three)
+
+foo(one, two, this_one_is_really_long_okay_like_so_long_look_at_this_wow, three, four)
+
+bar(67)(62)
+
+bar{ a }
+
+bar"a"
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
+bar'a'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+foo()
+
+foo(one, two, three)
+
+foo(
+one,
+	two,
+	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
+	three,
+	four
+)
+
+bar(67)(62)
+
+bar{
+	a,
+}
+
+bar'a'
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
 bar'a'
 `;
 
@@ -217,6 +417,26 @@ end
 
 do
 	print("just do it!")
+end
+`;
+
+exports[`do-statement.lua - lua51-verify: do-statement.lua 2`] = `
+do end
+
+do
+end
+
+do
+  print("just do it!")
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+do
+end
+
+do
+end
+
+do
+	print('just do it!')
 end
 `;
 
@@ -367,6 +587,153 @@ do
 end
 `;
 
+exports[`for-generic-statement.lua - lua51-verify: for-generic-statement.lua 2`] = `
+for k,v in pairs(i) do
+end
+
+for a,b,c,d,e,f,g,h,i,j,k,l in pairs(i) do
+end
+
+for a,b,c,d,e,f,g,h,i,j,k,l in m,n,o,p,q,r,s,t,u,v do
+end
+
+for file in pairs(files) do
+end
+
+for k, v in next, t do
+end
+
+for k in next, t do
+end
+
+for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day, or_two do
+end
+
+for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
+end
+
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
+end
+
+for k,v in pairs(i) do
+  print("hi")
+end
+
+for a,b,c,d,e,f,g,h,i,j,k,l in pairs(i) do
+  print("hi")
+end
+
+for a,b,c,d,e,f,g,h,i,j,k,l in m,n,o,p,q,r,s,t,u,v do
+  print("hi")
+end
+
+for file in pairs(files) do
+  print("hi")
+end
+
+for k, v in next, t do
+  print("hi")
+end
+
+for k in next, t do
+  print("hi")
+end
+
+for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day, or_two do
+  print("hi")
+end
+
+for this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better in a_day_or_two do
+  print("hi")
+end
+
+for this_is in a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue, but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in, a_day, or_two do
+  print("hi")
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for k, v in pairs(i) do
+end
+
+for a, b, c, d, e, f, g, h, i, j, k, l in pairs(i) do
+end
+
+for a, b, c, d, e, f, g, h, i, j, k, l in m, n, o, p, q, r, s, t, u, v do
+end
+
+for file in pairs(files) do
+end
+
+for k, v in next, t do
+end
+
+for k in next, t do
+end
+
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day, or_two do
+end
+
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day_or_two do
+end
+
+for this_is in
+	a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in,
+	a_day,
+	or_two
+do
+end
+
+for k, v in pairs(i) do
+	print('hi')
+end
+
+for a, b, c, d, e, f, g, h, i, j, k, l in pairs(i) do
+	print('hi')
+end
+
+for a, b, c, d, e, f, g, h, i, j, k, l in m, n, o, p, q, r, s, t, u, v do
+	print('hi')
+end
+
+for file in pairs(files) do
+	print('hi')
+end
+
+for k, v in next, t do
+	print('hi')
+end
+
+for k in next, t do
+	print('hi')
+end
+
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day, or_two do
+	print('hi')
+end
+
+for
+	this_is_a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue_but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better
+in a_day_or_two do
+	print('hi')
+end
+
+for this_is in
+	a_song_for_your_poor_sick_penguin_he_has_a_fever_and_his_toes_are_blue,
+	but_if_i_sing_to_your_poor_sick_penguin_he_will_feel_better_in,
+	a_day,
+	or_two
+do
+	print('hi')
+end
+`;
+
 exports[`for-numeric-statement.lua - lua51-verify: for-numeric-statement.lua 1`] = `
 for i = 10, 20, 2 do
 end
@@ -408,6 +775,50 @@ end
 
 for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
 	print("hi")
+end
+`;
+
+exports[`for-numeric-statement.lua - lua51-verify: for-numeric-statement.lua 2`] = `
+for i = 10, 20, 2 do
+end
+
+for i = 10, 20 do
+end
+
+for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
+end
+
+for i = 10, 20, 2 do
+  print("hi")
+end
+
+for i = 10, 20 do
+  print("hi")
+end
+
+for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
+  print("hi")
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for i = 10, 20, 2 do
+end
+
+for i = 10, 20 do
+end
+
+for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
+end
+
+for i = 10, 20, 2 do
+	print('hi')
+end
+
+for i = 10, 20 do
+	print('hi')
+end
+
+for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 20000000000000 do
+	print('hi')
 end
 `;
 
@@ -936,13 +1347,550 @@ lots,
 end
 `;
 
+exports[`function-statement.lua - lua51-verify: function-statement.lua 2`] = `
+function empty()
+end
+
+function empty(one, two, three)
+end
+
+local function local_function()
+end
+
+(function()
+end)()
+
+(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
+end)()
+
+function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+end
+
+function META:doIt()
+end
+
+function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+end
+
+function response.parse()
+end
+
+function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+end
+
+function empty()
+  print("hi!")
+end
+
+function empty(one, two, three)
+  print("hi!")
+end
+
+local function local_function()
+  print("hi!")
+end
+
+(function()
+  print("hi!")
+end)()
+
+(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
+  print("hi!")
+end)()
+
+function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+  print("hi!")
+end
+
+function META:doIt()
+  print("hi!")
+end
+
+function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+  print("hi!")
+end
+
+function response.parse()
+  print("hi!")
+end
+
+function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+  print("hi!")
+end
+
+function empty()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function empty(one, two, three)
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+local function local_function()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+(function()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end)()
+
+(function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end)()
+
+function empty(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function META:doIt()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function META:doIt(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function response.parse()
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+
+function response.parse(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right)
+
+
+
+
+
+  print("hi!")
+
+
+
+
+  print("hi!")
+
+
+
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function empty()
+end
+
+function empty(one, two, three)
+end
+
+local function local_function()
+end
+
+(function()
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+	end
+)()
+
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+end
+
+function META:doIt()
+end
+
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+end
+
+function response.parse()
+end
+
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+end
+
+function empty()
+	print('hi!')
+end
+
+function empty(one, two, three)
+	print('hi!')
+end
+
+local function local_function()
+	print('hi!')
+end
+
+(function()
+	print('hi!')
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+		print('hi!')
+	end
+)()
+
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+end
+
+function META:doIt()
+	print('hi!')
+end
+
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+end
+
+function response.parse()
+	print('hi!')
+end
+
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+end
+
+function empty()
+	print('hi!')
+
+	print('hi!')
+end
+
+function empty(one, two, three)
+	print('hi!')
+
+	print('hi!')
+end
+
+local function local_function()
+	print('hi!')
+
+	print('hi!')
+end
+
+(function()
+	print('hi!')
+
+	print('hi!')
+end)()(
+function(
+	lots,
+		und,
+		lotta_lots,
+		of,
+		params,
+		are,
+		going,
+		here,
+		yup,
+		thats,
+		right,
+		you,
+		know,
+		it
+	)
+		print('hi!')
+
+		print('hi!')
+	end
+)()
+
+function empty(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+
+	print('hi!')
+end
+
+function META:doIt()
+	print('hi!')
+
+	print('hi!')
+end
+
+function META:doIt(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+
+	print('hi!')
+end
+
+function response.parse()
+	print('hi!')
+
+	print('hi!')
+end
+
+function response.parse(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right
+)
+	print('hi!')
+
+	print('hi!')
+end
+`;
+
 exports[`goto-statement.lua - lua51-verify: goto-statement.lua 1`] = `
 goto label
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 goto label
 `;
 
+exports[`goto-statement.lua - lua51-verify: goto-statement.lua 2`] = `
+goto label
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+goto label
+`;
+
 exports[`identifier.lua - lua51-verify: identifier.lua 1`] = `
+call(identifier)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+call(identifier)
+`;
+
+exports[`identifier.lua - lua51-verify: identifier.lua 2`] = `
 call(identifier)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 call(identifier)
@@ -985,6 +1933,43 @@ else
 end
 `;
 
+exports[`if-statement.lua - lua51-verify: if-statement.lua 2`] = `
+if condition then
+  print("condition")
+end
+
+if condition1 then
+  print("condition1")
+elseif condition2 then
+  print("condition2")
+end
+
+if condition_outer then
+  print("condition_outer")
+else if condition2 then
+    print("condition_inner")
+end
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if condition then
+	print('condition')
+end
+
+if condition1 then
+	print('condition1')
+elseif condition2 then
+	print('condition2')
+end
+
+if condition_outer then
+	print('condition_outer')
+else
+	if condition2 then
+		print('condition_inner')
+	end
+end
+`;
+
 exports[`index-expression.lua - lua51-verify: index-expression.lua 1`] = `
 tbl[a] = 5
 tbl["a"] = 5
@@ -1000,7 +1985,28 @@ tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 tbl[bcdefgh] = 7
 `;
 
+exports[`index-expression.lua - lua51-verify: index-expression.lua 2`] = `
+tbl[a] = 5
+tbl["a"] = 5
+tbl[42.6] = 5
+tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"] = 6
+tbl[bcdefgh] = 7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tbl[a] = 5
+tbl['a'] = 5
+tbl[42.6] = 5
+tbl['loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong']
+= 6
+tbl[bcdefgh] = 7
+`;
+
 exports[`label-statement.lua - lua51-verify: label-statement.lua 1`] = `
+::label::
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::label::
+`;
+
+exports[`label-statement.lua - lua51-verify: label-statement.lua 2`] = `
 ::label::
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::label::
@@ -1020,6 +2026,109 @@ weird_multi_line = [=====[
 weird_single_line_multi_line = [=====[
   stuff goes here y'all
 ]=====]
+
+weird_escapes = "'"
+weird_escapes = '"'
+
+weird_escapes = "\\""
+weird_escapes = '\\''
+
+weird_escapes = '\\"'
+weird_escapes = "\\'"
+
+
+hex_escapes = "\\x00 \\x02"
+octal_escapes = "\\777 \\650"
+ascii_escapes = "\\b\\n\\t\\\\"
+
+numeric_literal_int = 42
+numeric_literal_float = 42.0
+hex_number = 0x64
+hex_number_upper = 0XFF
+scientific_notation_lower = 1.6e50
+scientific_notation_upper = 6.23E-23
+
+truthy = true
+falsy = false
+
+nillish = nil
+
+vararg = ...
+vararg_parens = (...)
+
+function vararg_params(...)
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+single_quoted_string = "single-quoted string literal"
+double_quoted_string = "string literal!"
+
+multi_line_string = [[
+  multi-line string literal!!
+]]
+single_line_multi_line = [[ one ]]
+weird_multi_line = [=====[
+  one
+]=====]
+weird_single_line_multi_line = [=====[
+  stuff goes here y'all
+]=====]
+
+weird_escapes = "'"
+weird_escapes = '"'
+
+weird_escapes = '"'
+weird_escapes = "'"
+
+weird_escapes = '"'
+weird_escapes = "'"
+
+hex_escapes = "\\x00 \\x02"
+octal_escapes = "\\777 \\650"
+ascii_escapes = "\\b\\n\\t\\\\"
+
+numeric_literal_int = 42
+numeric_literal_float = 42.0
+hex_number = 0x64
+hex_number_upper = 0XFF
+scientific_notation_lower = 1.6e50
+scientific_notation_upper = 6.23E-23
+
+truthy = true
+falsy = false
+
+nillish = nil
+
+vararg = ...
+vararg_parens = (...)
+
+function vararg_params(...)
+end
+`;
+
+exports[`literals.lua - lua51-verify: literals.lua 2`] = `
+single_quoted_string = 'single-quoted string literal'
+double_quoted_string = "string literal!"
+
+multi_line_string = [[
+  multi-line string literal!!
+]]
+single_line_multi_line = [[ one ]]
+weird_multi_line = [=====[
+  one
+]=====]
+weird_single_line_multi_line = [=====[
+  stuff goes here y'all
+]=====]
+
+weird_escapes = "'"
+weird_escapes = '"'
+
+weird_escapes = "\\""
+weird_escapes = '\\''
+
+weird_escapes = '\\"'
+weird_escapes = "\\'"
+
 
 hex_escapes = "\\x00 \\x02"
 octal_escapes = "\\777 \\650"
@@ -1044,7 +2153,7 @@ function vararg_params(...)
 end
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 single_quoted_string = 'single-quoted string literal'
-double_quoted_string = "string literal!"
+double_quoted_string = 'string literal!'
 
 multi_line_string = [[
   multi-line string literal!!
@@ -1057,9 +2166,18 @@ weird_single_line_multi_line = [=====[
   stuff goes here y'all
 ]=====]
 
-hex_escapes = "\\x00 \\x02"
-octal_escapes = "\\777 \\650"
-ascii_escapes = "\\b\\n\\t\\\\"
+weird_escapes = "'"
+weird_escapes = '"'
+
+weird_escapes = '"'
+weird_escapes = "'"
+
+weird_escapes = '"'
+weird_escapes = "'"
+
+hex_escapes = '\\x00 \\x02'
+octal_escapes = '\\777 \\650'
+ascii_escapes = '\\b\\n\\t\\\\'
 
 numeric_literal_int = 42
 numeric_literal_float = 42.0
@@ -1154,7 +2272,92 @@ local one,
 	thirteen
 `;
 
+exports[`local-statement.lua - lua51-verify: local-statement.lua 2`] = `
+local one = 1
+
+local one, two = 1, 2
+
+local one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+
+local numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+
+local one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+local one = 1
+
+local one, two = 1, 2
+
+local one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
+
+local numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+
+local one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+`;
+
 exports[`member-expression.lua - lua51-verify: member-expression.lua 1`] = `
+tbl.a = 5
+tbl.a().b().c().d().e()
+tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong = 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tbl.a = 5
+tbl.a().b().c().d().e()
+tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+= 6
+`;
+
+exports[`member-expression.lua - lua51-verify: member-expression.lua 2`] = `
 tbl.a = 5
 tbl.a().b().c().d().e()
 tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong = 6
@@ -1180,7 +2383,40 @@ repeat
 until condition
 `;
 
+exports[`repeat-statement.lua - lua51-verify: repeat-statement.lua 2`] = `
+repeat until false
+
+repeat
+  print("oh no!")
+until condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+repeat
+until false
+
+repeat
+	print('oh no!')
+until condition
+`;
+
 exports[`return-statement.lua - lua51-verify: return-statement.lua 1`] = `
+function empty()
+  return
+end
+
+function with_arg()
+  return argument
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function empty()
+	return
+end
+
+function with_arg()
+	return argument
+end
+`;
+
+exports[`return-statement.lua - lua51-verify: return-statement.lua 2`] = `
 function empty()
   return
 end
@@ -1506,7 +2742,323 @@ local crazy_nesting = {
 }
 `;
 
+exports[`tables.lua - lua51-verify: tables.lua 2`] = `
+empty = {}
+
+one_thing = { thing }
+
+one_keyed_thing = { keyed = thing }
+
+more_than_one_thing = { thing, thing }
+
+more_than_one_keyed_thing = {
+  keyed = thing,
+  keyed = thing
+}
+
+computed_keys = {
+  [1.0] = "one!",
+  [2.0] = "two!",
+  ["string"] = "string",
+  [2 + 2] = "minus one that's three quick maths",
+  [L"Welcome to City 17"] = "You have chosen, or, been chosen...",
+  [true] = false,
+
+  __index = function(self, key)
+    return rawget(self, key)
+  end
+}
+
+crazy_nesting = {
+  a = {
+    b = {
+      c = {
+        d = {
+          e = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, foo = bar, ["aaaaa!!!!"] = "aaaaa!!!!" }
+        }
+      }
+    }
+  },
+  [{ please = "no" }] = { please = "yes" },
+  [45.6] = { 45.6, 45.6, 45.6, 45.6 },
+  [{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }] = { this_kills_the_crab }
+}
+
+local empty = {}
+
+local one_thing = { thing }
+
+local one_keyed_thing = { keyed = thing }
+
+local more_than_one_thing = { thing, thing }
+
+local more_than_one_keyed_thing = {
+  keyed = thing,
+  keyed = thing
+}
+
+local computed_keys = {
+  [1.0] = "one!",
+  [2.0] = "two!",
+  ["string"] = "string",
+  ["string with spaces"] = "string",
+  [ [[oneword]] ] = 2,
+  [ [[
+    multi line string
+  ]] ] = "aa",
+  [2 + 2] = "minus one that's three quick maths",
+  [L"Welcome to City 17"] = "You have chosen, or, been chosen...",
+  [true] = false,
+
+  __index = function(self, key)
+    return rawget(self, key)
+  end
+}
+
+local crazy_nesting = {
+  a = {
+    b = {
+      c = {
+        d = {
+          e = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, foo = bar, ["aaaaa!!!!"] = "aaaaa!!!!" }
+        }
+      }
+    }
+  },
+  [{ please = "no" }] = { please = "yes" },
+  [45.6] = { 45.6, 45.6, 45.6, 45.6 },
+  [{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }] = { this_kills_the_crab }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+empty = {}
+
+one_thing = {
+	thing,
+}
+
+one_keyed_thing = {
+	keyed = thing,
+}
+
+more_than_one_thing = {
+	thing,
+	thing,
+}
+
+more_than_one_keyed_thing = {
+	keyed = thing,
+	keyed = thing,
+}
+
+computed_keys = {
+	[1.0] = 'one!',
+	[2.0] = 'two!',
+	string = 'string',
+	[2 + 2] = "minus one that's three quick maths",
+	[L'Welcome to City 17'] = 'You have chosen, or, been chosen...',
+	[true] = false,
+	__index = function(self, key)
+		return rawget(self, key)
+	end,
+}
+
+crazy_nesting = {
+	a = {
+		b = {
+			c = {
+				d = {
+					e = {
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						foo = bar,
+						['aaaaa!!!!'] = 'aaaaa!!!!',
+					},
+				},
+			},
+		},
+	},
+	[{
+		please = 'no',
+	}] = {
+		please = 'yes',
+	},
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6,
+	},
+	[{
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+	}] = {
+		this_kills_the_crab,
+	},
+}
+
+local empty = {}
+
+local one_thing = {
+	thing,
+}
+
+local one_keyed_thing = {
+	keyed = thing,
+}
+
+local more_than_one_thing = {
+	thing,
+	thing,
+}
+
+local more_than_one_keyed_thing = {
+	keyed = thing,
+	keyed = thing,
+}
+
+local computed_keys = {
+	[1.0] = 'one!',
+	[2.0] = 'two!',
+	string = 'string',
+	['string with spaces'] = 'string',
+	oneword = 2,
+	[ [[
+    multi line string
+  ]] ] = 'aa',
+	[2 + 2] = "minus one that's three quick maths",
+	[L'Welcome to City 17'] = 'You have chosen, or, been chosen...',
+	[true] = false,
+	__index = function(self, key)
+		return rawget(self, key)
+	end,
+}
+
+local crazy_nesting = {
+	a = {
+		b = {
+			c = {
+				d = {
+					e = {
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						foo = bar,
+						['aaaaa!!!!'] = 'aaaaa!!!!',
+					},
+				},
+			},
+		},
+	},
+	[{
+		please = 'no',
+	}] = {
+		please = 'yes',
+	},
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6,
+	},
+	[{
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		0,
+	}] = {
+		this_kills_the_crab,
+	},
+}
+`;
+
 exports[`unary-expression.lua - lua51-verify: unary-expression.lua 1`] = `
+negative = -1
+opposite = not true
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+negative = -1
+opposite = not true
+`;
+
+exports[`unary-expression.lua - lua51-verify: unary-expression.lua 2`] = `
 negative = -1
 opposite = not true
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1526,5 +3078,20 @@ end
 
 while condition do
 	print("while-loop")
+end
+`;
+
+exports[`while-statement.lua - lua51-verify: while-statement.lua 2`] = `
+while empty do end
+
+while condition do
+  print("while-loop")
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+while empty do
+end
+
+while condition do
+	print('while-loop')
 end
 `;

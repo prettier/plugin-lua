@@ -12,6 +12,16 @@ weird_single_line_multi_line = [=====[
   stuff goes here y'all
 ]=====]
 
+weird_escapes = "'"
+weird_escapes = '"'
+
+weird_escapes = "\""
+weird_escapes = '\''
+
+weird_escapes = '\"'
+weird_escapes = "\'"
+
+
 hex_escapes = "\x00 \x02"
 octal_escapes = "\777 \650"
 ascii_escapes = "\b\n\t\\"
