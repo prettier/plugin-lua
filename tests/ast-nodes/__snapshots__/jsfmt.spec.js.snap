@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`assignment-statement.lua - lua51-verify: assignment-statement.lua 1`] = `
+exports[`assignment-statement.lua - lua-verify: assignment-statement.lua 1`] = `
 one = 1
 
 one, two = 1, 2
@@ -74,7 +74,7 @@ one,
 	thirteen
 `;
 
-exports[`assignment-statement.lua - lua51-verify: assignment-statement.lua 2`] = `
+exports[`assignment-statement.lua - lua-verify: assignment-statement.lua 2`] = `
 one = 1
 
 one, two = 1, 2
@@ -148,7 +148,7 @@ one,
 	thirteen
 `;
 
-exports[`binary-expression.lua - lua51-verify: binary-expression.lua 1`] = `
+exports[`binary-expression.lua - lua-verify: binary-expression.lua 1`] = `
 logical_and = ja and no
 logical_or = ja or no
 mixed_logical = ja and no or yes or no and maybe
@@ -217,7 +217,7 @@ everything =
 	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
 `;
 
-exports[`binary-expression.lua - lua51-verify: binary-expression.lua 2`] = `
+exports[`binary-expression.lua - lua-verify: binary-expression.lua 2`] = `
 logical_and = ja and no
 logical_or = ja or no
 mixed_logical = ja and no or yes or no and maybe
@@ -286,19 +286,19 @@ everything =
 	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ '14' .. 15
 `;
 
-exports[`break-statement.lua - lua51-verify: break-statement.lua 1`] = `
+exports[`break-statement.lua - lua-verify: break-statement.lua 1`] = `
 break
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 break
 `;
 
-exports[`break-statement.lua - lua51-verify: break-statement.lua 2`] = `
+exports[`break-statement.lua - lua-verify: break-statement.lua 2`] = `
 break
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 break
 `;
 
-exports[`call-statement.lua - lua51-verify: call-statement.lua 1`] = `
+exports[`call-statement.lua - lua-verify: call-statement.lua 1`] = `
 foo()
 
 foo(one, two, three)
@@ -349,7 +349,7 @@ bar[[
 bar"a"
 `;
 
-exports[`call-statement.lua - lua51-verify: call-statement.lua 2`] = `
+exports[`call-statement.lua - lua-verify: call-statement.lua 2`] = `
 foo()
 
 foo(one, two, three)
@@ -400,7 +400,7 @@ bar[[
 bar'a'
 `;
 
-exports[`do-statement.lua - lua51-verify: do-statement.lua 1`] = `
+exports[`do-statement.lua - lua-verify: do-statement.lua 1`] = `
 do end
 
 do
@@ -420,7 +420,7 @@ do
 end
 `;
 
-exports[`do-statement.lua - lua51-verify: do-statement.lua 2`] = `
+exports[`do-statement.lua - lua-verify: do-statement.lua 2`] = `
 do end
 
 do
@@ -440,7 +440,7 @@ do
 end
 `;
 
-exports[`for-generic-statement.lua - lua51-verify: for-generic-statement.lua 1`] = `
+exports[`for-generic-statement.lua - lua-verify: for-generic-statement.lua 1`] = `
 for k,v in pairs(i) do
 end
 
@@ -587,7 +587,7 @@ do
 end
 `;
 
-exports[`for-generic-statement.lua - lua51-verify: for-generic-statement.lua 2`] = `
+exports[`for-generic-statement.lua - lua-verify: for-generic-statement.lua 2`] = `
 for k,v in pairs(i) do
 end
 
@@ -734,7 +734,7 @@ do
 end
 `;
 
-exports[`for-numeric-statement.lua - lua51-verify: for-numeric-statement.lua 1`] = `
+exports[`for-numeric-statement.lua - lua-verify: for-numeric-statement.lua 1`] = `
 for i = 10, 20, 2 do
 end
 
@@ -778,7 +778,7 @@ for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 
 end
 `;
 
-exports[`for-numeric-statement.lua - lua51-verify: for-numeric-statement.lua 2`] = `
+exports[`for-numeric-statement.lua - lua-verify: for-numeric-statement.lua 2`] = `
 for i = 10, 20, 2 do
 end
 
@@ -822,7 +822,7 @@ for i = 100000000000000000000000000000000000000000000, 20000000000000000000000, 
 end
 `;
 
-exports[`function-statement.lua - lua51-verify: function-statement.lua 1`] = `
+exports[`function-statement.lua - lua-verify: function-statement.lua 1`] = `
 function empty()
 end
 
@@ -1347,7 +1347,7 @@ lots,
 end
 `;
 
-exports[`function-statement.lua - lua51-verify: function-statement.lua 2`] = `
+exports[`function-statement.lua - lua-verify: function-statement.lua 2`] = `
 function empty()
 end
 
@@ -1872,31 +1872,31 @@ lots,
 end
 `;
 
-exports[`goto-statement.lua - lua51-verify: goto-statement.lua 1`] = `
+exports[`goto-statement.lua - lua-verify: goto-statement.lua 1`] = `
 goto label
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 goto label
 `;
 
-exports[`goto-statement.lua - lua51-verify: goto-statement.lua 2`] = `
+exports[`goto-statement.lua - lua-verify: goto-statement.lua 2`] = `
 goto label
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 goto label
 `;
 
-exports[`identifier.lua - lua51-verify: identifier.lua 1`] = `
+exports[`identifier.lua - lua-verify: identifier.lua 1`] = `
 call(identifier)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 call(identifier)
 `;
 
-exports[`identifier.lua - lua51-verify: identifier.lua 2`] = `
+exports[`identifier.lua - lua-verify: identifier.lua 2`] = `
 call(identifier)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 call(identifier)
 `;
 
-exports[`if-statement.lua - lua51-verify: if-statement.lua 1`] = `
+exports[`if-statement.lua - lua-verify: if-statement.lua 1`] = `
 if condition then
   print("condition")
 end
@@ -1933,7 +1933,7 @@ else
 end
 `;
 
-exports[`if-statement.lua - lua51-verify: if-statement.lua 2`] = `
+exports[`if-statement.lua - lua-verify: if-statement.lua 2`] = `
 if condition then
   print("condition")
 end
@@ -1970,7 +1970,7 @@ else
 end
 `;
 
-exports[`index-expression.lua - lua51-verify: index-expression.lua 1`] = `
+exports[`index-expression.lua - lua-verify: index-expression.lua 1`] = `
 tbl[a] = 5
 tbl["a"] = 5
 tbl[42.6] = 5
@@ -1985,7 +1985,7 @@ tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 tbl[bcdefgh] = 7
 `;
 
-exports[`index-expression.lua - lua51-verify: index-expression.lua 2`] = `
+exports[`index-expression.lua - lua-verify: index-expression.lua 2`] = `
 tbl[a] = 5
 tbl["a"] = 5
 tbl[42.6] = 5
@@ -2000,19 +2000,19 @@ tbl['loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 tbl[bcdefgh] = 7
 `;
 
-exports[`label-statement.lua - lua51-verify: label-statement.lua 1`] = `
+exports[`label-statement.lua - lua-verify: label-statement.lua 1`] = `
 ::label::
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::label::
 `;
 
-exports[`label-statement.lua - lua51-verify: label-statement.lua 2`] = `
+exports[`label-statement.lua - lua-verify: label-statement.lua 2`] = `
 ::label::
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::label::
 `;
 
-exports[`literals.lua - lua51-verify: literals.lua 1`] = `
+exports[`literals.lua - lua-verify: literals.lua 1`] = `
 single_quoted_string = 'single-quoted string literal'
 double_quoted_string = "string literal!"
 
@@ -2105,7 +2105,7 @@ function vararg_params(...)
 end
 `;
 
-exports[`literals.lua - lua51-verify: literals.lua 2`] = `
+exports[`literals.lua - lua-verify: literals.lua 2`] = `
 single_quoted_string = 'single-quoted string literal'
 double_quoted_string = "string literal!"
 
@@ -2198,7 +2198,7 @@ function vararg_params(...)
 end
 `;
 
-exports[`local-statement.lua - lua51-verify: local-statement.lua 1`] = `
+exports[`local-statement.lua - lua-verify: local-statement.lua 1`] = `
 local one = 1
 
 local one, two = 1, 2
@@ -2272,7 +2272,7 @@ local one,
 	thirteen
 `;
 
-exports[`local-statement.lua - lua51-verify: local-statement.lua 2`] = `
+exports[`local-statement.lua - lua-verify: local-statement.lua 2`] = `
 local one = 1
 
 local one, two = 1, 2
@@ -2346,7 +2346,7 @@ local one,
 	thirteen
 `;
 
-exports[`member-expression.lua - lua51-verify: member-expression.lua 1`] = `
+exports[`member-expression.lua - lua-verify: member-expression.lua 1`] = `
 tbl.a = 5
 tbl.a().b().c().d().e()
 tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong = 6
@@ -2357,7 +2357,7 @@ tbl.looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 = 6
 `;
 
-exports[`member-expression.lua - lua51-verify: member-expression.lua 2`] = `
+exports[`member-expression.lua - lua-verify: member-expression.lua 2`] = `
 tbl.a = 5
 tbl.a().b().c().d().e()
 tbl.loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong = 6
@@ -2368,7 +2368,7 @@ tbl.looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 = 6
 `;
 
-exports[`repeat-statement.lua - lua51-verify: repeat-statement.lua 1`] = `
+exports[`repeat-statement.lua - lua-verify: repeat-statement.lua 1`] = `
 repeat until false
 
 repeat
@@ -2383,7 +2383,7 @@ repeat
 until condition
 `;
 
-exports[`repeat-statement.lua - lua51-verify: repeat-statement.lua 2`] = `
+exports[`repeat-statement.lua - lua-verify: repeat-statement.lua 2`] = `
 repeat until false
 
 repeat
@@ -2398,7 +2398,7 @@ repeat
 until condition
 `;
 
-exports[`return-statement.lua - lua51-verify: return-statement.lua 1`] = `
+exports[`return-statement.lua - lua-verify: return-statement.lua 1`] = `
 function empty()
   return
 end
@@ -2416,7 +2416,7 @@ function with_arg()
 end
 `;
 
-exports[`return-statement.lua - lua51-verify: return-statement.lua 2`] = `
+exports[`return-statement.lua - lua-verify: return-statement.lua 2`] = `
 function empty()
   return
 end
@@ -2434,7 +2434,7 @@ function with_arg()
 end
 `;
 
-exports[`tables.lua - lua51-verify: tables.lua 1`] = `
+exports[`tables.lua - lua-verify: tables.lua 1`] = `
 empty = {}
 
 one_thing = { thing }
@@ -2742,7 +2742,7 @@ local crazy_nesting = {
 }
 `;
 
-exports[`tables.lua - lua51-verify: tables.lua 2`] = `
+exports[`tables.lua - lua-verify: tables.lua 2`] = `
 empty = {}
 
 one_thing = { thing }
@@ -3050,7 +3050,7 @@ local crazy_nesting = {
 }
 `;
 
-exports[`unary-expression.lua - lua51-verify: unary-expression.lua 1`] = `
+exports[`unary-expression.lua - lua-verify: unary-expression.lua 1`] = `
 negative = -1
 opposite = not true
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3058,7 +3058,7 @@ negative = -1
 opposite = not true
 `;
 
-exports[`unary-expression.lua - lua51-verify: unary-expression.lua 2`] = `
+exports[`unary-expression.lua - lua-verify: unary-expression.lua 2`] = `
 negative = -1
 opposite = not true
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3066,7 +3066,7 @@ negative = -1
 opposite = not true
 `;
 
-exports[`while-statement.lua - lua51-verify: while-statement.lua 1`] = `
+exports[`while-statement.lua - lua-verify: while-statement.lua 1`] = `
 while empty do end
 
 while condition do
@@ -3081,7 +3081,7 @@ while condition do
 end
 `;
 
-exports[`while-statement.lua - lua51-verify: while-statement.lua 2`] = `
+exports[`while-statement.lua - lua-verify: while-statement.lua 2`] = `
 while empty do end
 
 while condition do

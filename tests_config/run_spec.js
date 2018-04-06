@@ -106,7 +106,7 @@ function stripLocation(ast) {
 }
 
 function parse(string, opts) {
-  return stripLocation(plugin.parsers.lua51.parse(string, {}, opts));
+  return stripLocation(plugin.parsers.lua.parse(string, {}, opts));
 }
 
 function prettyprint(src, filename, options) {

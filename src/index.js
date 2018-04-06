@@ -8,7 +8,7 @@ const { isValidIdentifier } = require("./util");
 const languages = [
   {
     name: "Lua",
-    parsers: ["lua51"],
+    parsers: ["lua"],
     tmScope: "source.lua",
     aceMode: "lua",
     codemirrorMode: "lua",
@@ -20,13 +20,13 @@ const languages = [
 ];
 
 const parsers = {
-  lua51: {
-    parse: function parseLua51(text, parsers, options) {
+  lua: {
+    parse: function parseLua(text, parsers, options) {
       return parse(
         text,
         parsers,
         Object.assign({}, options, {
-          luaVersion: "5.1",
+          luaVersion: "5.3",
         })
       );
     },
