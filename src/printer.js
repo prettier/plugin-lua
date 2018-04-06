@@ -33,9 +33,7 @@ function printNoParens(path, options, print) {
       return concat([
         group(
           concat([
-            concat([
-              indent(join(concat([",", line]), path.map(print, "variables"))),
-            ]),
+            indent(join(concat([",", line]), path.map(print, "variables"))),
             line,
           ])
         ),
@@ -49,9 +47,7 @@ function printNoParens(path, options, print) {
                   : indent(
                       concat([
                         line,
-                        concat([
-                          join(concat([",", line]), path.map(print, "init")),
-                        ]),
+                        join(concat([",", line]), path.map(print, "init")),
                       ])
                     )
               ),
@@ -64,9 +60,7 @@ function printNoParens(path, options, print) {
         group(
           concat([
             "local ",
-            concat([
-              indent(join(concat([",", line]), path.map(print, "variables"))),
-            ]),
+            indent(join(concat([",", line]), path.map(print, "variables"))),
             line,
           ])
         ),
@@ -80,9 +74,7 @@ function printNoParens(path, options, print) {
                   : indent(
                       concat([
                         line,
-                        concat([
-                          join(concat([",", line]), path.map(print, "init")),
-                        ]),
+                        join(concat([",", line]), path.map(print, "init")),
                       ])
                     )
               ),
@@ -102,9 +94,7 @@ function printNoParens(path, options, print) {
         group(
           concat([
             softline,
-            concat([
-              indent(join(concat([",", line]), path.map(print, "parameters"))),
-            ]),
+            indent(join(concat([",", line]), path.map(print, "parameters"))),
             softline,
           ])
         ),
@@ -126,9 +116,7 @@ function printNoParens(path, options, print) {
             indent(
               concat([
                 softline,
-                concat([
-                  join(concat([",", line]), path.map(print, "arguments")),
-                ]),
+                join(concat([",", line]), path.map(print, "arguments")),
               ])
             ),
             softline,
@@ -271,9 +259,7 @@ function printNoParens(path, options, print) {
             indent(
               concat([
                 line,
-                concat([
-                  join(concat([",", line]), path.map(print, "variables")),
-                ]),
+                join(concat([",", line]), path.map(print, "variables")),
               ])
             ),
             line,
@@ -285,9 +271,7 @@ function printNoParens(path, options, print) {
             indent(
               concat([
                 line,
-                concat([
-                  join(concat([",", line]), path.map(print, "iterators")),
-                ]),
+                join(concat([",", line]), path.map(print, "iterators")),
               ])
             ),
             line,
