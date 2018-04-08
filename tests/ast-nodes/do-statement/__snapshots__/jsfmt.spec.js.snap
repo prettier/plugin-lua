@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+do end
+
+do
+end
+
+do
+  print("just do it!")
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+do
+end
+
+do
+end
+
+do
+	print("just do it!")
+end
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+do end
+
+do
+end
+
+do
+  print("just do it!")
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+do
+end
+
+do
+end
+
+do
+	print('just do it!')
+end
+`;

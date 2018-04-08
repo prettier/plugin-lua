@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+tbl[a] = 5
+tbl["a"] = 5
+tbl[42.6] = 5
+tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"] = 6
+tbl[bcdefgh] = 7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tbl[a] = 5
+tbl["a"] = 5
+tbl[42.6] = 5
+tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"]
+= 6
+tbl[bcdefgh] = 7
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+tbl[a] = 5
+tbl["a"] = 5
+tbl[42.6] = 5
+tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"] = 6
+tbl[bcdefgh] = 7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tbl[a] = 5
+tbl['a'] = 5
+tbl[42.6] = 5
+tbl['loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong']
+= 6
+tbl[bcdefgh] = 7
+`;

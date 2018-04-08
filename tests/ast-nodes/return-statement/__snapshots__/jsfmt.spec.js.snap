@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+function empty()
+  return
+end
+
+function with_arg()
+  return argument
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function empty()
+	return
+end
+
+function with_arg()
+	return argument
+end
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+function empty()
+  return
+end
+
+function with_arg()
+  return argument
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function empty()
+	return
+end
+
+function with_arg()
+	return argument
+end
+`;

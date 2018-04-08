@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+one = 1
+
+one, two = 1, 2
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+
+numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+one = 1
+
+one, two = 1, 2
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
+
+numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+one = 1
+
+one, two = 1, 2
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = 6
+
+numbers = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+
+one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen = one, two, three, four, five, size, seven, eight, nine, ten, eleven, twelve, thirteen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+one = 1
+
+one, two = 1, 2
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+= 6
+
+numbers =
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+
+one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+=
+	one,
+	two,
+	three,
+	four,
+	five,
+	size,
+	seven,
+	eight,
+	nine,
+	ten,
+	eleven,
+	twelve,
+	thirteen
+`;

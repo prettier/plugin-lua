@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = "a" .. "b" .. c
+
+everything = yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = "a" .. "b" .. c
+
+everything =
+	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = "a" .. "b" .. c
+
+everything = yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logical_and = ja and no
+logical_or = ja or no
+mixed_logical = ja and no or yes or no and maybe
+
+binary_addition = 2 + 2
+binary_subtraction = 2 - 1
+binary_add_subtract_mixed = 2 + 2 - 1
+
+binary_mult = 2 * 2
+binary_divide = 2 / 2
+binary_modulo = 2 % 2
+binary_mult_divid = 2 * 2 / 2
+
+binary_oh_the_math = 2 + 2 - 1 * 6 / 6.23e-23 % 68
+
+bitshift_left = a << b
+bitshift_right = a >> b
+bitshift_mixed = a << b >> please_dont_do_this
+
+compare_lt = 2 < 3
+compare_gt = 3 > 2
+compare_le = 2 <= 3
+compare_ge = 3 >= 2
+compare_eq = 3 == 2
+compare_ne = 3 ~= 2
+
+big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
+
+hat = 2 ^ 4
+concat = 'a' .. 'b' .. c
+
+everything =
+	yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ '14' .. 15
+`;

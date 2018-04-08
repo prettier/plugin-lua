@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+repeat until false
+
+repeat
+  print("oh no!")
+until condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+repeat
+until false
+
+repeat
+	print("oh no!")
+until condition
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+repeat until false
+
+repeat
+  print("oh no!")
+until condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+repeat
+until false
+
+repeat
+	print('oh no!')
+until condition
+`;

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+foo()
+
+foo(one, two, three)
+
+foo(one, two, this_one_is_really_long_okay_like_so_long_look_at_this_wow, three, four)
+
+bar(67)(62)
+
+bar{ a }
+
+bar"a"
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
+bar'a'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+foo()
+
+foo(one, two, three)
+
+foo(
+	one,
+	two,
+	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
+	three,
+	four
+)
+
+bar(67)(62)
+
+bar{
+	a
+}
+
+bar"a"
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
+bar"a"
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+foo()
+
+foo(one, two, three)
+
+foo(one, two, this_one_is_really_long_okay_like_so_long_look_at_this_wow, three, four)
+
+bar(67)(62)
+
+bar{ a }
+
+bar"a"
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
+bar'a'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+foo()
+
+foo(one, two, three)
+
+foo(
+	one,
+	two,
+	this_one_is_really_long_okay_like_so_long_look_at_this_wow,
+	three,
+	four
+)
+
+bar(67)(62)
+
+bar{
+	a,
+}
+
+bar'a'
+
+bar[[ a ]]
+
+bar[[
+  a!!!
+]]
+
+bar'a'
+`;

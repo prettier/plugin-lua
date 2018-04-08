@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+while empty do end
+
+while condition do
+  print("while-loop")
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+while empty do
+end
+
+while condition do
+	print("while-loop")
+end
+`;
+
+exports[`main.lua - lua-verify: main.lua 2`] = `
+while empty do end
+
+while condition do
+  print("while-loop")
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+while empty do
+end
+
+while condition do
+	print('while-loop')
+end
+`;
