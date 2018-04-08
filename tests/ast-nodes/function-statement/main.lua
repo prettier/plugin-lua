@@ -8,7 +8,7 @@ local function local_function()
 end
 
 (function()
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 end)()
@@ -42,7 +42,7 @@ end
 
 (function()
   print("hi!")
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
   print("hi!")
@@ -134,7 +134,7 @@ end
 
 
 
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 

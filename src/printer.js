@@ -24,11 +24,7 @@ function printNoParens(path, options, print) {
 
   switch (node.type) {
     case "Chunk": {
-      return path.call(
-        (statementPath) =>
-          printStatementSequence(statementPath, options, print),
-        "body"
-      );
+      return printBody(path, options, print);
     }
     case "AssignmentStatement": {
       return concat([
@@ -338,46 +334,73 @@ function printIndentedBody(path, options, print) {
   const node = path.getValue();
 
   return node.body.length > 0
-    ? indent(
-        concat([
-          hardline,
-          path.call(
-            (statementPath) =>
-              printStatementSequence(statementPath, options, print),
-            "body"
-          ),
-        ])
-      )
+    ? indent(concat([hardline, printBody(path, options, print)]))
     : "";
 }
 
-function printStatementSequence(path, options, print) {
+function printBody(path, options, print) {
+  const node = path.getValue();
+  const statementNodes = node.body;
+
   const printed = [];
 
-  path.map((stmtPath) => {
-    const stmt = stmtPath.getValue();
+  path.map((statementPath, index) => {
+    const statement = statementPath.getValue();
 
     // Just in case the AST has been modified to contain falsy
     // "statements," it's safer simply to skip them.
     /* istanbul ignore if */
-    if (!stmt) {
+    if (!statement) {
       return;
     }
 
-    const stmtPrinted = print(stmtPath);
+    const statementPrinted = print(statementPath);
     const text = options.originalText;
     const parts = [];
 
-    parts.push(stmtPrinted);
+    parts.push(statementPrinted);
 
-    if (isNextLineEmpty(text, stmt, options) && !isLastStatement(stmtPath)) {
+    const nextStatement = statementNodes[index + 1];
+    if (
+      nextStatement &&
+      willHaveTrailingParen(statement) &&
+      willHaveLeadingParen(nextStatement)
+    ) {
+      parts.push(";");
+    }
+
+    if (
+      isNextLineEmpty(text, statement, options) &&
+      !isLastStatement(statementPath)
+    ) {
       parts.push(hardline);
     }
 
     printed.push(concat(parts));
-  });
+  }, "body");
 
   return join(hardline, printed);
+}
+
+function willHaveLeadingParen(node) {
+  return (
+    node.inParens ||
+    (node.type === "CallStatement" && node.expression.base.inParens) ||
+    (node.type === "MemberExpression" && node.expression.base.inParens) ||
+    (node.type === "IndexExpression" && node.expression.base.inParens)
+  );
+}
+
+function willHaveTrailingParen(node) {
+  return (
+    node.inParens ||
+    (node.type === "CallStatement" &&
+      node.expression.type === "CallExpression") ||
+    ((node.type === "LocalStatement" || node.type === "AssignmentStatement") &&
+      willHaveTrailingParen(node.init[node.init.length - 1])) ||
+    ((node.type === "BinaryExpression" || node.type === "LogicalExpression") &&
+      willHaveTrailingParen(node.right))
+  );
 }
 
 function isLastStatement(path) {

@@ -11,7 +11,7 @@ local function local_function()
 end
 
 (function()
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 end)()
@@ -45,7 +45,7 @@ end
 
 (function()
   print("hi!")
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
   print("hi!")
@@ -137,7 +137,7 @@ end
 
 
 
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 
@@ -251,7 +251,9 @@ local function local_function()
 end
 
 (function()
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
@@ -334,7 +336,9 @@ end
 
 (function()
 	print("hi!")
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
@@ -431,7 +435,9 @@ end
 	print("hi!")
 
 	print("hi!")
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
@@ -530,7 +536,7 @@ local function local_function()
 end
 
 (function()
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 end)()
@@ -564,7 +570,7 @@ end
 
 (function()
   print("hi!")
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
   print("hi!")
@@ -656,7 +662,7 @@ end
 
 
 
-end)()
+end)();
 
 (function(lots, und, lotta_lots, of, params, are, going, here, yup, thats, right, you, know, it)
 
@@ -770,7 +776,9 @@ local function local_function()
 end
 
 (function()
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
@@ -853,7 +861,9 @@ end
 
 (function()
 	print('hi!')
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
@@ -950,7 +960,9 @@ end
 	print('hi!')
 
 	print('hi!')
-end)()(function(
+end)();
+
+(function(
 lots,
 	und,
 	lotta_lots,
