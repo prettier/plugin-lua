@@ -87,7 +87,7 @@ falsy = false
 nillish = nil
 
 vararg = ...
-vararg_parens = (...)
+vararg_parens = ...
 
 function vararg_params(...)
 end
@@ -180,7 +180,7 @@ falsy = false
 nillish = nil
 
 vararg = ...
-vararg_parens = (...)
+vararg_parens = ...
 
 function vararg_params(...)
 end

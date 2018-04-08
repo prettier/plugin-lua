@@ -442,8 +442,22 @@ function shouldHaveParens(node, parent) {
     case "VarargLiteral":
     case "TableCallExpression":
     case "StringCallExpression": {
-      // TODO: only if needed
-      return true;
+      if (parent.type === "TableValue") {
+        return true;
+      } else if (parent.type === "ReturnStatement") {
+        return !(parent.arguments.indexOf(node) < parent.arguments.length - 1);
+      } else if (
+        parent.type === "LocalStatement" ||
+        parent.type === "AssignmentStatement"
+      ) {
+        if (parent.variables.length <= parent.init.length) {
+          return false;
+        }
+
+        return !(parent.init.indexOf(node) < parent.init.length - 1);
+      }
+
+      return false;
     }
 
     case "BooleanLiteral":

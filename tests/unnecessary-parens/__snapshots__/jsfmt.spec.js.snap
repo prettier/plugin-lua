@@ -29,6 +29,41 @@ local a, b, c = (...)
 local a, b, c = (...), (b())
 local a, b, c = (...), (b()), (c())
 
+a = (a())
+a = (a()), (b())
+a = (a()), (b()), (c())
+a = ...
+a = (...)
+a = (...), (b())
+a = (...), (b()), (c())
+
+local a = (a())
+local a = (a()), (b())
+local a = (a()), (b()), (c())
+local a = ...
+local a = (...)
+local a = (...), (b())
+local a = (...), (b()), (c())
+
+a, b, c, d, e, f = (a())
+a, b, c, d, e, f = (a()), (b())
+a, b, c, d, e, f = (a()), (b()), (c())
+a, b, c, d, e, f = ...
+a, b, c, d, e, f = (...)
+a, b, c, d, e, f = (...), (b())
+a, b, c, d, e, f = (...), (b()), (c())
+
+local a, b, c, d, e, f = (a())
+local a, b, c, d, e, f = (a()), (b())
+local a, b, c, d, e, f = (a()), (b()), (c())
+local a, b, c, d, e, f = ...
+local a, b, c, d, e, f = (...)
+local a, b, c, d, e, f = (...), (b())
+local a, b, c, d, e, f = (...), (b()), (c())
+
+local a = {
+  a = (a()), (b())
+}
 
 function you_need_me_1()
   return (a())
@@ -110,36 +145,73 @@ remove = "a"
 remove = [[ a ]]
 remove = a.b
 remove = a["a"]
-remove = (a())
+remove = a()
 remove = not a
 remove = -1
 
 a, b, c = (a())
-a, b, c = (a()), (b())
-a, b, c = (a()), (b()), (c())
+a, b, c = a(), (b())
+a, b, c = a(), b(), c()
 a, b, c = ...
 a, b, c = (...)
-a, b, c = (...), (b())
-a, b, c = (...), (b()), (c())
+a, b, c = ..., (b())
+a, b, c = ..., b(), c()
 
 local a, b, c = (a())
-local a, b, c = (a()), (b())
-local a, b, c = (a()), (b()), (c())
+local a, b, c = a(), (b())
+local a, b, c = a(), b(), c()
 local a, b, c = ...
 local a, b, c = (...)
-local a, b, c = (...), (b())
-local a, b, c = (...), (b()), (c())
+local a, b, c = ..., (b())
+local a, b, c = ..., b(), c()
+
+a = a()
+a = a(), b()
+a = a(), b(), c()
+a = ...
+a = ...
+a = ..., b()
+a = ..., b(), c()
+
+local a = a()
+local a = a(), b()
+local a = a(), b(), c()
+local a = ...
+local a = ...
+local a = ..., b()
+local a = ..., b(), c()
+
+a, b, c, d, e, f = (a())
+a, b, c, d, e, f = a(), (b())
+a, b, c, d, e, f = a(), b(), (c())
+a, b, c, d, e, f = ...
+a, b, c, d, e, f = (...)
+a, b, c, d, e, f = ..., (b())
+a, b, c, d, e, f = ..., b(), (c())
+
+local a, b, c, d, e, f = (a())
+local a, b, c, d, e, f = a(), (b())
+local a, b, c, d, e, f = a(), b(), (c())
+local a, b, c, d, e, f = ...
+local a, b, c, d, e, f = (...)
+local a, b, c, d, e, f = ..., (b())
+local a, b, c, d, e, f = ..., b(), (c())
+
+local a = {
+	a = a(),
+	(b())
+}
 
 function you_need_me_1()
 	return (a())
 end
 
 function you_need_me_2()
-	return (a()), (b())
+	return a(), (b())
 end
 
 function you_need_me_3()
-	return (a()), (b()), (c())
+	return a(), b(), (c())
 end
 
 function you_need_me_1()
@@ -147,11 +219,11 @@ function you_need_me_1()
 end
 
 function you_need_me_2()
-	return (a""), (b"")
+	return a"", (b"")
 end
 
 function you_need_me_3()
-	return (a""), (b""), (c"")
+	return a"", b"", (c"")
 end
 
 function you_need_me_1()
@@ -159,11 +231,11 @@ function you_need_me_1()
 end
 
 function you_need_me_2()
-	return (a{}), (b{})
+	return a{}, (b{})
 end
 
 function you_need_me_3()
-	return (a{}), (b{}), (c{})
+	return a{}, b{}, (c{})
 end
 
 function you_need_me_1(...)
@@ -175,11 +247,11 @@ function you_need_me_1(...)
 end
 
 function you_need_me_2(...)
-	return (...), (b())
+	return ..., (b())
 end
 
 function you_need_me_3()
-	return (...), (b()), (c())
+	return ..., b(), (c())
 end
 
 local please = a
@@ -198,7 +270,7 @@ keep = (-1)()
 remove = a()
 remove = a.b()
 remove = a["a"]()
-remove = (a())()
+remove = a()()
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -230,6 +302,41 @@ local a, b, c = (...)
 local a, b, c = (...), (b())
 local a, b, c = (...), (b()), (c())
 
+a = (a())
+a = (a()), (b())
+a = (a()), (b()), (c())
+a = ...
+a = (...)
+a = (...), (b())
+a = (...), (b()), (c())
+
+local a = (a())
+local a = (a()), (b())
+local a = (a()), (b()), (c())
+local a = ...
+local a = (...)
+local a = (...), (b())
+local a = (...), (b()), (c())
+
+a, b, c, d, e, f = (a())
+a, b, c, d, e, f = (a()), (b())
+a, b, c, d, e, f = (a()), (b()), (c())
+a, b, c, d, e, f = ...
+a, b, c, d, e, f = (...)
+a, b, c, d, e, f = (...), (b())
+a, b, c, d, e, f = (...), (b()), (c())
+
+local a, b, c, d, e, f = (a())
+local a, b, c, d, e, f = (a()), (b())
+local a, b, c, d, e, f = (a()), (b()), (c())
+local a, b, c, d, e, f = ...
+local a, b, c, d, e, f = (...)
+local a, b, c, d, e, f = (...), (b())
+local a, b, c, d, e, f = (...), (b()), (c())
+
+local a = {
+  a = (a()), (b())
+}
 
 function you_need_me_1()
   return (a())
@@ -311,36 +418,73 @@ remove = 'a'
 remove = [[ a ]]
 remove = a.b
 remove = a['a']
-remove = (a())
+remove = a()
 remove = not a
 remove = -1
 
 a, b, c = (a())
-a, b, c = (a()), (b())
-a, b, c = (a()), (b()), (c())
+a, b, c = a(), (b())
+a, b, c = a(), b(), c()
 a, b, c = ...
 a, b, c = (...)
-a, b, c = (...), (b())
-a, b, c = (...), (b()), (c())
+a, b, c = ..., (b())
+a, b, c = ..., b(), c()
 
 local a, b, c = (a())
-local a, b, c = (a()), (b())
-local a, b, c = (a()), (b()), (c())
+local a, b, c = a(), (b())
+local a, b, c = a(), b(), c()
 local a, b, c = ...
 local a, b, c = (...)
-local a, b, c = (...), (b())
-local a, b, c = (...), (b()), (c())
+local a, b, c = ..., (b())
+local a, b, c = ..., b(), c()
+
+a = a()
+a = a(), b()
+a = a(), b(), c()
+a = ...
+a = ...
+a = ..., b()
+a = ..., b(), c()
+
+local a = a()
+local a = a(), b()
+local a = a(), b(), c()
+local a = ...
+local a = ...
+local a = ..., b()
+local a = ..., b(), c()
+
+a, b, c, d, e, f = (a())
+a, b, c, d, e, f = a(), (b())
+a, b, c, d, e, f = a(), b(), (c())
+a, b, c, d, e, f = ...
+a, b, c, d, e, f = (...)
+a, b, c, d, e, f = ..., (b())
+a, b, c, d, e, f = ..., b(), (c())
+
+local a, b, c, d, e, f = (a())
+local a, b, c, d, e, f = a(), (b())
+local a, b, c, d, e, f = a(), b(), (c())
+local a, b, c, d, e, f = ...
+local a, b, c, d, e, f = (...)
+local a, b, c, d, e, f = ..., (b())
+local a, b, c, d, e, f = ..., b(), (c())
+
+local a = {
+	a = a(),
+	(b()),
+}
 
 function you_need_me_1()
 	return (a())
 end
 
 function you_need_me_2()
-	return (a()), (b())
+	return a(), (b())
 end
 
 function you_need_me_3()
-	return (a()), (b()), (c())
+	return a(), b(), (c())
 end
 
 function you_need_me_1()
@@ -348,11 +492,11 @@ function you_need_me_1()
 end
 
 function you_need_me_2()
-	return (a''), (b'')
+	return a'', (b'')
 end
 
 function you_need_me_3()
-	return (a''), (b''), (c'')
+	return a'', b'', (c'')
 end
 
 function you_need_me_1()
@@ -360,11 +504,11 @@ function you_need_me_1()
 end
 
 function you_need_me_2()
-	return (a{}), (b{})
+	return a{}, (b{})
 end
 
 function you_need_me_3()
-	return (a{}), (b{}), (c{})
+	return a{}, b{}, (c{})
 end
 
 function you_need_me_1(...)
@@ -376,11 +520,11 @@ function you_need_me_1(...)
 end
 
 function you_need_me_2(...)
-	return (...), (b())
+	return ..., (b())
 end
 
 function you_need_me_3()
-	return (...), (b()), (c())
+	return ..., b(), (c())
 end
 
 local please = a
@@ -399,5 +543,5 @@ keep = (-1)()
 remove = a()
 remove = a.b()
 remove = a['a']()
-remove = (a())()
+remove = a()()
 `;
