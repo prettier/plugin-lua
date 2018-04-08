@@ -340,8 +340,6 @@ function printIndentedBody(path, options, print) {
 
 function printBody(path, options, print) {
   const node = path.getValue();
-  const statementNodes = node.body;
-
   const printed = [];
 
   path.map((statementPath, index) => {
@@ -360,10 +358,10 @@ function printBody(path, options, print) {
 
     parts.push(statementPrinted);
 
-    const nextStatement = statementNodes[index + 1];
+    const nextStatement = node.body[index + 1];
     if (
       nextStatement &&
-      willHaveTrailingParen(statement) &&
+      couldBeCallExpressionBase(getRightmostExpression(statement)) &&
       willHaveLeadingParen(nextStatement)
     ) {
       parts.push(";");
@@ -382,25 +380,88 @@ function printBody(path, options, print) {
   return join(hardline, printed);
 }
 
-function willHaveLeadingParen(node) {
-  return (
-    node.inParens ||
-    (node.type === "CallStatement" && node.expression.base.inParens) ||
-    (node.type === "MemberExpression" && node.expression.base.inParens) ||
-    (node.type === "IndexExpression" && node.expression.base.inParens)
-  );
+function isExpression(node) {
+  switch (node.type) {
+    case "Identifier":
+    case "CallExpression":
+    case "TableCallExpression":
+    case "StringCallExpression":
+    case "BooleanLiteral":
+    case "NilLiteral":
+    case "NumericLiteral":
+    case "StringLiteral":
+    case "VarargLiteral":
+    case "IndexExpression":
+    case "MemberExpression":
+    case "UnaryExpression":
+    case "TableConstructorExpression": {
+      return true;
+    }
+    case "FunctionDeclaration": {
+      return node.identifier == null;
+    }
+    case "BinaryExpression":
+    case "LogicalExpression": {
+      return shouldHaveParens(node);
+    }
+  }
 }
 
-function willHaveTrailingParen(node) {
-  return (
-    node.inParens ||
-    (node.type === "CallStatement" &&
-      node.expression.type === "CallExpression") ||
-    ((node.type === "LocalStatement" || node.type === "AssignmentStatement") &&
-      willHaveTrailingParen(node.init[node.init.length - 1])) ||
-    ((node.type === "BinaryExpression" || node.type === "LogicalExpression") &&
-      willHaveTrailingParen(node.right))
-  );
+function couldBeCallExpressionBase(node) {
+  if (node.type === "Identifier") {
+    return true;
+  }
+
+  if (isExpression(node) && node.inParens) {
+    return true;
+  }
+
+  if (
+    node.type === "CallStatement" &&
+    node.expression.type === "CallExpression"
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+function shouldHaveParens(node) {
+  return node.inParens;
+}
+
+function willHaveLeadingParen(node) {
+  if (shouldHaveParens(node)) {
+    return true;
+  }
+
+  if (
+    node.type === "CallStatement" ||
+    node.type === "MemberExpression" ||
+    node.type === "IndexExpression"
+  ) {
+    return willHaveLeadingParen(node.expression.base);
+  }
+
+  return false;
+}
+
+function getRightmostExpression(node) {
+  switch (node.type) {
+    case "LocalStatement":
+    case "AssignmentStatement": {
+      return getRightmostExpression(node.init[node.init.length - 1]);
+    }
+    case "BinaryExpression":
+    case "LogicalExpression": {
+      if (shouldHaveParens(node)) {
+        return node;
+      }
+      return getRightmostExpression(node.right);
+    }
+  }
+
+  return node;
 }
 
 function isLastStatement(path) {
@@ -617,7 +678,7 @@ module.exports = function genericPrint(path, options, print) {
   const printed = printNoParens(path, options, print);
 
   const node = path.getValue();
-  if (node.inParens) {
+  if (shouldHaveParens(node)) {
     return concat(["(", printed, ")"]);
   } else {
     return printed;

@@ -56,6 +56,11 @@ local a = a or (not b);
 (function()
   print("first")
 end)()
+
+
+local identifier_semi = (a);
+(function()
+end)()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (function()
 	print("first")
@@ -111,6 +116,10 @@ local a = a or (not b);
 
 (function()
 	print("first")
+end)()
+
+local identifier_semi = (a);
+(function()
 end)()
 `;
 
@@ -170,6 +179,11 @@ local a = a or (not b);
 (function()
   print("first")
 end)()
+
+
+local identifier_semi = (a);
+(function()
+end)()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (function()
 	print('first')
@@ -225,5 +239,9 @@ local a = a or (not b);
 
 (function()
 	print('first')
+end)()
+
+local identifier_semi = (a);
+(function()
 end)()
 `;

@@ -53,3 +53,8 @@ local a = a or (not b);
 (function()
   print("first")
 end)()
+
+
+local identifier_semi = (a);
+(function()
+end)()
