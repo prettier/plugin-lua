@@ -13,6 +13,7 @@ const {
   ifBreak,
   hardline,
   softline,
+  breakParent,
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
@@ -110,19 +111,7 @@ function printNoParens(path, options, print) {
     case "CallExpression": {
       return concat([
         path.call(print, "base"),
-        "(",
-        group(
-          concat([
-            indent(
-              concat([
-                softline,
-                join(concat([",", line]), path.map(print, "arguments")),
-              ])
-            ),
-            softline,
-          ])
-        ),
-        ")",
+        printArgumentsList(path, options, print),
       ]);
     }
     case "StringCallExpression": {
@@ -438,6 +427,167 @@ function printString(raw, options) {
   // unnecessary escapes (such as in `"\'"`). Always using `makeString` makes
   // sure that we consistently output the minimum amount of escaped quotes.
   return makeString(rawContent, enclosingQuote, false);
+}
+
+function printArgumentsList(path, options, print) {
+  const args = path.getValue().arguments;
+
+  if (args.length === 0) {
+    return "()";
+  }
+
+  let anyArgEmptyLine = false;
+  let hasEmptyLineFollowingFirstArg = false;
+  const lastArgIndex = args.length - 1;
+  const printedArguments = path.map((argPath, index) => {
+    const arg = argPath.getNode();
+    const parts = [print(argPath)];
+
+    if (index === lastArgIndex) {
+      // do nothing
+    } else if (isNextLineEmpty(options.originalText, arg, options)) {
+      if (index === 0) {
+        hasEmptyLineFollowingFirstArg = true;
+      }
+
+      anyArgEmptyLine = true;
+      parts.push(",", hardline, hardline);
+    } else {
+      parts.push(",", line);
+    }
+
+    return concat(parts);
+  }, "arguments");
+
+  const shouldGroupFirst = shouldGroupFirstArg(args);
+  const shouldGroupLast = shouldGroupLastArg(args);
+  if (shouldGroupFirst || shouldGroupLast) {
+    const shouldBreak =
+      (shouldGroupFirst
+        ? printedArguments.slice(1).some(willBreak)
+        : printedArguments.slice(0, -1).some(willBreak)) || anyArgEmptyLine;
+
+    // We want to print the last argument with a special flag
+    let printedExpanded;
+    let i = 0;
+    path.each((argPath) => {
+      if (shouldGroupFirst && i === 0) {
+        printedExpanded = [
+          concat([
+            argPath.call((p) => print(p, { expandFirstArg: true })),
+            printedArguments.length > 1 ? "," : "",
+            hasEmptyLineFollowingFirstArg ? hardline : line,
+            hasEmptyLineFollowingFirstArg ? hardline : "",
+          ]),
+        ].concat(printedArguments.slice(1));
+      }
+      if (shouldGroupLast && i === args.length - 1) {
+        printedExpanded = printedArguments
+          .slice(0, -1)
+          .concat(argPath.call((p) => print(p, { expandLastArg: true })));
+      }
+      i++;
+    }, "arguments");
+
+    const somePrintedArgumentsWillBreak = printedArguments.some(willBreak);
+
+    return concat([
+      somePrintedArgumentsWillBreak ? breakParent : "",
+      conditionalGroup(
+        [
+          concat([
+            ifBreak(
+              indent(concat(["(", softline, concat(printedExpanded)])),
+              concat(["(", concat(printedExpanded)])
+            ),
+            somePrintedArgumentsWillBreak ? softline : "",
+            ")",
+          ]),
+          shouldGroupFirst
+            ? concat([
+                "(",
+                group(printedExpanded[0], { shouldBreak: true }),
+                concat(printedExpanded.slice(1)),
+                ")",
+              ])
+            : concat([
+                "(",
+                concat(printedArguments.slice(0, -1)),
+                group(getLast(printedExpanded), {
+                  shouldBreak: true,
+                }),
+                ")",
+              ]),
+          group(
+            concat([
+              "(",
+              indent(concat([line, concat(printedArguments)])),
+              line,
+              ")",
+            ]),
+            { shouldBreak: true }
+          ),
+        ],
+        { shouldBreak }
+      ),
+    ]);
+  }
+
+  return group(
+    concat([
+      "(",
+      indent(concat([softline, concat(printedArguments)])),
+      // ifBreak(shouldPrintComma(options, "all") ? "," : ""),
+      softline,
+      ")",
+    ]),
+    { shouldBreak: printedArguments.some(willBreak) || anyArgEmptyLine }
+  );
+}
+
+function shouldGroupFirstArg(args) {
+  if (args.length !== 2) {
+    return false;
+  }
+
+  const firstArg = args[0];
+  const secondArg = args[1];
+  return (
+    // (!firstArg.comments || !firstArg.comments.length) &&
+    firstArg.type === "FunctionDeclaration" && !couldGroupArg(secondArg)
+  );
+}
+
+function shouldGroupLastArg(args) {
+  const lastArg = getLast(args);
+  const penultimateArg = getPenultimate(args);
+  return (
+    couldGroupArg(lastArg) &&
+    // If the last two arguments are of the same type,
+    // disable last element expansion.
+    (!penultimateArg || penultimateArg.type !== lastArg.type)
+  );
+}
+
+function couldGroupArg(arg) {
+  return (
+    arg.type === "FunctionDeclaration" ||
+    arg.type === "TableConstructorExpression"
+  );
+}
+
+function getPenultimate(arr) {
+  if (arr.length > 1) {
+    return arr[arr.length - 2];
+  }
+  return null;
+}
+
+function getLast(arr) {
+  if (arr.length > 0) {
+    return arr[arr.length - 1];
+  }
+  return null;
 }
 
 module.exports = function genericPrint(path, options, print) {

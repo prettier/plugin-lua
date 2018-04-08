@@ -251,25 +251,23 @@ local function local_function()
 end
 
 (function()
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-	end
-)()
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+end)()
 
 function empty(
 lots,
@@ -336,26 +334,24 @@ end
 
 (function()
 	print("hi!")
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-		print("hi!")
-	end
-)()
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+	print("hi!")
+end)()
 
 function empty(
 lots,
@@ -435,28 +431,26 @@ end
 	print("hi!")
 
 	print("hi!")
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-		print("hi!")
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+	print("hi!")
 
-		print("hi!")
-	end
-)()
+	print("hi!")
+end)()
 
 function empty(
 lots,
@@ -776,25 +770,23 @@ local function local_function()
 end
 
 (function()
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-	end
-)()
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+end)()
 
 function empty(
 lots,
@@ -861,26 +853,24 @@ end
 
 (function()
 	print('hi!')
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-		print('hi!')
-	end
-)()
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+	print('hi!')
+end)()
 
 function empty(
 lots,
@@ -960,28 +950,26 @@ end
 	print('hi!')
 
 	print('hi!')
-end)()(
-	function(
-	lots,
-		und,
-		lotta_lots,
-		of,
-		params,
-		are,
-		going,
-		here,
-		yup,
-		thats,
-		right,
-		you,
-		know,
-		it
-	)
-		print('hi!')
+end)()(function(
+lots,
+	und,
+	lotta_lots,
+	of,
+	params,
+	are,
+	going,
+	here,
+	yup,
+	thats,
+	right,
+	you,
+	know,
+	it
+)
+	print('hi!')
 
-		print('hi!')
-	end
-)()
+	print('hi!')
+end)()
 
 function empty(
 lots,

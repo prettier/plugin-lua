@@ -7,12 +7,8 @@ hook.Add("hello", "okay", function(some, arguments)
   return false
 end)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-hook.Add(
-	"hello",
-	"okay",
-	function(some, arguments)
-		doSomething()
-		return false
-	end
-)
+hook.Add("hello", "okay", function(some, arguments)
+	doSomething()
+	return false
+end)
 `;
