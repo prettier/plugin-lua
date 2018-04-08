@@ -361,8 +361,8 @@ function printBody(path, options, print) {
     const nextStatement = node.body[index + 1];
     if (
       nextStatement &&
-      couldBeCallExpressionBase(getRightmostExpression(statement)) &&
-      willHaveLeadingParen(nextStatement)
+      couldBeCallExpressionBase(getRightmostExpression(statement, node)) &&
+      willHaveLeadingParen(nextStatement, node)
     ) {
       parts.push(";");
     }
@@ -402,7 +402,7 @@ function isExpression(node) {
     }
     case "BinaryExpression":
     case "LogicalExpression": {
-      return shouldHaveParens(node);
+      return node.inParens;
     }
   }
 }
@@ -426,12 +426,55 @@ function couldBeCallExpressionBase(node) {
   return false;
 }
 
-function shouldHaveParens(node) {
-  return node.inParens;
+function shouldHaveParens(node, parent) {
+  if (!node.inParens) {
+    return false;
+  }
+
+  switch (node.type) {
+    case "Identifier":
+    case "IndexExpression":
+    case "MemberExpression": {
+      return false;
+    }
+
+    case "CallExpression":
+    case "VarargLiteral":
+    case "TableCallExpression":
+    case "StringCallExpression": {
+      // TODO: only if needed
+      return true;
+    }
+
+    case "BooleanLiteral":
+    case "NilLiteral":
+    case "NumericLiteral":
+    case "StringLiteral":
+    case "TableConstructorExpression":
+    case "UnaryExpression":
+    case "FunctionDeclaration": {
+      return (
+        (parent.type === "CallExpression" ||
+          parent.type === "TableCallExpression" ||
+          parent.type === "StringCallExpression") &&
+        parent.base === node
+      );
+    }
+
+    case "BinaryExpression":
+    case "LogicalExpression": {
+      // Don't mess with parens in binary or logical expressions because
+      // people don't have math/operator precedences memorized, so adding
+      // parens helps make the code more readable.
+      return true;
+    }
+  }
+
+  return true;
 }
 
-function willHaveLeadingParen(node) {
-  if (shouldHaveParens(node)) {
+function willHaveLeadingParen(node, parent) {
+  if (shouldHaveParens(node, parent)) {
     return true;
   }
 
@@ -440,24 +483,24 @@ function willHaveLeadingParen(node) {
     node.type === "MemberExpression" ||
     node.type === "IndexExpression"
   ) {
-    return willHaveLeadingParen(node.expression.base);
+    return willHaveLeadingParen(node.expression.base, node.expression);
   }
 
   return false;
 }
 
-function getRightmostExpression(node) {
+function getRightmostExpression(node, parent) {
   switch (node.type) {
     case "LocalStatement":
     case "AssignmentStatement": {
-      return getRightmostExpression(node.init[node.init.length - 1]);
+      return getRightmostExpression(node.init[node.init.length - 1], node);
     }
     case "BinaryExpression":
     case "LogicalExpression": {
-      if (shouldHaveParens(node)) {
+      if (shouldHaveParens(node, parent)) {
         return node;
       }
-      return getRightmostExpression(node.right);
+      return getRightmostExpression(node.right, node);
     }
   }
 
@@ -678,7 +721,7 @@ module.exports = function genericPrint(path, options, print) {
   const printed = printNoParens(path, options, print);
 
   const node = path.getValue();
-  if (shouldHaveParens(node)) {
+  if (shouldHaveParens(node, path.getParentNode())) {
     return concat(["(", printed, ")"]);
   } else {
     return printed;
