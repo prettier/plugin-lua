@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main.lua - lua-verify: main.lua 1`] = `
+-- line comment in chunk
+dosomething()
+-- another line comment in chunk
+
+function Function()
+  -- line comment in Function
+  if --[[before if conditional]] --[[another before if conditional]] true --[[after if conditional]] then -- end of if line
+    dooo() -- end of call in if
+  end
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- line comment in chunk
+dosomething()
+-- another line comment in chunk
+
+function Function()
+	-- line comment in Function
+	if --[[before if conditional]]
+	--[[another before if conditional]]
+	true then -- end of if line --[[after if conditional]]
+		dooo() -- end of call in if
+	end
+end
+`;

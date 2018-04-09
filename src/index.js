@@ -4,6 +4,12 @@ const parse = require("./parser");
 const print = require("./printer");
 const options = require("./options");
 const clean = require("./clean");
+const {
+  handleComments,
+  getCommentChildNodes,
+  canAttachComment,
+  printComment,
+} = require("./comments");
 
 const languages = [
   {
@@ -44,6 +50,10 @@ const printers = {
   luaparse: {
     print,
     massageAstNode: clean,
+    handleComments,
+    getCommentChildNodes,
+    canAttachComment,
+    printComment,
   },
 };
 

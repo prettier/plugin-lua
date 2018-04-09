@@ -17,7 +17,7 @@ const {
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
-const { isValidIdentifier } = require("./util");
+const { isValidIdentifier, isExpression } = require("./util");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
@@ -378,33 +378,6 @@ function printBody(path, options, print) {
   }, "body");
 
   return join(hardline, printed);
-}
-
-function isExpression(node) {
-  switch (node.type) {
-    case "Identifier":
-    case "CallExpression":
-    case "TableCallExpression":
-    case "StringCallExpression":
-    case "BooleanLiteral":
-    case "NilLiteral":
-    case "NumericLiteral":
-    case "StringLiteral":
-    case "VarargLiteral":
-    case "IndexExpression":
-    case "MemberExpression":
-    case "UnaryExpression":
-    case "TableConstructorExpression": {
-      return true;
-    }
-    case "FunctionDeclaration": {
-      return node.identifier == null;
-    }
-    case "BinaryExpression":
-    case "LogicalExpression": {
-      return node.inParens;
-    }
-  }
 }
 
 function couldBeCallExpressionBase(node) {
