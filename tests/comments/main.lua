@@ -8,3 +8,7 @@ function Function()
     dooo() -- end of call in if
   end
 end
+
+it('is a test with pattern3', function()
+  -- comment in empty body
+end)

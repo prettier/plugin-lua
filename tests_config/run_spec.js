@@ -122,7 +122,7 @@ function prettyprint(src, filename, options) {
 }
 
 function read(filename) {
-  return fs.readFileSync(filename, "utf8");
+  return fs.readFileSync(filename, "utf-8");
 }
 
 /**

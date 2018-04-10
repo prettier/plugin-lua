@@ -381,7 +381,7 @@ function printBody(path, options, print) {
     const nextStatement = node.body[index + 1];
     if (
       nextStatement &&
-      couldBeCallExpressionBase(getRightmostExpression(statement, node)) &&
+      couldBeCallExpressionBase(getRightmostNode(statement, node)) &&
       willHaveLeadingParen(nextStatement, node)
     ) {
       parts.push(";");
@@ -497,18 +497,26 @@ function willHaveLeadingParen(node, parent) {
   return false;
 }
 
-function getRightmostExpression(node, parent) {
+function getRightmostNode(node, parent) {
+  if (node == null) {
+    debugger;
+  }
+
   switch (node.type) {
     case "LocalStatement":
     case "AssignmentStatement": {
-      return getRightmostExpression(node.init[node.init.length - 1], node);
+      if (node.init.length > 0) {
+        return getRightmostNode(node.init[node.init.length - 1], node);
+      } else {
+        return node;
+      }
     }
     case "BinaryExpression":
     case "LogicalExpression": {
       if (shouldHaveParens(node, parent)) {
         return node;
       }
-      return getRightmostExpression(node.right, node);
+      return getRightmostNode(node.right, node);
     }
   }
 
