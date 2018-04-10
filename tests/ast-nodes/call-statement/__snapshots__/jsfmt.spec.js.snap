@@ -115,9 +115,7 @@ foo(
 	end
 )
 
-bar{
-	a
-}
+bar{ a }
 
 bar"a"
 
@@ -245,9 +243,7 @@ foo(
 	end
 )
 
-bar{
-	a,
-}
+bar{ a }
 
 bar'a'
 

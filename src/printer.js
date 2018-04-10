@@ -148,19 +148,39 @@ function printNoParens(path, options, print) {
     case "TableConstructorExpression": {
       if (node.fields.length === 0) {
         return "{}";
+      }
+
+      const multiline = concat([
+        "{",
+        indent(
+          concat([
+            hardline,
+            join(concat([",", hardline]), path.map(print, "fields")),
+            options.trailingComma === "none" ? "" : ",",
+          ])
+        ),
+        hardline,
+        "}",
+      ]);
+
+      const singleline = concat([
+        "{",
+        options.bracketSpacing ? " " : "",
+        join(", ", path.map(print, "fields")),
+        options.bracketSpacing ? " " : "",
+        "}",
+      ]);
+
+      if (
+        // Table with only one value with no nested tables
+        (node.fields.length === 1 &&
+          node.fields[0].value.type !== "TableConstructorExpression") ||
+        // Array-like table
+        node.fields.every((field) => field.type === "TableValue")
+      ) {
+        return conditionalGroup([singleline, multiline]);
       } else {
-        return concat([
-          "{",
-          indent(
-            concat([
-              hardline,
-              join(concat([",", hardline]), path.map(print, "fields")),
-              options.trailingComma === "none" ? "" : ",",
-            ])
-          ),
-          hardline,
-          "}",
-        ]);
+        return multiline;
       }
     }
     case "TableValue": {
