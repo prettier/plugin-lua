@@ -465,12 +465,13 @@ function willHaveLeadingParen(node, parent) {
     return true;
   }
 
-  if (
-    node.type === "CallStatement" ||
+  if (node.type === "CallStatement") {
+    return willHaveLeadingParen(node.expression.base, node.expression);
+  } else if (
     node.type === "MemberExpression" ||
     node.type === "IndexExpression"
   ) {
-    return willHaveLeadingParen(node.expression.base, node.expression);
+    return willHaveLeadingParen(node.base, node);
   }
 
   return false;
