@@ -462,6 +462,7 @@ function shouldHaveParens(node, parent) {
     case "FunctionDeclaration": {
       return (
         (parent.type === "CallExpression" ||
+          parent.type === "MemberExpression" ||
           parent.type === "TableCallExpression" ||
           parent.type === "StringCallExpression") &&
         parent.base === node
