@@ -98,7 +98,8 @@ function canAttachComment(node) {
 
 function getCommentChildNodes(node) {
   const children = [];
-  Object.entries(node).forEach(function loop([key, value]) {
+  Object.keys(node).forEach((key) => {
+    const value = node[key];
     if (value == null) return;
     if (key === "range") return;
     if (key === "comments") return;
