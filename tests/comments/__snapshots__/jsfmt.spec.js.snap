@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`empty_with_comment.lua - lua-verify: empty_with_comment.lua 1`] = `
+-- comment alone in chunk
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- comment alone in chunk
+`;
+
 exports[`main.lua - lua-verify: main.lua 1`] = `
 -- line comment in chunk
 dosomething()
@@ -11,7 +17,17 @@ function Function()
     dooo() -- end of call in if
   end
 end
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function Foo()
+ -- comment in empty function body
+end
+
+function --[[between function keyword and name]] Bar()
+end
+
+for k,v in pairs(t) do
+  -- comment in empty for body
+end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- line comment in chunk
 dosomething()
 -- another line comment in chunk
@@ -23,5 +39,17 @@ function Function()
 	true then -- end of if line --[[after if conditional]]
 		dooo() -- end of call in if
 	end
+end
+
+function Foo()
+	-- comment in empty function body
+end
+
+function --[[between function keyword and name]]
+Bar()
+end
+
+for k, v in pairs(t) do
+	-- comment in empty for body
 end
 `;

@@ -66,7 +66,10 @@ args:
 
 const handleComments = {
   ownLine(comment, text, options, ast, isLastComment) {
-    return false;
+    return (
+      handleCommentInEmptyBody(comment, text, options, ast, isLastComment) ||
+      false
+    );
   },
   endOfLine(comment, text, options, ast, isLastComment) {
     return false;
@@ -75,6 +78,19 @@ const handleComments = {
     return false;
   },
 };
+
+function handleCommentInEmptyBody(comment, text, options, ast, isLastComment) {
+  if (
+    comment.enclosingNode &&
+    comment.enclosingNode.body &&
+    comment.enclosingNode.body.length === 0
+  ) {
+    addDanglingComment(comment.enclosingNode, comment);
+    return true;
+  }
+
+  return false;
+}
 
 function canAttachComment(node) {
   return true;
@@ -101,10 +117,25 @@ function getCommentChildNodes(node) {
   return children;
 }
 
+function isDanglingComment(comment) {
+  return !comment.leading && !comment.trailing;
+}
+
+function isLeadingComment(comment) {
+  return comment.leading;
+}
+
+function isTrailingComment(comment) {
+  return comment.trailing;
+}
+
 module.exports = {
   handleComments,
   printDanglingComments,
   getCommentChildNodes,
   canAttachComment,
   printComment,
+  isDanglingComment,
+  isLeadingComment,
+  isTrailingComment,
 };

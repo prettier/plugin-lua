@@ -18,6 +18,7 @@ const {
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
 const { isValidIdentifier, isExpression } = require("./util");
+const { printDanglingComments, isDanglingComment } = require("./comments");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
@@ -352,8 +353,11 @@ function printNoParens(path, options, print) {
 
 function printIndentedBody(path, options, print) {
   const node = path.getValue();
+  const hasContent =
+    node.body.length > 0 ||
+    (node.comments && node.comments.filter(isDanglingComment).length > 0);
 
-  return node.body.length > 0
+  return hasContent
     ? indent(concat([hardline, printBody(path, options, print)]))
     : "";
 }
@@ -397,7 +401,10 @@ function printBody(path, options, print) {
     printed.push(concat(parts));
   }, "body");
 
-  return join(hardline, printed);
+  return concat([
+    join(hardline, printed),
+    printDanglingComments(path, options, /* sameIndent */ true),
+  ]);
 }
 
 function couldBeCallExpressionBase(node) {

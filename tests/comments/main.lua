@@ -9,6 +9,13 @@ function Function()
   end
 end
 
-it('is a test with pattern3', function()
-  -- comment in empty body
-end)
+function Foo()
+ -- comment in empty function body
+end
+
+function --[[between function keyword and name]] Bar()
+end
+
+for k,v in pairs(t) do
+  -- comment in empty for body
+end
