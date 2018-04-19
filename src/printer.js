@@ -84,21 +84,31 @@ function printNoParens(path, options, print) {
       return node.name;
     }
     case "FunctionDeclaration": {
+      const isEmpty =
+        node.body.length === 0 &&
+        (!node.comments || node.comments.length === 0);
+      const isAnonymous = !node.identifier;
+      const hasParams = node.parameters.length > 0;
+
       return concat([
         node.isLocal ? "local " : "",
         "function",
-        node.identifier ? concat([" ", path.call(print, "identifier")]) : "",
+        isAnonymous ? "" : concat([" ", path.call(print, "identifier")]),
         "(",
-        group(
-          concat([
-            softline,
-            indent(join(concat([",", line]), path.map(print, "parameters"))),
-            softline,
-          ])
-        ),
+        hasParams
+          ? group(
+              concat([
+                softline,
+                indent(
+                  join(concat([",", line]), path.map(print, "parameters"))
+                ),
+                softline,
+              ])
+            )
+          : "",
         ")",
         printIndentedBody(path, options, print),
-        hardline,
+        isAnonymous && isEmpty ? " " : hardline,
         "end",
       ]);
     }

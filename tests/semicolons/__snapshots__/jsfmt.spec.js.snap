@@ -119,8 +119,7 @@ local a = a or not b;
 end)()
 
 local identifier_semi = a;
-(function()
-end)()
+(function() end)()
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -242,6 +241,5 @@ local a = a or not b;
 end)()
 
 local identifier_semi = a;
-(function()
-end)()
+(function() end)()
 `;

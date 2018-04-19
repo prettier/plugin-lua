@@ -250,8 +250,7 @@ end
 local function local_function()
 end
 
-(function()
-end)();
+(function() end)();
 
 (function(
 lots,
@@ -268,8 +267,7 @@ lots,
 	you,
 	know,
 	it
-)
-end)()
+) end)()
 
 function empty(
 lots,
@@ -775,8 +773,7 @@ end
 local function local_function()
 end
 
-(function()
-end)();
+(function() end)();
 
 (function(
 lots,
@@ -793,8 +790,7 @@ lots,
 	you,
 	know,
 	it
-)
-end)()
+) end)()
 
 function empty(
 lots,

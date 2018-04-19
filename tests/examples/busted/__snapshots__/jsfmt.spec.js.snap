@@ -2936,14 +2936,11 @@ describe("bad support functions should fail, sync test", function()
 			error("failing a setup method")
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
@@ -2961,68 +2958,55 @@ describe("bad support functions should fail, sync test", function()
 	end)
 
 	describe("bad before_each should properly fail a test", function()
-		setup(function()
-		end)
+		setup(function() end)
 
 		before_each(function()
 			error("failing a before_each method")
 		end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe("bad after_each should properly fail a test", function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
 		after_each(function()
 			error("failing an after_each method")
 		end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe("bad teardown should properly fail a test", function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			error("failing a teardown method")
@@ -3030,14 +3014,12 @@ describe("bad support functions should fail, sync test", function()
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
@@ -3046,11 +3028,9 @@ describe("bad support functions should fail, sync test", function()
 			error("failing a setup method")
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			error("failing a teardown method")
@@ -3072,93 +3052,75 @@ describe("bad support functions should fail, async test", function()
 			error("failing a setup method")
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe("bad before_each should properly fail a test, async", function()
-		setup(function()
-		end)
+		setup(function() end)
 
 		before_each(function()
 			async()
 			error("failing a before_each method")
 		end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe("bad after_each should properly fail a test, async", function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
 		after_each(function()
 			async()
 			error("failing an after_each method")
 		end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe("bad teardown should properly fail a test, async", function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			async()
@@ -3167,14 +3129,12 @@ describe("bad support functions should fail, async test", function()
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 
 		it(
 			"Tests nothing, should always fail due to failing support functions",
-			function()
-			end
+			function() end
 		)
 	end)
 
@@ -3184,11 +3144,9 @@ describe("bad support functions should fail, async test", function()
 			error("failing a setup method")
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			async()
@@ -3420,14 +3378,11 @@ describe('bad support functions should fail, sync test', function()
 			error('failing a setup method')
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
@@ -3445,68 +3400,55 @@ describe('bad support functions should fail, sync test', function()
 	end)
 
 	describe('bad before_each should properly fail a test', function()
-		setup(function()
-		end)
+		setup(function() end)
 
 		before_each(function()
 			error('failing a before_each method')
 		end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe('bad after_each should properly fail a test', function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
 		after_each(function()
 			error('failing an after_each method')
 		end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe('bad teardown should properly fail a test', function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			error('failing a teardown method')
@@ -3514,14 +3456,12 @@ describe('bad support functions should fail, sync test', function()
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
@@ -3530,11 +3470,9 @@ describe('bad support functions should fail, sync test', function()
 			error('failing a setup method')
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			error('failing a teardown method')
@@ -3556,93 +3494,75 @@ describe('bad support functions should fail, async test', function()
 			error('failing a setup method')
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe('bad before_each should properly fail a test, async', function()
-		setup(function()
-		end)
+		setup(function() end)
 
 		before_each(function()
 			async()
 			error('failing a before_each method')
 		end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe('bad after_each should properly fail a test, async', function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
 		after_each(function()
 			async()
 			error('failing an after_each method')
 		end)
 
-		teardown(function()
-		end)
+		teardown(function() end)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
 	describe('bad teardown should properly fail a test, async', function()
-		setup(function()
-		end)
+		setup(function() end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			async()
@@ -3651,14 +3571,12 @@ describe('bad support functions should fail, async test', function()
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 
 		it(
 			'Tests nothing, should always fail due to failing support functions',
-			function()
-			end
+			function() end
 		)
 	end)
 
@@ -3668,11 +3586,9 @@ describe('bad support functions should fail, async test', function()
 			error('failing a setup method')
 		end)
 
-		before_each(function()
-		end)
+		before_each(function() end)
 
-		after_each(function()
-		end)
+		after_each(function() end)
 
 		teardown(function()
 			async()
@@ -3783,11 +3699,9 @@ describe("Tests describe with patt1", function()
 		error("error in after_each on patt1")
 	end)
 
-	it("is a test inside describe", function()
-	end)
+	it("is a test inside describe", function() end)
 
-	it("is another test inside describe", function()
-	end)
+	it("is another test inside describe", function() end)
 end)
 
 context("Tests context with patt2", function()
@@ -3884,11 +3798,9 @@ describe('Tests describe with patt1', function()
 		error('error in after_each on patt1')
 	end)
 
-	it('is a test inside describe', function()
-	end)
+	it('is a test inside describe', function() end)
 
-	it('is another test inside describe', function()
-	end)
+	it('is another test inside describe', function() end)
 end)
 
 context('Tests context with patt2', function()
@@ -4325,14 +4237,11 @@ end)
 -- supporting testfile; belongs to 'cl_spec.lua'
 
 describe("Tests list", function()
-	it("test 1", function()
-	end)
+	it("test 1", function() end)
 
-	it("test 2", function()
-	end)
+	it("test 2", function() end)
 
-	it("test 3", function()
-	end)
+	it("test 3", function() end)
 end)
 `;
 
@@ -4353,14 +4262,11 @@ end)
 -- supporting testfile; belongs to 'cl_spec.lua'
 
 describe('Tests list', function()
-	it('test 1', function()
-	end)
+	it('test 1', function() end)
 
-	it('test 2', function()
-	end)
+	it('test 2', function() end)
 
-	it('test 3', function()
-	end)
+	it('test 3', function() end)
 end)
 `;
 
@@ -4570,20 +4476,21 @@ end)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- supporting testfile; belongs to 'cl_spec.lua'
 
-describe("Tests the busted pending functions through the commandline", function(
-
-)
-	it("is a test with a pending", function()
-		pending("finish this test later")
-		error("should never get here")
-	end)
-
-	pending("is a pending inside a describe", function()
-		it("this test does not run", function()
-			error("this should not run")
+describe(
+	"Tests the busted pending functions through the commandline",
+	function()
+		it("is a test with a pending", function()
+			pending("finish this test later")
+			error("should never get here")
 		end)
-	end)
-end)
+
+		pending("is a pending inside a describe", function()
+			it("this test does not run", function()
+				error("this should not run")
+			end)
+		end)
+	end
+)
 `;
 
 exports[`cl_pending.lua - lua-verify: cl_pending.lua 2`] = `
@@ -4606,20 +4513,21 @@ end)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- supporting testfile; belongs to 'cl_spec.lua'
 
-describe('Tests the busted pending functions through the commandline', function(
-
-)
-	it('is a test with a pending', function()
-		pending('finish this test later')
-		error('should never get here')
-	end)
-
-	pending('is a pending inside a describe', function()
-		it('this test does not run', function()
-			error('this should not run')
+describe(
+	'Tests the busted pending functions through the commandline',
+	function()
+		it('is a test with a pending', function()
+			pending('finish this test later')
+			error('should never get here')
 		end)
-	end)
-end)
+
+		pending('is a pending inside a describe', function()
+			it('this test does not run', function()
+				error('this should not run')
+			end)
+		end)
+	end
+)
 `;
 
 exports[`cl_random_seed.lua - lua-verify: cl_random_seed.lua 1`] = `
@@ -6397,8 +6305,7 @@ describe("Tests error messages through the command line", function()
 					collectgarbage()
 					collectgarbage()
 				end,
-				function()
-				end
+				function() end
 			)
 		if noGC then
 			pending("no __gc metamethod support")
@@ -8234,8 +8141,7 @@ describe('Tests error messages through the command line', function()
 					collectgarbage()
 					collectgarbage()
 				end,
-				function()
-				end
+				function() end
 			)
 		if noGC then
 			pending('no __gc metamethod support')
@@ -8887,11 +8793,9 @@ describe("Tests describe with a tag #dtag1", function()
 		error("error in after_each on dtag1")
 	end)
 
-	it("is a test inside describe", function()
-	end)
+	it("is a test inside describe", function() end)
 
-	it("is another test inside describe", function()
-	end)
+	it("is another test inside describe", function() end)
 end)
 
 context("Tests context with a tag #dtag2", function()
@@ -8988,11 +8892,9 @@ describe('Tests describe with a tag #dtag1', function()
 		error('error in after_each on dtag1')
 	end)
 
-	it('is a test inside describe', function()
-	end)
+	it('is a test inside describe', function() end)
 
-	it('is another test inside describe', function()
-	end)
+	it('is another test inside describe', function() end)
 end)
 
 context('Tests context with a tag #dtag2', function()
@@ -16010,8 +15912,7 @@ describe("After each", function()
 		test_val = true
 	end)
 
-	it("runs once to fire an after_each and then", function()
-	end)
+	it("runs once to fire an after_each and then", function() end)
 	it("checks if after_each was called", function()
 		assert(test_val)
 	end)
@@ -16028,10 +15929,8 @@ describe("Both before and after each", function()
 		test_val = test_val + 1
 	end)
 
-	it("checks if both were called", function()
-	end)
-	it("runs again just to be sure", function()
-	end)
+	it("checks if both were called", function() end)
+	it("runs again just to be sure", function() end)
 
 	it("checks the value", function()
 		assert(test_val == 5)
@@ -16072,10 +15971,8 @@ describe("Before_each on describe blocks, part II", function()
 			test_val = test_val + 1
 		end)
 
-		it("derps", function()
-		end) --add two: two before-eaches
-		it("herps", function()
-		end)
+		it("derps", function() end) --add two: two before-eaches
+		it("herps", function() end)
 
 		it("checks the value", function()
 			assert.equal(7, test_val)
@@ -16201,9 +16098,7 @@ teardown A
 end)
 
 describe("finally callback is called in case of success", function()
-	local f =
-		spy.new(function()
-		end)
+	local f = spy.new(function() end)
 
 	it("write variable in finally", function()
 		finally(f)
@@ -16504,8 +16399,10 @@ describe(
 		before_each(testUnsupported)
 		after_each(testUnsupported)
 
-		it("tests nothing, all tests performed by support functions", function()
-		end)
+		it(
+			"tests nothing, all tests performed by support functions",
+			function() end
+		)
 	end
 )
 
@@ -17206,8 +17103,7 @@ describe('After each', function()
 		test_val = true
 	end)
 
-	it('runs once to fire an after_each and then', function()
-	end)
+	it('runs once to fire an after_each and then', function() end)
 	it('checks if after_each was called', function()
 		assert(test_val)
 	end)
@@ -17224,10 +17120,8 @@ describe('Both before and after each', function()
 		test_val = test_val + 1
 	end)
 
-	it('checks if both were called', function()
-	end)
-	it('runs again just to be sure', function()
-	end)
+	it('checks if both were called', function() end)
+	it('runs again just to be sure', function() end)
 
 	it('checks the value', function()
 		assert(test_val == 5)
@@ -17268,10 +17162,8 @@ describe('Before_each on describe blocks, part II', function()
 			test_val = test_val + 1
 		end)
 
-		it('derps', function()
-		end) --add two: two before-eaches
-		it('herps', function()
-		end)
+		it('derps', function() end) --add two: two before-eaches
+		it('herps', function() end)
 
 		it('checks the value', function()
 			assert.equal(7, test_val)
@@ -17397,9 +17289,7 @@ teardown A
 end)
 
 describe('finally callback is called in case of success', function()
-	local f =
-		spy.new(function()
-		end)
+	local f = spy.new(function() end)
 
 	it('write variable in finally', function()
 		finally(f)
@@ -17700,8 +17590,10 @@ describe(
 		before_each(testUnsupported)
 		after_each(testUnsupported)
 
-		it('tests nothing, all tests performed by support functions', function()
-		end)
+		it(
+			'tests nothing, all tests performed by support functions',
+			function() end
+		)
 	end
 )
 
@@ -20736,9 +20628,7 @@ return function()
 				return nil, false
 			end
 
-		local noop =
-			function()
-			end
+		local noop = function() end
 		local stubOut =
 			function(descriptor, name, fn, ...)
 				if fn == noop then
@@ -21065,9 +20955,7 @@ return function()
 				return nil, false
 			end
 
-		local noop =
-			function()
-			end
+		local noop = function() end
 		local stubOut =
 			function(descriptor, name, fn, ...)
 				if fn == noop then
@@ -28199,8 +28087,7 @@ local loaded = false
 
 return function(options)
 	if loaded then
-		return function()
-		end
+		return function() end
 	else
 		loaded = true
 	end
@@ -28625,8 +28512,7 @@ local loaded = false
 
 return function(options)
 	if loaded then
-		return function()
-		end
+		return function() end
 	else
 		loaded = true
 	end
