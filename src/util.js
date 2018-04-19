@@ -1,5 +1,35 @@
 function isValidIdentifier(str) {
-  return Boolean(str.match(/^[A-Za-z_][A-Za-z_0-9]*$/));
+  return !isKeyword(str) && Boolean(str.match(/^[A-Za-z_][A-Za-z_0-9]*$/));
+}
+
+function isKeyword(str) {
+  switch (str) {
+    case "do":
+    case "if":
+    case "in":
+    case "or":
+    case "and":
+    case "end":
+    case "for":
+    case "nil":
+    case "not":
+    case "else":
+    case "then":
+    case "true":
+    case "goto":
+    case "break":
+    case "false":
+    case "local":
+    case "until":
+    case "while":
+    case "elseif":
+    case "repeat":
+    case "return":
+    case "function":
+      return true;
+    default:
+      return false;
+  }
 }
 
 function isExpression(node) {

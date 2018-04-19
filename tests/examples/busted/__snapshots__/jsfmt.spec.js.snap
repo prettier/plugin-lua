@@ -29180,9 +29180,9 @@ local function get_status(status)
 		pending = "pending",
 		failure = "failure",
 		error = "error",
-		true = "success",
-		false = "failure",
-		nil = "error"
+		["true"] = "success",
+		["false"] = "failure",
+		["nil"] = "error"
 	}
 	return smap[tostring(status)] or "error"
 end
@@ -29277,9 +29277,9 @@ local function get_status(status)
 		pending = 'pending',
 		failure = 'failure',
 		error = 'error',
-		true = 'success',
-		false = 'failure',
-		nil = 'error',
+		['true'] = 'success',
+		['false'] = 'failure',
+		['nil'] = 'error',
 	}
 	return smap[tostring(status)] or 'error'
 end
