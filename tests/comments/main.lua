@@ -16,6 +16,9 @@ end
 function --[[between function keyword and name]] Bar()
 end
 
+function --[==[ between function keyword and name ]==] Bar()
+end
+
 for k,v in pairs(t) do
   -- comment in empty for body
 end

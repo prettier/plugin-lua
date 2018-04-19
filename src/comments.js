@@ -131,7 +131,7 @@ function isTrailingComment(comment) {
 }
 
 function isBlockComment(comment) {
-  return comment.raw.indexOf("--[[") === 0;
+  return /^\-\-\[=*\[/.test(comment.raw);
 }
 
 module.exports = {
