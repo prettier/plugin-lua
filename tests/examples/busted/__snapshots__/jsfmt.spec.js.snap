@@ -2147,8 +2147,8 @@ return function(busted)
 				randomize = (select("#", ...) == 0 or ...)
 				if randomize then
 					randomseed =
-						tonumber({ ... }[1]) or tonumber(
-							{ ... }[2]
+						tonumber(({ ... })[1]) or tonumber(
+							({ ... })[2]
 						) or randomseed
 				end
 			end
@@ -2501,7 +2501,9 @@ return function(busted)
 				randomize = (select('#', ...) == 0 or ...)
 				if randomize then
 					randomseed =
-						tonumber({...}[1]) or tonumber({...}[2]) or randomseed
+						tonumber(({...})[1]) or tonumber(
+							({...})[2]
+						) or randomseed
 				end
 			end
 

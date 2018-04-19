@@ -470,6 +470,7 @@ function shouldHaveParens(node, parent) {
       return (
         (parent.type === "CallExpression" ||
           parent.type === "MemberExpression" ||
+          parent.type === "IndexExpression" ||
           parent.type === "TableCallExpression" ||
           parent.type === "StringCallExpression") &&
         parent.base === node
