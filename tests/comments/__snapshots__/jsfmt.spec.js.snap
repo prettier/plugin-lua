@@ -34,9 +34,7 @@ dosomething()
 
 function Function()
 	-- line comment in Function
-	if --[[before if conditional]]
-	--[[another before if conditional]]
-	true then -- end of if line --[[after if conditional]]
+	if --[[before if conditional]] --[[another before if conditional]] true --[[after if conditional]] then -- end of if line
 		dooo() -- end of call in if
 	end
 end
@@ -45,8 +43,7 @@ function Foo()
 	-- comment in empty function body
 end
 
-function --[[between function keyword and name]]
-Bar()
+function --[[between function keyword and name]] Bar()
 end
 
 for k, v in pairs(t) do

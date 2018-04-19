@@ -9,6 +9,7 @@ const {
   getCommentChildNodes,
   canAttachComment,
   printComment,
+  isBlockComment,
 } = require("./comments");
 
 const languages = [
@@ -27,15 +28,7 @@ const languages = [
 
 const parsers = {
   lua: {
-    parse: function parseLua(text, parsers, options) {
-      return parse(
-        text,
-        parsers,
-        Object.assign({}, options, {
-          luaVersion: "5.3",
-        })
-      );
-    },
+    parse,
     astFormat: "luaparse",
     locStart: function locStart(node) {
       return node.range[0];
@@ -54,6 +47,7 @@ const printers = {
     getCommentChildNodes,
     canAttachComment,
     printComment,
+    isBlockComment,
   },
 };
 

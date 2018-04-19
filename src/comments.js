@@ -129,6 +129,10 @@ function isTrailingComment(comment) {
   return comment.trailing;
 }
 
+function isBlockComment(comment) {
+  return comment.raw.indexOf("--[[") === 0;
+}
+
 module.exports = {
   handleComments,
   printDanglingComments,
@@ -138,4 +142,5 @@ module.exports = {
   isDanglingComment,
   isLeadingComment,
   isTrailingComment,
+  isBlockComment,
 };

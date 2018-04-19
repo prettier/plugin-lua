@@ -9,7 +9,7 @@
   "files": ["src"],
   "dependencies": {
     "luaparse": "0.2.1",
-    "prettier": "prettier/prettier#c2ee047a5dbe4d2ad8ca7d766f4ed188d8ab7d46"
+    "prettier": "prettier/prettier#4c464133ac37a966c792cacc660853d74c776841"
   },
   "devDependencies": {
     "eslint": "4.19.1",
