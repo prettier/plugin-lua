@@ -27,57 +27,43 @@ function printNoParens(path, options, print) {
     case "Chunk": {
       return printBody(path, options, print);
     }
-    case "AssignmentStatement": {
-      return concat([
-        group(
-          concat([
-            indent(join(concat([",", line]), path.map(print, "variables"))),
-            line,
-          ])
-        ),
-        node.init.length > 0
-          ? concat([
-              "=",
-              group(
-                node.init.length === 1 &&
-                node.init[0].type === "TableConstructorExpression"
-                  ? concat([" ", path.call(print, "init", 0)])
-                  : indent(
-                      concat([
-                        line,
-                        join(concat([",", line]), path.map(print, "init")),
-                      ])
-                    )
-              ),
-            ])
-          : "",
-      ]);
-    }
+    case "AssignmentStatement":
     case "LocalStatement": {
       return concat([
         group(
           concat([
-            "local ",
+            node.type === "LocalStatement" ? "local " : "",
             indent(join(concat([",", line]), path.map(print, "variables"))),
             line,
           ])
         ),
-        node.init.length > 0
-          ? concat([
+        (() => {
+          if (node.init.length === 1) {
+            const init0Printed = path.call(print, "init", 0);
+            return concat([
               "=",
               group(
-                node.init.length === 1 &&
-                node.init[0].type === "TableConstructorExpression"
-                  ? concat([" ", path.call(print, "init", 0)])
-                  : indent(
-                      concat([
-                        line,
-                        join(concat([",", line]), path.map(print, "init")),
-                      ])
-                    )
+                node.init.length === 1 && willBreak(init0Printed)
+                  ? concat([" ", init0Printed])
+                  : indent(concat([line, init0Printed]))
               ),
-            ])
-          : "",
+            ]);
+          } else if (node.init.length > 1) {
+            return concat([
+              "=",
+              group(
+                indent(
+                  concat([
+                    line,
+                    join(concat([",", line]), path.map(print, "init")),
+                  ])
+                )
+              ),
+            ]);
+          } else {
+            return "";
+          }
+        })(),
       ]);
     }
     case "Identifier": {
