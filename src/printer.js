@@ -411,10 +411,12 @@ function printBody(path, options, print) {
     printed.push(concat(parts));
   }, "body");
 
-  return concat([
-    join(hardline, printed),
-    printDanglingComments(path, options, /* sameIndent */ true),
-  ]);
+  return group(
+    concat([
+      join(hardline, printed),
+      printDanglingComments(path, options, /* sameIndent */ true),
+    ])
+  );
 }
 
 function couldBeCallExpressionBase(node) {
