@@ -220,21 +220,25 @@ function printNoParens(path, options, print) {
       ]);
     }
     case "IfStatement": {
+      const printedClauses = join(softline, path.map(print, "clauses"));
+
       return concat([
-        join(hardline, path.map(print, "clauses")),
-        hardline,
+        printedClauses,
+        willBreak(printedClauses) ? hardline : " ",
         "end",
       ]);
     }
 
     case "IfClause":
     case "ElseifClause": {
+      const printedBody = printIndentedBody(path, options, print);
       return concat([
         node.type === "ElseifClause" ? "else" : "",
         "if ",
         path.call(print, "condition"),
         " then",
-        printIndentedBody(path, options, print),
+        willBreak(printedBody) ? breakParent : " ",
+        printedBody,
       ]);
     }
     case "ElseClause": {
@@ -242,7 +246,11 @@ function printNoParens(path, options, print) {
     }
 
     case "ReturnStatement": {
-      return concat(["return ", join(", ", path.map(print, "arguments"))]);
+      return concat([
+        "return",
+        node.arguments.length === 0 ? "" : " ",
+        join(", ", path.map(print, "arguments")),
+      ]);
     }
 
     case "UnaryExpression": {
@@ -353,9 +361,20 @@ function printIndentedBody(path, options, print) {
     node.body.length > 0 ||
     (node.comments && node.comments.filter(isDanglingComment).length > 0);
 
-  return hasContent
-    ? indent(concat([hardline, printBody(path, options, print)]))
-    : "";
+  const isSimpleReturn =
+    node.type === "IfClause" &&
+    node.body.length === 1 &&
+    node.body[0].type === "ReturnStatement" &&
+    (node.body[0].comments == null || node.body[0].comments.length === 0) &&
+    node.body[0].arguments.length === 0;
+
+  if (isSimpleReturn) {
+    return printBody(path, options, print);
+  } else {
+    return hasContent
+      ? indent(concat([hardline, printBody(path, options, print)]))
+      : "";
+  }
 }
 
 function printBody(path, options, print) {

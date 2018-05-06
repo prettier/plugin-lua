@@ -46,3 +46,19 @@ describe(function()
 	end)
 end)
 `;
+
+exports[`simple_return.lua - lua-verify: simple_return.lua 1`] = `
+if true then return end
+
+if true then
+	-- don't break me
+	return
+end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if true then return end
+
+if true then
+	-- don't break me
+	return
+end
+`;
