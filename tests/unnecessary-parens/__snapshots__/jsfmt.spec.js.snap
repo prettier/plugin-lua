@@ -256,7 +256,7 @@ end
 
 local please = a
 
-local dont_touch_math = (2 + 2) + (2 - 2)
+local dont_touch_math = 2 + 2 + (2 - 2)
 local dont_touch_logic = (2 and 2) or (2 and 2)
 
 keep = (2e16)()
@@ -529,7 +529,7 @@ end
 
 local please = a
 
-local dont_touch_math = (2 + 2) + (2 - 2)
+local dont_touch_math = 2 + 2 + (2 - 2)
 local dont_touch_logic = (2 and 2) or (2 and 2)
 
 keep = (2e16)()

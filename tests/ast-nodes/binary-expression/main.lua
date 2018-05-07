@@ -28,5 +28,36 @@ big_compare = 2 < 3 > 4 <= 5 and 6 or 42 and 69 == 414
 
 hat = 2 ^ 4
 concat = "a" .. "b" .. c
+concat = "a" .. "b" .. c .. "d" .. "e" .. "a" .. "a" .. "a" .. "a" .. "a" .. "a" .. "a" .. functionn(call(with(arguments)))
+concat = "a" .. "b" .. c .. "d" .. "e" .. "a" .. "a" .. "a" .. "a" .. "a" .. "a" .. "a"
 
 everything = yes and no or maybe + 1 - 2 * 3 / 4 % 5 << 6 >> 7 < 8 > 9 <= 10 >= 11 == 12 ~= 13 ^ "14" .. 15
+
+
+function a()
+  local a =
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a" +
+    "a";
+  local b =
+    ("a" and "b") or
+    "C" + "D" + "E" + "F" + "E" + "F" + "E" + "F" + "E" + "F" + "E" + "F";
+end
+
+(
+  a and
+  b and
+  c
+).call()

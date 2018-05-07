@@ -17,8 +17,12 @@ const {
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
-const { isValidIdentifier, isExpression } = require("./util");
-const { printDanglingComments, isDanglingComment } = require("./comments");
+const { isValidIdentifier, isExpression, shouldFlatten } = require("./util");
+const {
+  printDanglingComments,
+  isDanglingComment,
+  printComments,
+} = require("./comments");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
@@ -209,24 +213,81 @@ function printNoParens(path, options, print) {
         ]);
       }
     }
-    case "LogicalExpression":
-    case "BinaryExpression": {
-      return concat([
-        path.call(print, "left"),
-        " ",
-        node.operator,
-        " ",
-        path.call(print, "right"),
-      ]);
-    }
-    case "IfStatement": {
-      const printedClauses = join(softline, path.map(print, "clauses"));
+    case "BinaryExpression":
+    case "LogicalExpression": {
+      const parent = path.getParentNode();
+      const isInsideParenthesis = node.inParens;
 
-      return concat([
-        printedClauses,
-        willBreak(printedClauses) ? hardline : " ",
-        "end",
-      ]);
+      const parts = printBinaryishExpressions(
+        path,
+        print,
+        options,
+        /* isNested */ false,
+        isInsideParenthesis
+      );
+
+      //   if (
+      //     this.hasPlugin("dynamicImports") && this.lookahead().type === tt.parenLeft
+      //   ) {
+      //
+      // looks super weird, we want to break the children if the parent breaks
+      //
+      //   if (
+      //     this.hasPlugin("dynamicImports") &&
+      //     this.lookahead().type === tt.parenLeft
+      //   ) {
+      // if (isInsideParenthesis) {
+      //   return concat(parts);
+      // }
+
+      // Break between the parens in unaries or in a member expression, i.e.
+      //
+      //   (
+      //     a &&
+      //     b &&
+      //     c
+      //   ).call()
+      if (
+        parent.type === "UnaryExpression" ||
+        parent.type === "MemberExpression"
+      ) {
+        return group(
+          concat([indent(concat([softline, concat(parts)])), softline])
+        );
+      }
+
+      const shouldNotIndent = parent.type === "ReturnStatement";
+
+      const shouldIndentIfInlining =
+        parent.type === "AssignmentStatement" ||
+        parent.type === "LocalStatement" ||
+        parent.type === "TableValue" ||
+        parent.type === "TableKeyString" ||
+        parent.type === "TableKey";
+
+      const samePrecedenceSubExpression =
+        isBinaryish(node.left) &&
+        shouldFlatten(node.operator, node.left.operator);
+
+      if (
+        shouldNotIndent ||
+        (shouldInlineLogicalExpression(node) && !samePrecedenceSubExpression) ||
+        (!shouldInlineLogicalExpression(node) && shouldIndentIfInlining)
+      ) {
+        return group(concat(parts));
+      }
+
+      const rest = concat(parts.slice(1));
+
+      return group(
+        concat([
+          // Don't include the initial expression in the indentation
+          // level. The first item is guaranteed to be the first
+          // left-most expression.
+          parts.length > 0 ? parts[0] : "",
+          indent(rest),
+        ])
+      );
     }
 
     case "IfClause":
@@ -757,6 +818,104 @@ function getLast(arr) {
     return arr[arr.length - 1];
   }
   return null;
+}
+
+function isBinaryish(node) {
+  return node.type === "BinaryExpression" || node.type === "LogicalExpression";
+}
+
+function shouldInlineLogicalExpression(node) {
+  if (node.type !== "LogicalExpression") {
+    return false;
+  }
+
+  if (
+    node.right.type === "TableConstructorExpression" &&
+    node.right.fields.length !== 0
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+// For binary expressions to be consistent, we need to group
+// subsequent operators with the same precedence level under a single
+// group. Otherwise they will be nested such that some of them break
+// onto new lines but not all. Operators with the same precedence
+// level should either all break or not. Because we group them by
+// precedence level and the AST is structured based on precedence
+// level, things are naturally broken up correctly, i.e. `and` is
+// broken before `+`.
+function printBinaryishExpressions(
+  path,
+  print,
+  options,
+  isNested,
+  isInsideParenthesis
+) {
+  let parts = [];
+  const node = path.getValue();
+
+  // We treat BinaryExpression and LogicalExpression nodes the same.
+  if (isBinaryish(node)) {
+    // Put all operators with the same precedence level in the same
+    // group. The reason we only need to do this with the `left`
+    // expression is because given an expression like `1 + 2 - 3`, it
+    // is always parsed like `((1 + 2) - 3)`, meaning the `left` side
+    // is where the rest of the expression will exist. Binary
+    // expressions on the right side mean they have a difference
+    // precedence level and should be treated as a separate group, so
+    // print them normally. (This doesn't hold for the `^` operator,
+    // which is unique in that it is right-associative.)
+    if (shouldFlatten(node.operator, node.left.operator)) {
+      // Flatten them out by recursively calling this function.
+      parts = parts.concat(
+        path.call(
+          (left) =>
+            printBinaryishExpressions(
+              left,
+              print,
+              options,
+              /* isNested */ true,
+              isInsideParenthesis
+            ),
+          "left"
+        )
+      );
+    } else {
+      parts.push(path.call(print, "left"));
+    }
+
+    const shouldInline = shouldInlineLogicalExpression(node);
+
+    const right = shouldInline
+      ? concat([node.operator, " ", path.call(print, "right")])
+      : concat([node.operator, line, path.call(print, "right")]);
+
+    // If there's only a single binary expression, we want to create a group
+    // in order to avoid having a small right part like -1 be on its own line.
+    const parent = path.getParentNode();
+    const shouldGroup =
+      !(isInsideParenthesis && node.type === "LogicalExpression") &&
+      parent.type !== node.type &&
+      node.left.type !== node.type &&
+      node.right.type !== node.type;
+
+    parts.push(" ", shouldGroup ? group(right) : right);
+
+    // The root comments are already printed, but we need to manually print
+    // the other ones since we don't call the normal print on BinaryExpression,
+    // only for the left and right parts
+    if (isNested && node.comments) {
+      parts = printComments(path, () => concat(parts), options);
+    }
+  } else {
+    // Our stopping case. Simply print the node normally.
+    parts.push(path.call(print));
+  }
+
+  return parts;
 }
 
 module.exports = function genericPrint(path, options, print) {

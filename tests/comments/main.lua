@@ -22,3 +22,9 @@ end
 for k,v in pairs(t) do
   -- comment in empty for body
 end
+
+if true then
+  -- hello
+elseif CLIENT then
+  functioncall()
+end
