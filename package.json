@@ -2,7 +2,7 @@
   "name": "@prettier/plugin-lua",
   "version": "0.0.1",
   "description": "Prettier Lua Plugin",
-  "repository": "prettier/prettier-lua",
+  "repository": "prettier/plugin-lua",
   "author": "Suchipi <me@suchipi.com>",
   "license": "MIT",
   "main": "src",
