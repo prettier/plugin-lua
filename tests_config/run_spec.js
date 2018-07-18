@@ -4,8 +4,8 @@ const fs = require("fs");
 const { extname } = require("path");
 const prettier = require("prettier");
 const plugin = require("../src");
-const { massageAST } = require("prettier/src/common/clean-ast");
-const { normalize } = require("prettier/src/main/options");
+const { massageAST } = require("prettier-from-github/src/common/clean-ast");
+const { normalize } = require("prettier-from-github/src/main/options");
 
 const { AST_COMPARE } = process.env;
 

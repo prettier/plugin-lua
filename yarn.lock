@@ -3158,7 +3158,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@prettier/prettier#4c464133ac37a966c792cacc660853d74c776841:
+prettier-from-github@prettier/prettier#4c464133ac37a966c792cacc660853d74c776841:
   version "1.12.1"
   resolved "https://codeload.github.com/prettier/prettier/tar.gz/4c464133ac37a966c792cacc660853d74c776841"
   dependencies:
@@ -3207,6 +3207,10 @@ prettier@prettier/prettier#4c464133ac37a966c792cacc660853d74c776841:
     typescript-eslint-parser "14.0.0"
     unicode-regex "1.0.1"
     unified "6.1.6"
+
+prettier@1.13.7:
+  version "1.13.7"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.7.tgz#850f3b8af784a49a6ea2d2eaa7ed1428a34b7281"
 
 pretty-format@^22.4.3:
   version "22.4.3"
