@@ -12,6 +12,7 @@
     "prettier": "prettier/prettier#4c464133ac37a966c792cacc660853d74c776841"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "4.19.1",
     "eslint-config-unobtrusive": "^1.2.2",
     "eslint-plugin-import": "2.10.0",
@@ -20,8 +21,8 @@
     "jest-runner-eslint": "0.4.0"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watchAll --updateSnapshot",
+    "test": "cross-env AST_COMPARE=1 jest",
+    "test:watch": "cross-env AST_COMPARE=1 jest --watchAll --updateSnapshot",
     "prettier": "prettier --plugin=. --parser=lua"
   },
   "jest": {
