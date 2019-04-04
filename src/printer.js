@@ -14,6 +14,9 @@ const {
   hardline,
   softline,
   breakParent,
+  dedentToRoot,
+  markAsRoot,
+  align,
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
@@ -33,8 +36,8 @@ function printNoParens(path, options, print) {
         group(
           concat([
             node.type === "LocalStatement" ? "local " : "",
-            indent(join(concat([",", line]), path.map(print, "variables"))),
-            line,
+            indent(join(concat([",", " "]), path.map(print, "variables"))),
+            " ",
           ])
         ),
         (() => {
@@ -45,7 +48,7 @@ function printNoParens(path, options, print) {
               group(
                 node.init.length === 1 && willBreak(init0Printed)
                   ? concat([" ", init0Printed])
-                  : indent(concat([line, init0Printed]))
+                  : indent(concat([" ", init0Printed]))
               ),
             ]);
           } else if (node.init.length > 1) {
@@ -128,10 +131,186 @@ function printNoParens(path, options, print) {
       }
     }
     case "MemberExpression": {
+      // console.log("test", path.getNode())
+      // console.log("test2", path.getParentNode(2).body[0])
+
+      // let layer = path.getNode()
+      // while (layer.name && layer.name !== "reply") {
+      //   layer = layer.base
+      // }
+
+      // console.log("test", layer)
+
+      // send
+      if (
+        path.getNode().identifier.name === "send" &&
+        path.getNode().base &&
+        path.getNode().base.base &&
+        path.getNode().base.base.identifier && 
+        path.getNode().base.base.identifier.name === "title"
+      ) {
+
+        let layer = path.getNode()
+        while (layer.base.name !== "reply") {
+          layer = layer.base
+        }
+
+        return dedentToRoot(concat([
+          path.call(print, "base"),
+          align(layer.loc.start.column, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]));
+      }
+
+      if (
+	      node.identifier.name === "question" || 
+	      node.identifier.name === "detour"   ||
+        node.identifier.name === "tile" || 
+	      node.identifier.name === "text" || 
+	      node.identifier.name === "image" 
+      ) {
+        return concat([
+    		  path.call(print, "base"),
+    		  indent(concat([
+    			  softline,
+    			  node.indexer,
+    			  path.call(print, "identifier")
+    		  ]))
+    	  ]);
+      }
+
+      // action
+      if (node.identifier.name === "action") {
+        let layer = path.getNode()
+
+        // while (true) {
+        //   if (!layer.base) {
+        //     break
+        //   }
+        //   if (layer.base.identifier && layer.base.identifier.name === "tile") {
+        //     layer = layer.base
+        //     break
+        //   }
+
+        //   layer = layer.base
+        // }
+
+        // console.log("test2", layer)
+        // console.log("test2", layer.loc)
+
+        // if (layer.identifier && layer.identifier.name === "tile") {
+        //   console.log("column", layer.identifier.loc.start.column)
+        //   return concat([
+        //     path.call(print, "base"),
+        //     dedentToRoot(align(layer.identifier.loc.start.column, concat([
+        //       softline,
+        //       node.indexer,
+        //       path.call(print, "identifier")
+        //     ])))
+        //   ]); 
+        // }
+
+        // while (layer.base && layer.base.name) {
+        //   if (layer.base.name === "reply" || layer.base.name === "tile") {
+        //     layer = layer.base
+        //     break  
+        //   }
+        // }
+
+        return concat([
+          path.call(print, "base"),
+          indent(align(layer.loc.start.column, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ])))
+        ]); 
+      }
+
+      // title
+      if (node.identifier.name === "title") {
+        let layer = path.getNode()
+        
+        while (true) {
+          if (!layer.base) {
+            break
+          }
+          if (layer.base.identifier && layer.base.identifier.name === "action") {
+            layer = layer.base
+            break
+          }
+
+          layer = layer.base
+        }
+
+        let padRightColCount = layer.identifier.loc.start.column
+        if (layer.indexer === ".") {
+          padRightColCount -= 1
+        }
+
+        return concat([
+          path.call(print, "base"),
+          indent(align(padRightColCount, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ])))
+        ]); 
+      }
+
+      // url
+      if (node.identifier.name === "url") {
+        let layer = path.getNode()
+        // console.log(layer.base.base.identifier.name)
+        while (true) {
+          if (layer.base.identifier && layer.base.identifier.name === "action") {
+            layer = layer.base
+            break
+          }
+
+          layer = layer.base
+        }
+
+        return concat([
+          path.call(print, "base"),
+          align(layer.identifier.loc.start.column, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]); 
+      }
+
+      // payload
+      if (node.identifier.name === "payload") {
+        let layer = path.getNode()
+        // console.log(layer.base.base.identifier.name)
+        while (true) {
+          if (layer.base.identifier && layer.base.identifier.name === "action") {
+            layer = layer.base
+            break
+          }
+
+          layer = layer.base
+        }
+
+        return concat([
+          path.call(print, "base"),
+          align(layer.identifier.loc.start.column, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]); 
+      }
+
       return concat([
         path.call(print, "base"),
         node.indexer,
-        path.call(print, "identifier"),
+        path.call(print, "identifier")
       ]);
     }
     case "IndexExpression": {
@@ -369,7 +548,7 @@ function printIndentedBody(path, options, print) {
     node.body[0].arguments.length === 0;
 
   if (isSimpleReturn) {
-    return printBody(path, options, print);
+    return indent(concat([hardline, printBody(path, options, print)]))
   } else {
     return hasContent
       ? indent(concat([hardline, printBody(path, options, print)]))
@@ -622,7 +801,7 @@ function printArgumentsList(path, options, print) {
       anyArgEmptyLine = true;
       parts.push(",", hardline, hardline);
     } else {
-      parts.push(",", line);
+      parts.push(",", " ");
     }
 
     return concat(parts);
@@ -705,12 +884,11 @@ function printArgumentsList(path, options, print) {
   return group(
     concat([
       "(",
-      indent(concat([softline, concat(printedArguments)])),
+      concat(printedArguments),
       // ifBreak(shouldPrintComma(options, "all") ? "," : ""),
-      softline,
       ")",
     ]),
-    { shouldBreak: printedArguments.some(willBreak) || anyArgEmptyLine }
+    // { shouldBreak: printedArguments.some(willBreak) || anyArgEmptyLine }
   );
 }
 
