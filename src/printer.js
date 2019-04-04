@@ -155,26 +155,25 @@ function printNoParens(path, options, print) {
           layer = layer.base
         }
 
-        return dedentToRoot(concat([
+        return concat([
           path.call(print, "base"),
-          align(layer.loc.start.column, concat([
+          concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
-          ]))
-        ]));
+          ])
+        ]);
       }
 
+      // question
+      // detour
       if (
 	      node.identifier.name === "question" || 
-	      node.identifier.name === "detour"   ||
-        node.identifier.name === "tile" || 
-	      node.identifier.name === "text" || 
-	      node.identifier.name === "image" 
+	      node.identifier.name === "detour"
       ) {
         return concat([
     		  path.call(print, "base"),
-    		  indent(concat([
+    		  align(4,concat([
     			  softline,
     			  node.indexer,
     			  path.call(print, "identifier")
@@ -182,101 +181,112 @@ function printNoParens(path, options, print) {
     	  ]);
       }
 
-      // action
-      if (node.identifier.name === "action") {
-        let layer = path.getNode()
-
-        // while (true) {
-        //   if (!layer.base) {
-        //     break
-        //   }
-        //   if (layer.base.identifier && layer.base.identifier.name === "tile") {
-        //     layer = layer.base
-        //     break
-        //   }
-
-        //   layer = layer.base
-        // }
-
-        // console.log("test2", layer)
-        // console.log("test2", layer.loc)
-
-        // if (layer.identifier && layer.identifier.name === "tile") {
-        //   console.log("column", layer.identifier.loc.start.column)
-        //   return concat([
-        //     path.call(print, "base"),
-        //     dedentToRoot(align(layer.identifier.loc.start.column, concat([
-        //       softline,
-        //       node.indexer,
-        //       path.call(print, "identifier")
-        //     ])))
-        //   ]); 
-        // }
-
-        // while (layer.base && layer.base.name) {
-        //   if (layer.base.name === "reply" || layer.base.name === "tile") {
-        //     layer = layer.base
-        //     break  
-        //   }
-        // }
-
+      if (
+        node.identifier.name === "tile" ||
+        node.identifier.name === "text" || 
+        node.identifier.name === "image" 
+      ) {
         return concat([
           path.call(print, "base"),
-          indent(align(layer.loc.start.column, concat([
+          align(4, concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
-          ])))
+          ]))
+        ]);
+      }
+
+      // action
+      if (node.identifier.name === "action") {
+        let layer = path.getNode()
+        while (true) {
+          if (!layer.base) {
+            break
+          }
+          if (layer.base.identifier && layer.base.identifier.name === "tile") {
+            layer = layer.base
+            break
+          }
+          layer = layer.base
+        }
+
+        let alignSpaces = 4
+
+        if (layer.identifier && layer.identifier.name === "tile") {
+          alignSpaces = 8
+        }
+
+        return concat([
+          path.call(print, "base"),
+          align(alignSpaces, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
         ]); 
       }
 
       // title
       if (node.identifier.name === "title") {
+        if (path.getNode().base.name == "product") {
+          return concat([
+            path.call(print, "base"),
+            node.indexer,
+            path.call(print, "identifier")
+          ])
+        }
+
         let layer = path.getNode()
-        
         while (true) {
           if (!layer.base) {
             break
           }
-          if (layer.base.identifier && layer.base.identifier.name === "action") {
+          if (layer.base.identifier && layer.base.identifier.name === "tile") {
             layer = layer.base
             break
           }
-
           layer = layer.base
         }
 
-        let padRightColCount = layer.identifier.loc.start.column
-        if (layer.indexer === ".") {
-          padRightColCount -= 1
+        let alignSpaces = 8
+
+        if (layer.identifier && layer.identifier.name === "tile") {
+          alignSpaces = 12
         }
 
         return concat([
           path.call(print, "base"),
-          indent(align(padRightColCount, concat([
+          align(alignSpaces, concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
-          ])))
+          ]))
         ]); 
       }
 
       // url
       if (node.identifier.name === "url") {
         let layer = path.getNode()
-        // console.log(layer.base.base.identifier.name)
         while (true) {
-          if (layer.base.identifier && layer.base.identifier.name === "action") {
+          if (!layer.base) {
+            break
+          }
+          if (layer.base.identifier && layer.base.identifier.name === "tile") {
             layer = layer.base
             break
           }
-
           layer = layer.base
+        }
+
+        let alignSpaces = 8
+
+        if (layer.identifier && layer.identifier.name === "tile") {
+          alignSpaces = 12
         }
 
         return concat([
           path.call(print, "base"),
-          align(layer.identifier.loc.start.column, concat([
+          align(alignSpaces, concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
@@ -287,19 +297,26 @@ function printNoParens(path, options, print) {
       // payload
       if (node.identifier.name === "payload") {
         let layer = path.getNode()
-        // console.log(layer.base.base.identifier.name)
         while (true) {
-          if (layer.base.identifier && layer.base.identifier.name === "action") {
+          if (!layer.base) {
+            break
+          }
+          if (layer.base.identifier && layer.base.identifier.name === "tile") {
             layer = layer.base
             break
           }
-
           layer = layer.base
+        }
+
+        let alignSpaces = 8
+
+        if (layer.identifier && layer.identifier.name === "tile") {
+          alignSpaces = 12
         }
 
         return concat([
           path.call(print, "base"),
-          align(layer.identifier.loc.start.column, concat([
+          align(alignSpaces, concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
