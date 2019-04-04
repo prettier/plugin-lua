@@ -142,13 +142,19 @@ function printNoParens(path, options, print) {
       // console.log("test", layer)
 
       // send
-      if (
-        path.getNode().identifier.name === "send" &&
-        path.getNode().base &&
-        path.getNode().base.base &&
-        path.getNode().base.base.identifier && 
-        path.getNode().base.base.identifier.name === "title"
-      ) {
+      if (path.getNode().identifier.name === "send") {
+        if (
+          path.getNode().base &&
+          path.getNode().base.base &&
+          path.getNode().base.base.name === "reply"
+        ) {
+          return concat([
+            path.call(print, "base"),            
+            node.indexer,
+            path.call(print, "identifier")
+          ]);  
+        }
+
         return concat([
           path.call(print, "base"),
           concat([
@@ -175,14 +181,25 @@ function printNoParens(path, options, print) {
     	  ]);
       }
 
+      // tile
+      if (node.identifier.name === "tile") {
+        return concat([
+          path.call(print, "base"),
+          align(4, concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]);
+      }
+
       if (
-        node.identifier.name === "tile" ||
         node.identifier.name === "text" || 
         node.identifier.name === "image" 
       ) {
         return concat([
           path.call(print, "base"),
-          align(4, concat([
+          align(8, concat([
             softline,
             node.indexer,
             path.call(print, "identifier")
@@ -207,7 +224,7 @@ function printNoParens(path, options, print) {
         let alignSpaces = 4
 
         if (layer.identifier && layer.identifier.name === "tile") {
-          alignSpaces = 8
+          alignSpaces = 12
         }
 
         return concat([
@@ -245,7 +262,7 @@ function printNoParens(path, options, print) {
         let alignSpaces = 8
 
         if (layer.identifier && layer.identifier.name === "tile") {
-          alignSpaces = 12
+          alignSpaces = 16
         }
 
         return concat([
@@ -275,7 +292,7 @@ function printNoParens(path, options, print) {
         let alignSpaces = 8
 
         if (layer.identifier && layer.identifier.name === "tile") {
-          alignSpaces = 12
+          alignSpaces = 16
         }
 
         return concat([
@@ -318,7 +335,7 @@ function printNoParens(path, options, print) {
         let alignSpaces = 8
 
         if (layer.identifier && layer.identifier.name === "tile") {
-          alignSpaces = 12
+          alignSpaces = 16
         }
 
         return concat([
