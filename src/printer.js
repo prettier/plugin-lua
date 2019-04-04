@@ -149,12 +149,6 @@ function printNoParens(path, options, print) {
         path.getNode().base.base.identifier && 
         path.getNode().base.base.identifier.name === "title"
       ) {
-
-        let layer = path.getNode()
-        while (layer.base.name !== "reply") {
-          layer = layer.base
-        }
-
         return concat([
           path.call(print, "base"),
           concat([
@@ -305,7 +299,20 @@ function printNoParens(path, options, print) {
             layer = layer.base
             break
           }
+          if (layer.base && layer.base.name === "reply") {
+            layer = layer.base
+            break  
+          }
+
           layer = layer.base
+        }
+
+        if (layer.name === "reply") {
+          return concat([
+            path.call(print, "base"),
+            node.indexer,
+            path.call(print, "identifier")
+          ]); 
         }
 
         let alignSpaces = 8
