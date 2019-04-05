@@ -171,38 +171,15 @@ function printNoParens(path, options, print) {
       }
     }
     case "MemberExpression": {
-      // console.log("test", path.getNode())
-      // console.log("test2", path.getParentNode(2).body[0])
-
-      // let layer = path.getNode()
-      // while (layer.name && layer.name !== "reply") {
-      //   layer = layer.base
-      // }
-
-      // console.log("test", layer)
-
       // send
       if (path.getNode().identifier.name === "send") {
-        if (
-          // path.getNode().base &&
-          // path.getNode().base.base &&
-          // path.getNode().base.base.name === "reply"
-          path.getNode().identifier.loc.start.line === path.getNode().base.loc.start.line
-        ) {
+        if (path.getNode().identifier.loc.start.line === path.getNode().base.loc.start.line) {
           return concat([
             path.call(print, "base"),            
             node.indexer,
             path.call(print, "identifier")
           ]);  
         }
-
-        // if (path.getNode().base && path.getNode().base.name === "tiles") {
-        //   return concat([
-        //     path.call(print, "base"),            
-        //     node.indexer,
-        //     path.call(print, "identifier")
-        //   ]);  
-        // }
 
         return concat([
           path.call(print, "base"),
