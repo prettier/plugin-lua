@@ -323,6 +323,11 @@ function printNoParens(path, options, print) {
             layer = layer.base
             break
           }
+
+          if (layer.base.identifier && layer.base.identifier.name === "merge") {
+            layer = layer.base
+            break
+          }
           
           layer = layer.base
         }
@@ -334,6 +339,20 @@ function printNoParens(path, options, print) {
           return concat([
             path.call(print, "base"),
             align(4+parentIndent,concat([
+              softline,
+              node.indexer,
+              path.call(print, "identifier")
+            ]))
+          ]);          
+        }
+
+        if (layer.identifier && layer.identifier.name === "merge") {
+          let indexerLen = layer.indexer.length
+          let parentIndent = layer.identifier.loc.start.column - indexerLen
+    
+          return concat([
+            path.call(print, "base"),
+            align(parentIndent-4,concat([
               softline,
               node.indexer,
               path.call(print, "identifier")
