@@ -165,12 +165,120 @@ function printNoParens(path, options, print) {
         ]);
       }
 
+      // when
+      if (node.identifier.name === "when") {
+        let layer = path.getNode()
+        while (true) {
+          if (!layer.base) {
+            break
+          }
+
+          if (layer.base.identifier && layer.base.identifier.name === "when") {
+            layer = layer.base
+            break
+          }
+
+          if (layer.base.identifier && layer.base.identifier.name === "merge") {
+            layer = layer.base
+            break
+          }
+
+          layer = layer.base
+        }
+
+        let alignCol = 4
+        if (layer.identifier && layer.identifier.name === "when") {
+          alignCol = 8
+        }
+
+        if (layer.identifier && layer.identifier.name === "merge") {
+          alignCol = 4
+        }
+
+        return concat([
+          path.call(print, "base"),
+          align(alignCol,concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]);
+      }
+
+      // merge
+      if (node.identifier.name === "merge") {
+        let layer = path.getNode()
+        while (true) {
+          if (!layer.base) {
+            break
+          }
+
+          if (layer.base.identifier && layer.base.identifier.name === "when") {
+            layer = layer.base
+            break
+          }
+
+          if (layer.base.identifier && layer.base.identifier.name === "merge") {
+            layer = layer.base
+            break
+          }
+
+          layer = layer.base
+        }
+
+        if (layer.identifier && layer.identifier.name === "when") {
+          let indexerLen = layer.indexer.length
+          let parentIndent = layer.identifier.loc.start.column - indexerLen
+      
+          return concat([
+            path.call(print, "base"),
+            align(4+parentIndent,concat([
+              softline,
+              node.indexer,
+              path.call(print, "identifier")
+            ]))
+          ]);          
+        }
+
+        return concat([
+          path.call(print, "base"),
+          align(4,concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]);
+      }
+
       // question
-      // detour
-      if (
-	      node.identifier.name === "question" || 
-	      node.identifier.name === "detour"
-      ) {
+      if (node.identifier.name === "question") {
+        let layer = path.getNode()
+        while (true) {
+          if (!layer.base) {
+            break
+          }
+          if (layer.base.identifier && layer.base.identifier.name === "when") {
+            layer = layer.base
+            break
+          }
+          
+          layer = layer.base
+        }
+
+        if (layer.identifier && layer.identifier.name === "when") {
+          let indexerLen = layer.indexer.length
+          let parentIndent = layer.identifier.loc.start.column - indexerLen
+      
+          return concat([
+            path.call(print, "base"),
+            align(4+parentIndent,concat([
+              softline,
+              node.indexer,
+              path.call(print, "identifier")
+            ]))
+          ]);          
+        }
+
         return concat([
     		  path.call(print, "base"),
     		  align(4,concat([
@@ -179,6 +287,18 @@ function printNoParens(path, options, print) {
     			  path.call(print, "identifier")
     		  ]))
     	  ]);
+      }
+
+      // detour
+      if (node.identifier.name === "detour") {
+        return concat([
+          path.call(print, "base"),
+          align(4,concat([
+            softline,
+            node.indexer,
+            path.call(print, "identifier")
+          ]))
+        ]);
       }
 
       // tile
