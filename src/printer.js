@@ -612,6 +612,24 @@ function printNoParens(path, options, print) {
     }
     case "LogicalExpression":
     case "BinaryExpression": {
+      
+      // if logical statement spans multiline
+      if (
+        path.getNode().type === "LogicalExpression" &&
+        path.getNode().loc.start.line !== path.getNode().loc.end.line
+      ) {
+        return dedentToRoot(
+          align(path.getNode().loc.start.column,
+            concat([
+              path.call(print, "left"),
+              " ",
+              node.operator,
+              hardline,
+              path.call(print, "right"),
+            ])
+          )
+        );  
+      }
       return concat([
         path.call(print, "left"),
         " ",
