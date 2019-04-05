@@ -567,6 +567,10 @@ function printNoParens(path, options, print) {
         "}",
       ]);
 
+      if (path.getNode().loc.start.line !== path.getNode().loc.end.line) {
+        return multiline;
+      }
+
       if (
         // Table with only one value with no nested tables
         (node.fields.length === 1 &&
