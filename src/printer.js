@@ -570,9 +570,7 @@ function printNoParens(path, options, print) {
       if (
         // Table with only one value with no nested tables
         (node.fields.length === 1 &&
-          node.fields[0].value.type !== "TableConstructorExpression") ||
-        // Array-like table
-        node.fields.every((field) => field.type === "TableValue")
+          node.fields[0].value.type !== "TableConstructorExpression")
       ) {
         return conditionalGroup([singleline, multiline]);
       } else {
