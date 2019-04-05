@@ -525,7 +525,7 @@ function printNoParens(path, options, print) {
           layer = layer.base
         }
 
-        if (layer.name === "reply") {
+        if (path.getNode().identifier.loc.start.line === path.getNode().base.loc.start.line) {
           return concat([
             path.call(print, "base"),
             node.indexer,
@@ -538,6 +538,7 @@ function printNoParens(path, options, print) {
         if (layer.identifier && layer.identifier.name === "tile") {
           alignSpaces = 16
         }
+
 
         return concat([
           path.call(print, "base"),
