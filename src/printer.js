@@ -79,6 +79,46 @@ function printNoParens(path, options, print) {
       const isAnonymous = !node.identifier;
       const hasParams = node.parameters.length > 0;
 
+      // function call in when()
+      if (path.getParentNode().type === "CallExpression") {
+        // console.log(path.getParentNode().base)
+        if (path.getParentNode().base.identifier && path.getParentNode().base.identifier.name === "when") {
+          const indexerLen = path.getParentNode().base.indexer
+          const parentIndent = path.getParentNode().base.identifier.loc.start.column
+    
+          return concat([
+            node.isLocal ? "local " : "",
+            "function",
+            isAnonymous ? "" : concat([" ", path.call(print, "identifier")]),
+            "(",
+            hasParams
+              ? group(
+                  concat([
+                    softline,
+                    indent(
+                      join(concat([",", line]), path.map(print, "parameters"))
+                    ),
+                    softline,
+                  ])
+                )
+              : "",
+            ")",
+            align(parentIndent, 
+              concat([
+                indent(
+                  concat([
+                    hardline, 
+                    printBody(path, options, print)
+                  ])
+                ),
+                isAnonymous && isEmpty ? " " : hardline,
+                "end"
+              ])
+            )
+          ]);          
+        }
+      }
+
       return concat([
         node.isLocal ? "local " : "",
         "function",
@@ -144,9 +184,10 @@ function printNoParens(path, options, print) {
       // send
       if (path.getNode().identifier.name === "send") {
         if (
-          path.getNode().base &&
-          path.getNode().base.base &&
-          path.getNode().base.base.name === "reply"
+          // path.getNode().base &&
+          // path.getNode().base.base &&
+          // path.getNode().base.base.name === "reply"
+          path.getNode().identifier.loc.start.line === path.getNode().base.loc.start.line
         ) {
           return concat([
             path.call(print, "base"),            
@@ -154,6 +195,14 @@ function printNoParens(path, options, print) {
             path.call(print, "identifier")
           ]);  
         }
+
+        // if (path.getNode().base && path.getNode().base.name === "tiles") {
+        //   return concat([
+        //     path.call(print, "base"),            
+        //     node.indexer,
+        //     path.call(print, "identifier")
+        //   ]);  
+        // }
 
         return concat([
           path.call(print, "base"),
@@ -240,6 +289,19 @@ function printNoParens(path, options, print) {
           ]);          
         }
 
+        if (layer.identifier && layer.identifier.name === "merge") {
+          let indexerLen = layer.indexer.length
+          let parentIndent = layer.identifier.loc.start.column - indexerLen
+           return concat([
+            path.call(print, "base"),
+            align(parentIndent-4,concat([
+              softline,
+              node.indexer,
+              path.call(print, "identifier")
+            ]))
+          ]);     
+        }
+
         return concat([
           path.call(print, "base"),
           align(4,concat([
@@ -268,7 +330,7 @@ function printNoParens(path, options, print) {
         if (layer.identifier && layer.identifier.name === "when") {
           let indexerLen = layer.indexer.length
           let parentIndent = layer.identifier.loc.start.column - indexerLen
-      
+    
           return concat([
             path.call(print, "base"),
             align(4+parentIndent,concat([
