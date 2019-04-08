@@ -1,9 +1,9 @@
 {
-  "name": "@prettier/plugin-lua",
+  "name": "Wotzhs/plugin-lua",
   "version": "0.0.1",
   "description": "Prettier Lua Plugin",
   "repository": "prettier/plugin-lua",
-  "author": "Suchipi <me@suchipi.com>",
+  "author": ["Suchipi <me@suchipi.com>", "wotzhs@gmail.com"],
   "license": "MIT",
   "main": "src",
   "files": [
