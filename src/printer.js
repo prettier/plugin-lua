@@ -81,7 +81,6 @@ function printNoParens(path, options, print) {
 
       // function call in when()
       if (path.getParentNode().type === "CallExpression") {
-        // console.log(path.getParentNode().base)
         if (path.getParentNode().base.identifier && path.getParentNode().base.identifier.name === "when") {
           const indexerLen = path.getParentNode().base.indexer
           const parentIndent = path.getParentNode().base.identifier.loc.start.column
@@ -612,7 +611,7 @@ function printNoParens(path, options, print) {
     }
     case "LogicalExpression":
     case "BinaryExpression": {
-      
+      const parentNode = path.getParentNode()
       // if logical statement spans multiline
       if (
         path.getNode().type === "LogicalExpression" &&
@@ -651,11 +650,16 @@ function printNoParens(path, options, print) {
     case "IfClause":
     case "ElseifClause": {
       const printedBody = printIndentedBody(path, options, print);
+
+      const multilineStatement = path.getNode().condition.loc.start.line !== path.getNode().condition.loc.end.line
+
       return concat([
         node.type === "ElseifClause" ? "else" : "",
         "if ",
         path.call(print, "condition"),
-        " then",
+        multilineStatement 
+        ? concat([hardline, "then"])
+        : " then",
         willBreak(printedBody) ? breakParent : " ",
         printedBody,
       ]);
