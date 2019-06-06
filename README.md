@@ -151,6 +151,24 @@ command PrettierLua call PrettierLuaCursor()
 autocmd BufwritePre *.lua PrettierLua
 ```
 
+### Sublime Text
+
+Install [JsPrettier](https://packagecontrol.io/packages/JsPrettier) using [Package Control](https://packagecontrol.io/installation) and add the following to your `<project_name>.sublime-project` project-level file:
+
+```
+{
+  "settings": {
+    "js_prettier": {
+      "auto_format_on_save": true,
+      "custom_file_extensions": ["lua"],
+    }
+  }
+}
+
+```
+
+Alternatively, `"custom_file_extensions": ["lua"]` can be added to the JsPrettier plugin user settings. 
+
 ## Contributing
 
 If you're interested in contributing to the development of Prettier for Lua, you can follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/master/CONTRIBUTING.md), as it all applies to this repository too.
