@@ -16,9 +16,22 @@ const {
   breakParent,
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
-const { makeString, isNextLineEmpty } = require("prettier").util;
+const {
+  makeString,
+  isNextLineEmpty: _isNextLineEmpty,
+} = require("prettier").util;
 const { isValidIdentifier, isExpression } = require("./util");
 const { printDanglingComments, isDanglingComment } = require("./comments");
+
+const prettierVersion = require("prettier").version;
+
+function lookupIfPrettier2(options, prop) {
+  return parseInt(prettierVersion[0]) > 1 ? options[prop] : options;
+}
+
+function isNextLineEmpty(text, node, options) {
+  return _isNextLineEmpty(text, node, lookupIfPrettier2(options, "locEnd"));
+}
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
