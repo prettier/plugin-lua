@@ -3,9 +3,6 @@
 const fs = require("fs");
 const { extname } = require("path");
 const prettier = require("prettier");
-const plugin = require("../src");
-const { massageAST } = require("prettier-from-github/src/common/clean-ast");
-const { normalize } = require("prettier-from-github/src/main/options");
 
 const { AST_COMPARE } = process.env;
 
@@ -30,16 +27,20 @@ function run_spec(dirname, parsers, options) {
       filename[0] !== "." &&
       filename !== "jsfmt.spec.js"
     ) {
-      const source = read(path).replace(/\r\n/g, "\n");
+      let source = read(path);
+
+      if (!options.keepEOL) {
+        source = source.replace(/\r\n/g, "\n");
+      }
 
       const mergedOptions = Object.assign(mergeDefaultOptions(options || {}), {
         parser: parsers[0],
       });
       const output = prettyprint(source, path, mergedOptions);
       test(`${filename} - ${mergedOptions.parser}-verify`, () => {
-        expect(raw(`${source + "~".repeat(80)}\n${output}`)).toMatchSnapshot(
-          filename
-        );
+        expect(
+          raw(`${source + "~".repeat(mergedOptions.printWidth)}\n${output}`)
+        ).toMatchSnapshot(filename);
       });
 
       parsers.slice(1).forEach((parserName) => {
@@ -52,26 +53,23 @@ function run_spec(dirname, parsers, options) {
         });
       });
 
-      if (AST_COMPARE) {
-        const normalizedOptions = normalize(mergedOptions);
-        const ast = parse(source, mergedOptions);
-        const astMassaged = massageAST(ast, normalizedOptions);
+      if (AST_COMPARE && parsers.slice(0) === "lua") {
+        const compareOptions = Object.assign({}, mergedOptions);
+        const astMassaged = parse(source, compareOptions);
         let ppastMassaged;
         let pperr = null;
-        try {
-          const ppast = parse(
-            prettyprint(source, path, mergedOptions),
-            mergedOptions
+        expect(() => {
+          ppastMassaged = parse(
+            prettyprint(source, path, compareOptions),
+            compareOptions
           );
-          ppastMassaged = massageAST(ppast, normalizedOptions);
-        } catch (e) {
-          pperr = e.stack;
-        }
+        }).not.toThrow();
 
+        expect(ppastMassaged).toBeDefined();
         test(`${path} parse`, () => {
           expect(pperr).toBe(null);
           expect(ppastMassaged).toBeDefined();
-          if (!ast.errors || ast.errors.length === 0) {
+          if (!astMassaged.errors || astMassaged.errors.length === 0) {
             expect(astMassaged).toEqual(ppastMassaged);
           }
         });
@@ -81,32 +79,8 @@ function run_spec(dirname, parsers, options) {
 }
 global.run_spec = run_spec;
 
-function stripLocation(ast) {
-  if (Array.isArray(ast)) {
-    return ast.map((e) => stripLocation(e));
-  }
-  if (typeof ast === "object") {
-    const newObj = {};
-    for (const key in ast) {
-      if (
-        key === "loc" ||
-        key === "range" ||
-        key === "raw" ||
-        key === "comments" ||
-        key === "parent" ||
-        key === "prev"
-      ) {
-        continue;
-      }
-      newObj[key] = stripLocation(ast[key]);
-    }
-    return newObj;
-  }
-  return ast;
-}
-
 function parse(string, opts) {
-  return stripLocation(plugin.parsers.lua.parse(string, {}, opts));
+  return prettier.__debug.parse(string, opts, /* massage */ true).ast;
 }
 
 function prettyprint(src, filename, options) {
@@ -122,7 +96,7 @@ function prettyprint(src, filename, options) {
 }
 
 function read(filename) {
-  return fs.readFileSync(filename, "utf-8");
+  return fs.readFileSync(filename, "utf8");
 }
 
 /**
