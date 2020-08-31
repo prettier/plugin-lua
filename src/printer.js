@@ -407,7 +407,7 @@ function printBody(path, options, print) {
     }
 
     if (
-      isNextLineEmpty(text, statement, options) &&
+      isNextLineEmpty(text, statement, options["locEnd"]) &&
       !isLastStatement(statementPath)
     ) {
       parts.push(hardline);
@@ -614,7 +614,7 @@ function printArgumentsList(path, options, print) {
 
     if (index === lastArgIndex) {
       // do nothing
-    } else if (isNextLineEmpty(options.originalText, arg, options)) {
+    } else if (isNextLineEmpty(options.originalText, arg, options["locEnd"])) {
       if (index === 0) {
         hasEmptyLineFollowingFirstArg = true;
       }

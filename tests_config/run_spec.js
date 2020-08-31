@@ -115,6 +115,7 @@ function mergeDefaultOptions(parserConfig) {
   return Object.assign(
     {
       printWidth: 80,
+      trailingComma: "none",
     },
     parserConfig
   );
