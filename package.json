@@ -6,6 +6,9 @@
   "author": "Suchipi <me@suchipi.com>",
   "license": "MIT",
   "main": "src",
+  "engines": {
+    "node": ">=10.13.0"
+  },
   "files": [
     "src"
   ],
@@ -13,18 +16,17 @@
     "luaparse": "0.2.1"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "eslint": "4.19.1",
-    "eslint-config-unobtrusive": "^1.2.2",
-    "eslint-plugin-import": "2.10.0",
-    "eslint-plugin-prettier": "2.6.0",
-    "jest": "22.4.3",
-    "jest-runner-eslint": "0.4.0",
-    "prettier-from-github": "prettier/prettier#4c464133ac37a966c792cacc660853d74c776841",
-    "prettier": "1.13.7"
+    "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
+    "eslint-config-unobtrusive": "^1.2.5",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^24.9.0",
+    "jest-runner-eslint": "^0.10.0",
+    "prettier": "^2.1.1"
   },
   "peerDependencies": {
-    "prettier": ">=1.0.0"
+    "prettier": ">=2.0.0"
   },
   "scripts": {
     "test": "cross-env AST_COMPARE=1 jest",
@@ -37,3 +39,4 @@
     ]
   }
 }
+
