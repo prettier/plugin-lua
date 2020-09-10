@@ -17,12 +17,15 @@ const {
 } = require("prettier").doc.builders;
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
-const { isValidIdentifier, isExpression } = require("./util");
+const {
+  isValidIdentifier,
+  isExpression,
+  lineShouldEndWithSemicolon,
+} = require("./util");
 const { printDanglingComments, isDanglingComment } = require("./comments");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
-
   switch (node.type) {
     case "Chunk": {
       return printBody(path, options, print);
@@ -443,7 +446,7 @@ function couldBeCallExpressionBase(node) {
   return false;
 }
 
-function shouldHaveParens(node, parent) {
+function pathNeedsParens(node, parent) {
   if (!node.inParens) {
     return false;
   }
@@ -507,7 +510,7 @@ function shouldHaveParens(node, parent) {
 }
 
 function willHaveLeadingParen(node, parent) {
-  if (shouldHaveParens(node, parent)) {
+  if (pathNeedsParens(node, parent)) {
     return true;
   }
 
@@ -539,7 +542,7 @@ function getRightmostNode(node, parent) {
     }
     case "BinaryExpression":
     case "LogicalExpression": {
-      if (shouldHaveParens(node, parent)) {
+      if (pathNeedsParens(node, parent)) {
         return node;
       }
       return getRightmostNode(node.right, node);
@@ -760,12 +763,32 @@ function getLast(arr) {
 }
 
 module.exports = function genericPrint(path, options, print) {
-  const printed = printNoParens(path, options, print);
+  const printedWithoutParens = printNoParens(path, options, print);
 
   const node = path.getValue();
-  if (shouldHaveParens(node, path.getParentNode())) {
-    return concat(["(", printed, ")"]);
-  } else {
-    return printed;
+
+  if (!node) {
+    return "";
+  } else if (typeof node === "string") {
+    return node;
   }
+
+  const parts = [];
+  const needsParens = pathNeedsParens(node, path.getParentNode());
+
+  if (needsParens) {
+    parts.unshift("(");
+  }
+
+  parts.push(printedWithoutParens);
+
+  if (needsParens) {
+    parts.push(")");
+  }
+
+  if (options.semi && lineShouldEndWithSemicolon(path)) {
+    parts.push(";");
+  }
+
+  return concat(parts);
 };
