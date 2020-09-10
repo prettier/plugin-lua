@@ -116,6 +116,7 @@ function mergeDefaultOptions(parserConfig) {
     {
       printWidth: 80,
       trailingComma: "none",
+      semi: false,
     },
     parserConfig
   );
