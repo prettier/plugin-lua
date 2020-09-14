@@ -110,7 +110,7 @@ function you_need_me_2(...)
   return (...), (b())
 end
 
-function you_need_me_3()
+function you_need_me_3(...)
   return (...), (b()), (c())
 end
 
