@@ -6,7 +6,7 @@
 <img alt="Prettier"
   src="https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-icon-light.png">
 <img alt="Lua" height="180" hspace="25" vspace="15"
-  src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Lua-logo-nolabel.svg">
+  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lua-logo-nolabel.svg">
 </div>
 
 <h2 align="center">Prettier Lua Plugin</h2>
@@ -167,7 +167,7 @@ Install [JsPrettier](https://packagecontrol.io/packages/JsPrettier) using [Packa
 
 ```
 
-Alternatively, `"custom_file_extensions": ["lua"]` can be added to the JsPrettier plugin user settings. 
+Alternatively, `"custom_file_extensions": ["lua"]` can be added to the JsPrettier plugin user settings.
 
 ## Contributing
 
