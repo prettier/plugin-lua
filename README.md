@@ -68,41 +68,58 @@ end
 yarn:
 
 ```bash
-yarn add --dev prettier @prettier/plugin-lua
+yarn add --dev prettier @prettier/plugin-lua-elson
 # or globally
-yarn global add prettier @prettier/plugin-lua
+yarn global add prettier @prettier/plugin-lua-elson
 ```
 
 npm:
 
 ```bash
-npm install --save-dev prettier @prettier/plugin-lua
+npm install --save-dev prettier @prettier/plugin-lua-elson
 # or globally
-npm install --global prettier @prettier/plugin-lua
+npm install --global prettier @prettier/plugin-lua-elson
 ```
 
-## Use
+## Use and Testing
 
-If you installed prettier as a local dependency, you can add prettier as a script in your `package.json`,
+If you installed `@prettier/plugin-lua-elson` in your project, you can those scripts in your `package.json`
 
 ```json
 "scripts": {
-  "prettier": "prettier"
+  "prettier": "prettier",
+  "prettier:format": "prettier --write \"**/*.lua\"",
+  "prettier-test": "prettier --write path/to/file.lua"
 }
 ```
 
 and then run it via
 
 ```bash
-yarn run prettier path/to/file.lua --write
+# check and format all files
+npm run prettier:format
+```
+
+```bash
+# check and format passing file
+yarn run prettier --write path/to/file.lua
 # or
-npm run prettier -- path/to/file.lua --write
+npm run prettier --write path/to/file.lua
+
 ```
 
 If you installed globally, run
 
 ```bash
-prettier path/to/file.lua --write
+prettier --write path/to/file.lua
+```
+
+### Testing our `@prettier/plugin-lua-elson`
+Check and format all files before you run in your project
+- First copy your lua file to lua-tests folder
+- Run command below
+```bash
+npm run prettier:test
 ```
 
 ## Editor integration

@@ -407,7 +407,7 @@ function printBody(path, options, print) {
     }
 
     if (
-      isNextLineEmpty(text, statement, options["locEnd"]) &&
+      isNextLineEmpty(text, statement, locEnd) &&
       !isLastStatement(statementPath)
     ) {
       parts.push(hardline);
@@ -422,6 +422,10 @@ function printBody(path, options, print) {
       printDanglingComments(path, options, /* sameIndent */ true),
     ])
   );
+}
+
+function locEnd(node) {
+  return node.range[1];
 }
 
 function couldBeCallExpressionBase(node) {
@@ -614,7 +618,7 @@ function printArgumentsList(path, options, print) {
 
     if (index === lastArgIndex) {
       // do nothing
-    } else if (isNextLineEmpty(options.originalText, arg, options["locEnd"])) {
+    } else if (isNextLineEmpty(options.originalText, arg, locEnd)) {
       if (index === 0) {
         hasEmptyLineFollowingFirstArg = true;
       }

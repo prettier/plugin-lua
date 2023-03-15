@@ -10,5 +10,5 @@ module.exports = {
   testPathIgnorePatterns: [],
   collectCoverage: ENABLE_COVERAGE,
   collectCoverageFrom: ["src/**/*.js", "!<rootDir>/node_modules/"],
-  transform: {}
+  transform: {},
 };

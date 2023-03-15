@@ -1,8 +1,8 @@
 {
-  "name": "@prettier/plugin-lua",
+  "name": "@prettier/plugin-lua-elson",
   "version": "0.0.1",
   "description": "Prettier Lua Plugin",
-  "repository": "prettier/plugin-lua",
+  "repository": "prettier/plugin-lua-elson",
   "author": "Suchipi <me@suchipi.com>",
   "license": "MIT",
   "main": "src",
@@ -23,7 +23,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^24.9.0",
     "jest-runner-eslint": "^0.10.0",
-    "prettier": "^2.1.1"
+    "prettier": "^2.8.4"
   },
   "peerDependencies": {
     "prettier": ">=2.0.0"
@@ -31,7 +31,9 @@
   "scripts": {
     "test": "cross-env AST_COMPARE=1 jest",
     "test:watch": "cross-env AST_COMPARE=1 jest --watchAll --updateSnapshot",
-    "prettier": "prettier --plugin=. --parser=lua"
+    "lint:fix": "npx eslint --fix",
+    "prettier": "prettier --plugin=. --parser=lua",
+    "prettier:test": "prettier --write \"lua-tests/**/*.lua\""
   },
   "jest": {
     "projects": [

@@ -1,10 +1,7 @@
 "use strict";
 
-const {
-  addLeadingComment,
-  addDanglingComment,
-  addTrailingComment,
-} = require("prettier").util;
+const { addLeadingComment, addDanglingComment, addTrailingComment } =
+  require("prettier").util;
 const { concat, join, indent, hardline } = require("prettier").doc.builders;
 const { isValidIdentifier, isExpression } = require("./util");
 
