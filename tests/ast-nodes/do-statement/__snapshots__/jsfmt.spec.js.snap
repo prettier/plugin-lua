@@ -18,6 +18,7 @@ end
 do
 	print("just do it!")
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -38,4 +39,5 @@ end
 do
 	print('just do it!')
 end
+
 `;

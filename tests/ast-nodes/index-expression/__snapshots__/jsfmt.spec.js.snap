@@ -13,6 +13,7 @@ tbl[42.6] = 5
 tbl["loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"]
 = 6
 tbl[bcdefgh] = 7
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -28,4 +29,5 @@ tbl[42.6] = 5
 tbl['loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong']
 = 6
 tbl[bcdefgh] = 7
+
 `;

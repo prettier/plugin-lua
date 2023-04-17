@@ -16,6 +16,7 @@ end
 function with_arg()
 	return argument
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -34,4 +35,5 @@ end
 function with_arg()
 	return argument
 end
+
 `;

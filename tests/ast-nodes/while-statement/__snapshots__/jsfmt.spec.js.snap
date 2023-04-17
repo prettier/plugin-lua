@@ -13,6 +13,7 @@ end
 while condition do
 	print("while-loop")
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -28,4 +29,5 @@ end
 while condition do
 	print('while-loop')
 end
+
 `;

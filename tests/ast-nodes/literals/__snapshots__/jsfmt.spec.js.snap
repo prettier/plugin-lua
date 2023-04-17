@@ -91,6 +91,7 @@ vararg_parens = ...
 
 function vararg_params(...)
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -184,4 +185,5 @@ vararg_parens = ...
 
 function vararg_params(...)
 end
+
 `;

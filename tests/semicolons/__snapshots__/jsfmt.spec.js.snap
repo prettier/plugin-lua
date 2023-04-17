@@ -120,6 +120,7 @@ end)()
 
 local identifier_semi = a;
 (function() end)()
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -242,4 +243,5 @@ end)()
 
 local identifier_semi = a;
 (function() end)()
+
 `;

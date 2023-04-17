@@ -145,6 +145,7 @@ for this_is in
 do
 	print("hi")
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -292,4 +293,5 @@ for this_is in
 do
 	print('hi')
 end
+
 `;

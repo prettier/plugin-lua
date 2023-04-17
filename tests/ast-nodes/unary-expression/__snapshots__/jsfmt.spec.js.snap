@@ -6,6 +6,7 @@ opposite = not true
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 negative = -1
 opposite = not true
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -14,4 +15,5 @@ opposite = not true
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 negative = -1
 opposite = not true
+
 `;

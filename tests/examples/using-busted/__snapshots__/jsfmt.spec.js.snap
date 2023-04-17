@@ -75,4 +75,5 @@ describe("Busted unit testing framework", function()
 		end)
 	end)
 end)
+
 `;

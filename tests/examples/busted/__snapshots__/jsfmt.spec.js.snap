@@ -193,6 +193,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`TAP.lua - lua-verify: TAP.lua 2`] = `
@@ -388,6 +389,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`ar.lua - lua-verify: ar.lua 1`] = `
@@ -476,6 +478,7 @@ return {
 		"عَليكَ بالإحتِفال؛ نَجَحَت جَميعُ التَجارُب"
 	}
 }
+
 `;
 
 exports[`ar.lua - lua-verify: ar.lua 2`] = `
@@ -564,6 +567,7 @@ return {
 		'عَليكَ بالإحتِفال؛ نَجَحَت جَميعُ التَجارُب',
 	},
 }
+
 `;
 
 exports[`async_spec.lua - lua-verify: async_spec.lua 1`] = `
@@ -773,6 +777,7 @@ pending("testing done callbacks being provided for async tests", function()
 		done()
 	end)
 end)
+
 `;
 
 exports[`async_spec.lua - lua-verify: async_spec.lua 2`] = `
@@ -982,6 +987,7 @@ pending('testing done callbacks being provided for async tests', function()
 		done()
 	end)
 end)
+
 `;
 
 exports[`base.lua - lua-verify: base.lua 1`] = `
@@ -1381,6 +1387,7 @@ return function()
 
 	return handler
 end
+
 `;
 
 exports[`base.lua - lua-verify: base.lua 2`] = `
@@ -1772,6 +1779,7 @@ return function()
 
 	return handler
 end
+
 `;
 
 exports[`block.lua - lua-verify: block.lua 1`] = `
@@ -2124,6 +2132,7 @@ return function(busted)
 
 	return block
 end
+
 `;
 
 exports[`block.lua - lua-verify: block.lua 2`] = `
@@ -2474,6 +2483,7 @@ return function(busted)
 
 	return block
 end
+
 `;
 
 exports[`cl_error_messages.lua - lua-verify: cl_error_messages.lua 1`] = `
@@ -2533,6 +2543,7 @@ describe("Test error messages show file and line for", function()
 		error("error after pcall")
 	end)
 end)
+
 `;
 
 exports[`cl_error_messages.lua - lua-verify: cl_error_messages.lua 2`] = `
@@ -2592,6 +2603,7 @@ describe('Test error messages show file and line for', function()
 		error('error after pcall')
 	end)
 end)
+
 `;
 
 exports[`cl_errors.lua - lua-verify: cl_errors.lua 1`] = `
@@ -2622,6 +2634,7 @@ describe("Tests the busted error detection through the commandline", function()
 		foo.bar = nil
 	end)
 end)
+
 `;
 
 exports[`cl_errors.lua - lua-verify: cl_errors.lua 2`] = `
@@ -2652,6 +2665,7 @@ describe('Tests the busted error detection through the commandline', function()
 		foo.bar = nil
 	end)
 end)
+
 `;
 
 exports[`cl_execute_fail.lua - lua-verify: cl_execute_fail.lua 1`] = `
@@ -2663,6 +2677,7 @@ error('This compiles fine, but throws an error when being run')
 -- supporting testfile; belongs to 'cl_spec.lua'
 
 error("This compiles fine, but throws an error when being run")
+
 `;
 
 exports[`cl_execute_fail.lua - lua-verify: cl_execute_fail.lua 2`] = `
@@ -2674,6 +2689,7 @@ error('This compiles fine, but throws an error when being run')
 -- supporting testfile; belongs to 'cl_spec.lua'
 
 error('This compiles fine, but throws an error when being run')
+
 `;
 
 exports[`cl_failing_support.lua - lua-verify: cl_failing_support.lua 1`] = `
@@ -3116,6 +3132,7 @@ describe("bad support functions should fail, async test", function()
 		)
 	end)
 end)
+
 `;
 
 exports[`cl_failing_support.lua - lua-verify: cl_failing_support.lua 2`] = `
@@ -3558,6 +3575,7 @@ describe('bad support functions should fail, async test', function()
 		)
 	end)
 end)
+
 `;
 
 exports[`cl_filter.lua - lua-verify: cl_filter.lua 1`] = `
@@ -3657,6 +3675,7 @@ context("Tests context with patt2", function()
 		error("error in setup on patt2")
 	end)
 end)
+
 `;
 
 exports[`cl_filter.lua - lua-verify: cl_filter.lua 2`] = `
@@ -3756,6 +3775,7 @@ context('Tests context with patt2', function()
 		error('error in setup on patt2')
 	end)
 end)
+
 `;
 
 exports[`cl_gc_error.lua - lua-verify: cl_gc_error.lua 1`] = `
@@ -3783,6 +3803,7 @@ describe("Runs test with garbage collection failure", function()
 		collectgarbage()
 	end)
 end)
+
 `;
 
 exports[`cl_gc_error.lua - lua-verify: cl_gc_error.lua 2`] = `
@@ -3810,6 +3831,7 @@ describe('Runs test with garbage collection failure', function()
 		collectgarbage()
 	end)
 end)
+
 `;
 
 exports[`cl_helper_script.lua - lua-verify: cl_helper_script.lua 1`] = `
@@ -3988,6 +4010,7 @@ subscribe({ "test", "end" }, function()
 	assert(not cliArgs["fail-test-end"])
 	return nil, true
 end)
+
 `;
 
 exports[`cl_helper_script.lua - lua-verify: cl_helper_script.lua 2`] = `
@@ -4166,6 +4189,7 @@ subscribe({'test', 'end'}, function()
 	assert(not cliArgs['fail-test-end'])
 	return nil, true
 end)
+
 `;
 
 exports[`cl_list.lua - lua-verify: cl_list.lua 1`] = `
@@ -4191,6 +4215,7 @@ describe("Tests list", function()
 
 	it("test 3", function() end)
 end)
+
 `;
 
 exports[`cl_list.lua - lua-verify: cl_list.lua 2`] = `
@@ -4216,6 +4241,7 @@ describe('Tests list', function()
 
 	it('test 3', function() end)
 end)
+
 `;
 
 exports[`cl_lua_path.lua - lua-verify: cl_lua_path.lua 1`] = `
@@ -4236,6 +4262,7 @@ describe("Tests --lpath prepends to package.path", function()
 		assert.is_equal("test module", mod)
 	end)
 end)
+
 `;
 
 exports[`cl_lua_path.lua - lua-verify: cl_lua_path.lua 2`] = `
@@ -4256,6 +4283,7 @@ describe('Tests --lpath prepends to package.path', function()
 		assert.is_equal('test module', mod)
 	end)
 end)
+
 `;
 
 exports[`cl_output_handler.lua - lua-verify: cl_output_handler.lua 1`] = `
@@ -4328,6 +4356,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`cl_output_handler.lua - lua-verify: cl_output_handler.lua 2`] = `
@@ -4400,6 +4429,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`cl_pending.lua - lua-verify: cl_pending.lua 1`] = `
@@ -4437,6 +4467,7 @@ describe(
 		end)
 	end
 )
+
 `;
 
 exports[`cl_pending.lua - lua-verify: cl_pending.lua 2`] = `
@@ -4474,6 +4505,7 @@ describe(
 		end)
 	end
 )
+
 `;
 
 exports[`cl_random_seed.lua - lua-verify: cl_random_seed.lua 1`] = `
@@ -4544,6 +4576,7 @@ describe("Order of tests ran", function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_random_seed.lua - lua-verify: cl_random_seed.lua 2`] = `
@@ -4614,6 +4647,7 @@ describe('Order of tests ran', function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_randomize.lua - lua-verify: cl_randomize.lua 1`] = `
@@ -4653,6 +4687,7 @@ describe("Randomizing test order with --shuffle flag", function()
 		assert.are_not.same(unexpected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_randomize.lua - lua-verify: cl_randomize.lua 2`] = `
@@ -4692,6 +4727,7 @@ describe('Randomizing test order with --shuffle flag', function()
 		assert.are_not.same(unexpected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_sort.lua - lua-verify: cl_sort.lua 1`] = `
@@ -4754,6 +4790,7 @@ describe("Randomizing test order with --sort flag", function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_sort.lua - lua-verify: cl_sort.lua 2`] = `
@@ -4816,6 +4853,7 @@ describe('Randomizing test order with --sort flag', function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`cl_spec.lua - lua-verify: cl_spec.lua 1`] = `
@@ -6620,6 +6658,7 @@ describe("Tests execute option", function()
 		assert.is_equal("hello world", result:match("(.-)\\n"))
 	end)
 end)
+
 `;
 
 exports[`cl_spec.lua - lua-verify: cl_spec.lua 2`] = `
@@ -8424,6 +8463,7 @@ describe('Tests execute option', function()
 		assert.is_equal('hello world', result:match('(.-)\\n'))
 	end)
 end)
+
 `;
 
 exports[`cl_standalone.lua - lua-verify: cl_standalone.lua 1`] = `
@@ -8485,6 +8525,7 @@ describe("Tests busted standalone with command-line options", function()
 		-- Always succeed
 	end)
 end)
+
 `;
 
 exports[`cl_standalone.lua - lua-verify: cl_standalone.lua 2`] = `
@@ -8546,6 +8587,7 @@ describe('Tests busted standalone with command-line options', function()
 		-- Always succeed
 	end)
 end)
+
 `;
 
 exports[`cl_success.lua - lua-verify: cl_success.lua 1`] = `
@@ -8566,6 +8608,7 @@ describe("runs a single successful test", function()
 		-- nothing here, makes it succeed
 	end)
 end)
+
 `;
 
 exports[`cl_success.lua - lua-verify: cl_success.lua 2`] = `
@@ -8586,6 +8629,7 @@ describe('runs a single successful test', function()
 		-- nothing here, makes it succeed
 	end)
 end)
+
 `;
 
 exports[`cl_tags.lua - lua-verify: cl_tags.lua 1`] = `
@@ -8685,6 +8729,7 @@ context("Tests context with a tag #dtag2", function()
 		error("error in setup on dtag2")
 	end)
 end)
+
 `;
 
 exports[`cl_tags.lua - lua-verify: cl_tags.lua 2`] = `
@@ -8784,18 +8829,21 @@ context('Tests context with a tag #dtag2', function()
 		error('error in setup on dtag2')
 	end)
 end)
+
 `;
 
 exports[`cl_test_module.lua - lua-verify: cl_test_module.lua 1`] = `
 return 'test module'
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 return "test module"
+
 `;
 
 exports[`cl_test_module.lua - lua-verify: cl_test_module.lua 2`] = `
 return 'test module'
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 return 'test module'
+
 `;
 
 exports[`cl_two_failures.lua - lua-verify: cl_two_failures.lua 1`] = `
@@ -8824,6 +8872,7 @@ describe("Runs 2 failing tests", function()
 		assert(false, "failed on test 2")
 	end)
 end)
+
 `;
 
 exports[`cl_two_failures.lua - lua-verify: cl_two_failures.lua 2`] = `
@@ -8852,6 +8901,7 @@ describe('Runs 2 failing tests', function()
 		assert(false, 'failed on test 2')
 	end)
 end)
+
 `;
 
 exports[`cli.lua - lua-verify: cli.lua 1`] = `
@@ -9544,6 +9594,7 @@ return function(options)
 		end
 	}
 end
+
 `;
 
 exports[`cli.lua - lua-verify: cli.lua 2`] = `
@@ -10236,6 +10287,7 @@ return function(options)
 		end,
 	}
 end
+
 `;
 
 exports[`cli_spec.lua - lua-verify: cli_spec.lua 1`] = `
@@ -11436,6 +11488,7 @@ describe("Tests command-line parse errors", function()
 		)
 	end)
 end)
+
 `;
 
 exports[`cli_spec.lua - lua-verify: cli_spec.lua 2`] = `
@@ -12628,6 +12681,7 @@ describe('Tests command-line parse errors', function()
 		)
 	end)
 end)
+
 `;
 
 exports[`compatibility.lua - lua-verify: compatibility.lua 1`] = `
@@ -12776,6 +12830,7 @@ return {
 	end,
 	execute = require"pl.utils".execute
 }
+
 `;
 
 exports[`compatibility.lua - lua-verify: compatibility.lua 2`] = `
@@ -12924,6 +12979,7 @@ return {
 	end,
 	execute = require'pl.utils'.execute,
 }
+
 `;
 
 exports[`configuration_loader.lua - lua-verify: configuration_loader.lua 1`] = `
@@ -12998,6 +13054,7 @@ return function()
 
 	return loadBustedConfigurationFile
 end
+
 `;
 
 exports[`configuration_loader.lua - lua-verify: configuration_loader.lua 2`] = `
@@ -13072,6 +13129,7 @@ return function()
 
 	return loadBustedConfigurationFile
 end
+
 `;
 
 exports[`configuration_loader_spec.lua - lua-verify: configuration_loader_spec.lua 1`] = `
@@ -13245,6 +13303,7 @@ describe("Config Loader", function()
 		assert.are.equal("Task \`invalid\` not found, or not a table.", err)
 	end)
 end)
+
 `;
 
 exports[`configuration_loader_spec.lua - lua-verify: configuration_loader_spec.lua 2`] = `
@@ -13418,6 +13477,7 @@ describe('Config Loader', function()
 		assert.are.equal('Task \`invalid\` not found, or not a table.', err)
 	end)
 end)
+
 `;
 
 exports[`context.lua - lua-verify: context.lua 1`] = `
@@ -13704,6 +13764,7 @@ return function()
 
 	return context
 end
+
 `;
 
 exports[`context.lua - lua-verify: context.lua 2`] = `
@@ -13990,6 +14051,7 @@ return function()
 
 	return context
 end
+
 `;
 
 exports[`core.lua - lua-verify: core.lua 1`] = `
@@ -14677,6 +14739,7 @@ return function()
 
 	return busted
 end
+
 `;
 
 exports[`core.lua - lua-verify: core.lua 2`] = `
@@ -15364,6 +15427,7 @@ return function()
 
 	return busted
 end
+
 `;
 
 exports[`core_spec.lua - lua-verify: core_spec.lua 1`] = `
@@ -16555,6 +16619,7 @@ describe("tests lazy setup/teardown with nested tests", function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`core_spec.lua - lua-verify: core_spec.lua 2`] = `
@@ -17746,6 +17811,7 @@ describe('tests lazy setup/teardown with nested tests', function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`de.lua - lua-verify: de.lua 1`] = `
@@ -17834,6 +17900,7 @@ return {
 		"Tests sind durchgelaufen, Zeit für ein Bier."
 	}
 }
+
 `;
 
 exports[`de.lua - lua-verify: de.lua 2`] = `
@@ -17922,6 +17989,7 @@ return {
 		'Tests sind durchgelaufen, Zeit für ein Bier.',
 	},
 }
+
 `;
 
 exports[`done.lua - lua-verify: done.lua 1`] = `
@@ -18185,6 +18253,7 @@ M.new = function(done_callback)
 end
 
 return M
+
 `;
 
 exports[`done.lua - lua-verify: done.lua 2`] = `
@@ -18448,6 +18517,7 @@ M.new = function(done_callback)
 end
 
 return M
+
 `;
 
 exports[`en.lua - lua-verify: en.lua 1`] = `
@@ -18555,6 +18625,7 @@ return {
 		"Tests pass, drink another beer"
 	}
 }
+
 `;
 
 exports[`en.lua - lua-verify: en.lua 2`] = `
@@ -18662,6 +18733,7 @@ return {
 		'Tests pass, drink another beer',
 	},
 }
+
 `;
 
 exports[`environment.lua - lua-verify: environment.lua 1`] = `
@@ -18765,6 +18837,7 @@ return function(context)
 	end
 	return environment
 end
+
 `;
 
 exports[`environment.lua - lua-verify: environment.lua 2`] = `
@@ -18868,6 +18941,7 @@ return function(context)
 	end
 	return environment
 end
+
 `;
 
 exports[`es.lua - lua-verify: es.lua 1`] = `
@@ -18973,6 +19047,7 @@ return {
 		"Pasaron las pruebas, tómate otra cerveza"
 	}
 }
+
 `;
 
 exports[`es.lua - lua-verify: es.lua 2`] = `
@@ -19078,6 +19153,7 @@ return {
 		'Pasaron las pruebas, tómate otra cerveza',
 	},
 }
+
 `;
 
 exports[`execute.lua - lua-verify: execute.lua 1`] = `
@@ -19239,6 +19315,7 @@ return function(busted)
 
 	return execute
 end
+
 `;
 
 exports[`execute.lua - lua-verify: execute.lua 2`] = `
@@ -19394,6 +19471,7 @@ return function(busted)
 
 	return execute
 end
+
 `;
 
 exports[`execution_order_sync_spec.lua - lua-verify: execution_order_sync_spec.lua 1`] = `
@@ -19541,6 +19619,7 @@ end)
 it("5", function()
 	assert.equal(egg, "SbB1AabB2AasbBE3FAatb4aT")
 end)
+
 `;
 
 exports[`execution_order_sync_spec.lua - lua-verify: execution_order_sync_spec.lua 2`] = `
@@ -19688,6 +19767,7 @@ end)
 it('5', function()
 	assert.equal(egg, 'SbB1AabB2AasbBE3FAatb4aT')
 end)
+
 `;
 
 exports[`export_spec.lua - lua-verify: export_spec.lua 1`] = `
@@ -19891,6 +19971,7 @@ describe('tests require "busted"', function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`export_spec.lua - lua-verify: export_spec.lua 2`] = `
@@ -20094,6 +20175,7 @@ describe('tests require "busted"', function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`expose_file1.lua - lua-verify: expose_file1.lua 1`] = `
@@ -20116,6 +20198,7 @@ expose("Tests expose from file root", function()
 		assert.is_not_nil(List)
 	end)
 end)
+
 `;
 
 exports[`expose_file1.lua - lua-verify: expose_file1.lua 2`] = `
@@ -20138,6 +20221,7 @@ expose('Tests expose from file root', function()
 		assert.is_not_nil(List)
 	end)
 end)
+
 `;
 
 exports[`expose_file2.lua - lua-verify: expose_file2.lua 1`] = `
@@ -20168,6 +20252,7 @@ describe("Tests environment exposed from previous file", function()
 		assert.is_not_nil(package.loaded["pl.List"])
 	end)
 end)
+
 `;
 
 exports[`expose_file2.lua - lua-verify: expose_file2.lua 2`] = `
@@ -20198,6 +20283,7 @@ describe('Tests environment exposed from previous file', function()
 		assert.is_not_nil(package.loaded['pl.List'])
 	end)
 end)
+
 `;
 
 exports[`file_context_support_spec.lua - lua-verify: file_context_support_spec.lua 1`] = `
@@ -20258,6 +20344,7 @@ it("file context before_each after_each egg test 2", function()
 	assert.equal("Sb1ab", egg)
 	egg = egg .. "2"
 end)
+
 `;
 
 exports[`file_context_support_spec.lua - lua-verify: file_context_support_spec.lua 2`] = `
@@ -20318,6 +20405,7 @@ it('file context before_each after_each egg test 2', function()
 	assert.equal('Sb1ab', egg)
 	egg = egg .. '2'
 end)
+
 `;
 
 exports[`file_loader_spec.lua - lua-verify: file_loader_spec.lua 1`] = `
@@ -20326,6 +20414,7 @@ local testFileLoader = require 'busted.modules.test_file_loader'(busted, {'lua'}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local testFileLoader =
 	require"busted.modules.test_file_loader"(busted, { "lua" })
+
 `;
 
 exports[`file_loader_spec.lua - lua-verify: file_loader_spec.lua 2`] = `
@@ -20333,6 +20422,7 @@ local testFileLoader = require 'busted.modules.test_file_loader'(busted, {'lua'}
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local testFileLoader = require'busted.modules.test_file_loader'(busted, {'lua'})
+
 `;
 
 exports[`file_randomize_spec.lua - lua-verify: file_randomize_spec.lua 1`] = `
@@ -20369,6 +20459,7 @@ end
 teardown(function()
 	assert.are_not.same(unexpected, order)
 end)
+
 `;
 
 exports[`file_randomize_spec.lua - lua-verify: file_randomize_spec.lua 2`] = `
@@ -20405,6 +20496,7 @@ end
 teardown(function()
 	assert.are_not.same(unexpected, order)
 end)
+
 `;
 
 exports[`filter_loader.lua - lua-verify: filter_loader.lua 1`] = `
@@ -20719,6 +20811,7 @@ return function()
 
 	return filter
 end
+
 `;
 
 exports[`filter_loader.lua - lua-verify: filter_loader.lua 2`] = `
@@ -21021,6 +21114,7 @@ return function()
 
 	return filter
 end
+
 `;
 
 exports[`fr.lua - lua-verify: fr.lua 1`] = `
@@ -21118,6 +21212,7 @@ return {
 		"Test reussi. Un de plus. Offre toi une biere, sur mon compte!"
 	}
 }
+
 `;
 
 exports[`fr.lua - lua-verify: fr.lua 2`] = `
@@ -21215,6 +21310,7 @@ return {
 		'Test reussi. Un de plus. Offre toi une biere, sur mon compte!',
 	},
 }
+
 `;
 
 exports[`gtest.lua - lua-verify: gtest.lua 1`] = `
@@ -21853,6 +21949,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`gtest.lua - lua-verify: gtest.lua 2`] = `
@@ -22491,6 +22588,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`helper_loader.lua - lua-verify: helper_loader.lua 1`] = `
@@ -22560,6 +22658,7 @@ return function()
 
 	return loadHelper
 end
+
 `;
 
 exports[`helper_loader.lua - lua-verify: helper_loader.lua 2`] = `
@@ -22629,6 +22728,7 @@ return function()
 
 	return loadHelper
 end
+
 `;
 
 exports[`init.lua - lua-verify: init.lua 1`] = `
@@ -22928,6 +23028,7 @@ return setmetatable(
 		})
 	end }
 )
+
 `;
 
 exports[`init.lua - lua-verify: init.lua 2`] = `
@@ -23227,6 +23328,7 @@ return setmetatable(
 		})
 	end}
 )
+
 `;
 
 exports[`insulate_file1.lua - lua-verify: insulate_file1.lua 1`] = `
@@ -23259,6 +23361,7 @@ describe('Tests require "cl_test_module" in another file', function()
 		assert.is_nil(package.loaded["spec.cl_test_module"])
 	end)
 end)
+
 `;
 
 exports[`insulate_file1.lua - lua-verify: insulate_file1.lua 2`] = `
@@ -23291,6 +23394,7 @@ describe('Tests require "cl_test_module" in another file', function()
 		assert.is_nil(package.loaded['spec.cl_test_module'])
 	end)
 end)
+
 `;
 
 exports[`insulate_file2.lua - lua-verify: insulate_file2.lua 1`] = `
@@ -23325,6 +23429,7 @@ describe('Tests require "pl" in another file', function()
 		assert.is_nil(package.loaded["pl.List"])
 	end)
 end)
+
 `;
 
 exports[`insulate_file2.lua - lua-verify: insulate_file2.lua 2`] = `
@@ -23359,6 +23464,7 @@ describe('Tests require "pl" in another file', function()
 		assert.is_nil(package.loaded['pl.List'])
 	end)
 end)
+
 `;
 
 exports[`insulate-expose_spec.lua - lua-verify: insulate-expose_spec.lua 1`] = `
@@ -23669,6 +23775,7 @@ describe("Tests insulate/expose", function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`insulate-expose_spec.lua - lua-verify: insulate-expose_spec.lua 2`] = `
@@ -23979,6 +24086,7 @@ describe('Tests insulate/expose', function()
 		end)
 	end)
 end)
+
 `;
 
 exports[`interface_spec.lua - lua-verify: interface_spec.lua 1`] = `
@@ -23997,6 +24105,7 @@ describe("does a describe", function()
 		end)
 	end
 end)
+
 `;
 
 exports[`interface_spec.lua - lua-verify: interface_spec.lua 2`] = `
@@ -24015,6 +24124,7 @@ describe('does a describe', function()
 		end)
 	end
 end)
+
 `;
 
 exports[`it.lua - lua-verify: it.lua 1`] = `
@@ -24122,6 +24232,7 @@ return {
 		"Test passato, hai vinto una birra"
 	}
 }
+
 `;
 
 exports[`it.lua - lua-verify: it.lua 2`] = `
@@ -24229,6 +24340,7 @@ return {
 		'Test passato, hai vinto una birra',
 	},
 }
+
 `;
 
 exports[`ja.lua - lua-verify: ja.lua 1`] = `
@@ -24319,6 +24431,7 @@ return {
 		"テストが通ったし、ビールでも飲もう"
 	}
 }
+
 `;
 
 exports[`ja.lua - lua-verify: ja.lua 2`] = `
@@ -24409,6 +24522,7 @@ return {
 		'テストが通ったし、ビールでも飲もう',
 	},
 }
+
 `;
 
 exports[`json.lua - lua-verify: json.lua 1`] = `
@@ -24459,6 +24573,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`json.lua - lua-verify: json.lua 2`] = `
@@ -24509,6 +24624,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`junit.lua - lua-verify: junit.lua 1`] = `
@@ -24839,6 +24955,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`junit.lua - lua-verify: junit.lua 2`] = `
@@ -25169,6 +25286,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`lua.lua - lua-verify: lua.lua 1`] = `
@@ -25180,6 +25298,7 @@ exit(0)
 local exit = require"busted.compatibility".exit
 print(table.concat(arg, " "))
 exit(0)
+
 `;
 
 exports[`lua.lua - lua-verify: lua.lua 2`] = `
@@ -25191,6 +25310,7 @@ exit(0)
 local exit = require'busted.compatibility'.exit
 print(table.concat(arg, ' '))
 exit(0)
+
 `;
 
 exports[`luacov.lua - lua-verify: luacov.lua 1`] = `
@@ -25241,6 +25361,7 @@ return function()
 
 	return loadLuaCov
 end
+
 `;
 
 exports[`luacov.lua - lua-verify: luacov.lua 2`] = `
@@ -25291,6 +25412,7 @@ return function()
 
 	return loadLuaCov
 end
+
 `;
 
 exports[`luacov_spec.lua - lua-verify: luacov_spec.lua 1`] = `
@@ -25298,6 +25420,7 @@ local luacov = require 'busted.modules.luacov'()
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local luacov = require"busted.modules.luacov"()
+
 `;
 
 exports[`luacov_spec.lua - lua-verify: luacov_spec.lua 2`] = `
@@ -25305,6 +25428,7 @@ local luacov = require 'busted.modules.luacov'()
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local luacov = require'busted.modules.luacov'()
+
 `;
 
 exports[`moonscript.lua - lua-verify: moonscript.lua 1`] = `
@@ -25538,6 +25662,7 @@ ret.load = function(busted, filename)
 end
 
 return ret
+
 `;
 
 exports[`moonscript.lua - lua-verify: moonscript.lua 2`] = `
@@ -25771,6 +25896,7 @@ ret.load = function(busted, filename)
 end
 
 return ret
+
 `;
 
 exports[`nl.lua - lua-verify: nl.lua 1`] = `
@@ -25861,6 +25987,7 @@ return {
 		"Testen geslaagd, neem nog een biertje"
 	}
 }
+
 `;
 
 exports[`nl.lua - lua-verify: nl.lua 2`] = `
@@ -25951,6 +26078,7 @@ return {
 		'Testen geslaagd, neem nog een biertje',
 	},
 }
+
 `;
 
 exports[`options.lua - lua-verify: options.lua 1`] = `
@@ -25963,6 +26091,7 @@ return {
 	standalone = true,
 	output = nil
 }
+
 `;
 
 exports[`options.lua - lua-verify: options.lua 2`] = `
@@ -25975,6 +26104,7 @@ return {
 	standalone = true,
 	output = nil,
 }
+
 `;
 
 exports[`output_handler_loader.lua - lua-verify: output_handler_loader.lua 1`] = `
@@ -26064,6 +26194,7 @@ return function()
 
 	return loadOutputHandler
 end
+
 `;
 
 exports[`output_handler_loader.lua - lua-verify: output_handler_loader.lua 2`] = `
@@ -26153,6 +26284,7 @@ return function()
 
 	return loadOutputHandler
 end
+
 `;
 
 exports[`output_handler_loader_spec.lua - lua-verify: output_handler_loader_spec.lua 1`] = `
@@ -26160,6 +26292,7 @@ local outputHandlerLoader = require 'busted.modules.output_handler_loader'()
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local outputHandlerLoader = require"busted.modules.output_handler_loader"()
+
 `;
 
 exports[`output_handler_loader_spec.lua - lua-verify: output_handler_loader_spec.lua 2`] = `
@@ -26167,6 +26300,7 @@ local outputHandlerLoader = require 'busted.modules.output_handler_loader'()
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local outputHandlerLoader = require'busted.modules.output_handler_loader'()
+
 `;
 
 exports[`plainTerminal.lua - lua-verify: plainTerminal.lua 1`] = `
@@ -26528,6 +26662,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`plainTerminal.lua - lua-verify: plainTerminal.lua 2`] = `
@@ -26889,6 +27024,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`pt-BR.lua - lua-verify: pt-BR.lua 1`] = `
@@ -26994,6 +27130,7 @@ return {
 		"Os testes passaram, beba outra cerveja"
 	}
 }
+
 `;
 
 exports[`pt-BR.lua - lua-verify: pt-BR.lua 2`] = `
@@ -27099,6 +27236,7 @@ return {
 		'Os testes passaram, beba outra cerveja',
 	},
 }
+
 `;
 
 exports[`randomize_spec.lua - lua-verify: randomize_spec.lua 1`] = `
@@ -27309,6 +27447,7 @@ describe("Disabling randomized test order with randomize(nil)", function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`randomize_spec.lua - lua-verify: randomize_spec.lua 2`] = `
@@ -27519,6 +27658,7 @@ describe('Disabling randomized test order with randomize(nil)', function()
 		assert.are.same(expected, order)
 	end)
 end)
+
 `;
 
 exports[`ru.lua - lua-verify: ru.lua 1`] = `
@@ -27597,6 +27737,7 @@ return {
 		"Ура!"
 	}
 }
+
 `;
 
 exports[`ru.lua - lua-verify: ru.lua 2`] = `
@@ -27675,6 +27816,7 @@ return {
 		'Ура!',
 	},
 }
+
 `;
 
 exports[`runner.lua - lua-verify: runner.lua 1`] = `
@@ -28097,6 +28239,7 @@ return function(options)
 		exit(failures + errors, forceExit)
 	end
 end
+
 `;
 
 exports[`runner.lua - lua-verify: runner.lua 2`] = `
@@ -28519,6 +28662,7 @@ return function(options)
 		exit(failures + errors, forceExit)
 	end
 end
+
 `;
 
 exports[`sound.lua - lua-verify: sound.lua 1`] = `
@@ -28602,6 +28746,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`sound.lua - lua-verify: sound.lua 2`] = `
@@ -28685,6 +28830,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`standalone_loader.lua - lua-verify: standalone_loader.lua 1`] = `
@@ -28746,6 +28892,7 @@ return function(busted)
 
 	return loadCurrentFile
 end
+
 `;
 
 exports[`standalone_loader.lua - lua-verify: standalone_loader.lua 2`] = `
@@ -28807,6 +28954,7 @@ return function(busted)
 
 	return loadCurrentFile
 end
+
 `;
 
 exports[`status.lua - lua-verify: status.lua 1`] = `
@@ -28904,6 +29052,7 @@ return function(inital_status)
 		end
 	})
 end
+
 `;
 
 exports[`status.lua - lua-verify: status.lua 2`] = `
@@ -29001,6 +29150,7 @@ return function(inital_status)
 		end,
 	})
 end
+
 `;
 
 exports[`strict.lua - lua-verify: strict.lua 1`] = `
@@ -29083,6 +29233,7 @@ mt.__index = function(t, n)
 	end
 	return rawget(t, n)
 end
+
 `;
 
 exports[`strict.lua - lua-verify: strict.lua 2`] = `
@@ -29165,6 +29316,7 @@ mt.__index = function(t, n)
 	end
 	return rawget(t, n)
 end
+
 `;
 
 exports[`strict_spec.lua - lua-verify: strict_spec.lua 1`] = `
@@ -29185,6 +29337,7 @@ describe("runs a single successful test with strict", function()
 		-- nothing here, makes it succeed
 	end)
 end)
+
 `;
 
 exports[`strict_spec.lua - lua-verify: strict_spec.lua 2`] = `
@@ -29205,6 +29358,7 @@ describe('runs a single successful test with strict', function()
 		-- nothing here, makes it succeed
 	end)
 end)
+
 `;
 
 exports[`terra.lua - lua-verify: terra.lua 1`] = `
@@ -29268,6 +29422,7 @@ ret.load = function(busted, filename)
 end
 
 return ret
+
 `;
 
 exports[`terra.lua - lua-verify: terra.lua 2`] = `
@@ -29331,6 +29486,7 @@ ret.load = function(busted, filename)
 end
 
 return ret
+
 `;
 
 exports[`test_file_loader.lua - lua-verify: test_file_loader.lua 1`] = `
@@ -29553,6 +29709,7 @@ return function(busted, loaders)
 
 	return loadTestFiles, loadTestFile, getAllTestFiles
 end
+
 `;
 
 exports[`test_file_loader.lua - lua-verify: test_file_loader.lua 2`] = `
@@ -29775,6 +29932,7 @@ return function(busted, loaders)
 
 	return loadTestFiles, loadTestFile, getAllTestFiles
 end
+
 `;
 
 exports[`th.lua - lua-verify: th.lua 1`] = `
@@ -29865,6 +30023,7 @@ return {
 		"เทสผ่าน, ดื่มเบียร์ๆๆๆ"
 	}
 }
+
 `;
 
 exports[`th.lua - lua-verify: th.lua 2`] = `
@@ -29955,6 +30114,7 @@ return {
 		'เทสผ่าน, ดื่มเบียร์ๆๆๆ',
 	},
 }
+
 `;
 
 exports[`ua.lua - lua-verify: ua.lua 1`] = `
@@ -30032,6 +30192,7 @@ return {
 		"Всі баги знищено!"
 	}
 }
+
 `;
 
 exports[`ua.lua - lua-verify: ua.lua 2`] = `
@@ -30109,6 +30270,7 @@ return {
 		'Всі баги знищено!',
 	},
 }
+
 `;
 
 exports[`utfTerminal.lua - lua-verify: utfTerminal.lua 1`] = `
@@ -30512,6 +30674,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`utfTerminal.lua - lua-verify: utfTerminal.lua 2`] = `
@@ -30915,6 +31078,7 @@ return function(options)
 
 	return handler
 end
+
 `;
 
 exports[`utils.lua - lua-verify: utils.lua 1`] = `
@@ -30995,6 +31159,7 @@ return {
 		return value
 	end
 }
+
 `;
 
 exports[`utils.lua - lua-verify: utils.lua 2`] = `
@@ -31075,6 +31240,7 @@ return {
 		return value
 	end,
 }
+
 `;
 
 exports[`zh.lua - lua-verify: zh.lua 1`] = `
@@ -31165,6 +31331,7 @@ return {
 		"阿弥陀佛～，菩萨显灵了！"
 	}
 }
+
 `;
 
 exports[`zh.lua - lua-verify: zh.lua 2`] = `
@@ -31255,4 +31422,5 @@ return {
 		'阿弥陀佛～，菩萨显灵了！',
 	},
 }
+
 `;

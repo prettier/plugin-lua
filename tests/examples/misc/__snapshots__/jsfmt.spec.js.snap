@@ -11,6 +11,7 @@ hook.Add("hello", "okay", function(some, arguments)
 	doSomething()
 	return false
 end)
+
 `;
 
 exports[`local_with_call_near_print_width.lua - lua-verify: local_with_call_near_print_width.lua 1`] = `
@@ -45,6 +46,7 @@ describe(function()
 			executeBusted("--pattern=_tags.lua$ --tags=dtag1")
 	end)
 end)
+
 `;
 
 exports[`simple_return.lua - lua-verify: simple_return.lua 1`] = `
@@ -61,4 +63,5 @@ if true then
 	-- don't break me
 	return
 end
+
 `;

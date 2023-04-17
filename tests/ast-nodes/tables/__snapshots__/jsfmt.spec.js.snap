@@ -270,6 +270,7 @@ local crazy_nesting = {
 		0
 	}] = { this_kills_the_crab }
 }
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -542,6 +543,7 @@ local crazy_nesting = {
 		0,
 	}] = { this_kills_the_crab },
 }
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 3`] = `
@@ -814,4 +816,5 @@ local crazy_nesting = {
 		0
 	}] = {this_kills_the_crab}
 }
+
 `;

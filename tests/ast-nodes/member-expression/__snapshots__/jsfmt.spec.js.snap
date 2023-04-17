@@ -19,6 +19,7 @@ noParens = bar:call()
 yesParens = ("bar"):call()
 yesParens = ({}):call()
 yesParens = (1.9e1):call()
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -40,4 +41,5 @@ noParens = bar:call()
 yesParens = ('bar'):call()
 yesParens = ({}):call()
 yesParens = (1.9e1):call()
+
 `;

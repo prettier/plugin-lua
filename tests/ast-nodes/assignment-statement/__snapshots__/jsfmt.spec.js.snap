@@ -72,6 +72,7 @@ one,
 	eleven,
 	twelve,
 	thirteen
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -146,4 +147,5 @@ one,
 	eleven,
 	twelve,
 	thirteen
+
 `;

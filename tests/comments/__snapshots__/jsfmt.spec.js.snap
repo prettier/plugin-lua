@@ -4,6 +4,7 @@ exports[`empty_with_comment.lua - lua-verify: empty_with_comment.lua 1`] = `
 -- comment alone in chunk
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- comment alone in chunk
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 1`] = `
@@ -55,4 +56,5 @@ end
 for k, v in pairs(t) do
 	-- comment in empty for body
 end
+
 `;

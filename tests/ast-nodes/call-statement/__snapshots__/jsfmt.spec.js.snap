@@ -126,6 +126,7 @@ bar[[
 ]]
 
 bar"a"
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -254,4 +255,5 @@ bar[[
 ]]
 
 bar'a'
+
 `;

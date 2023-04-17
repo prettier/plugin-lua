@@ -521,6 +521,7 @@ lots,
 
 	print("hi!")
 end
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -1044,4 +1045,5 @@ lots,
 
 	print('hi!')
 end
+
 `;

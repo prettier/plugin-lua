@@ -271,6 +271,7 @@ remove = a()
 remove = a.b()
 remove = a["a"]()
 remove = a()()
+
 `;
 
 exports[`main.lua - lua-verify: main.lua 2`] = `
@@ -544,4 +545,5 @@ remove = a()
 remove = a.b()
 remove = a['a']()
 remove = a()()
+
 `;
