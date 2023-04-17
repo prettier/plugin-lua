@@ -25,7 +25,10 @@ function printNoParens(path, options, print) {
 
   switch (node.type) {
     case "Chunk": {
-      return printBody(path, options, print);
+      return concat([
+        printBody(path, options, print),
+        '\n',
+      ]);
     }
     case "AssignmentStatement":
     case "LocalStatement": {
