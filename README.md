@@ -91,6 +91,14 @@ If you installed prettier as a local dependency, you can add prettier as a scrip
 }
 ```
 
+also add it as a plugin to your [prettierrc](https://prettier.io/docs/en/configuration.html),
+
+```json
+"plugins": [
+  "@prettier/plugin-lua"
+]
+```
+
 and then run it via
 
 ```bash
