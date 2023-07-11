@@ -18,10 +18,16 @@ const {
 const { willBreak } = require("prettier").doc.utils;
 const { makeString, isNextLineEmpty } = require("prettier").util;
 const { isValidIdentifier, isExpression } = require("./util");
-const { printDanglingComments, isDanglingComment } = require("./comments");
+const { commentsHavePrettierIgnore, printDanglingComments, isDanglingComment } = require("./comments");
 
 function printNoParens(path, options, print) {
   const node = path.getValue();
+  
+  // check for prettier-ignore
+  if (node.comments && commentsHavePrettierIgnore(node.comments)) {
+    // return the original text
+    return options.originalText.slice(node.range[0], node.range[1])
+  }
 
   switch (node.type) {
     case "Chunk": {
