@@ -59,4 +59,23 @@ function isExpression(node) {
   }
 }
 
-module.exports = { isValidIdentifier, isExpression };
+function lineShouldEndWithSemicolon(path) {
+  const node = path.getValue();
+  const parentNode = path.getParentNode();
+  if (!parentNode) {
+    return false;
+  }
+
+  return [
+    "ExpressionStatement",
+    "CallStatement",
+    "LocalStatement",
+    "AssignmentStatement",
+  ].includes(node.type);
+}
+
+module.exports = {
+  isValidIdentifier,
+  isExpression,
+  lineShouldEndWithSemicolon,
+};

@@ -13,7 +13,7 @@
     "src"
   ],
   "dependencies": {
-    "luaparse": "0.2.1"
+    "luaparse": "0.3.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
