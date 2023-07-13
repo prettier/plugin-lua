@@ -7,6 +7,7 @@ const {
   lineSuffix,
   lineSuffixBoundary,
   group,
+  fill,
   conditionalGroup,
   indent,
   dedent,
@@ -170,18 +171,18 @@ function printNoParens(path, options, print) {
         return singleline;
       } else {
         // Array-like table
-        const multiline = concat([
+        const multiline = fill([
           "{",
           indent(
             concat([
-              hardline,
-              join(concat([",", hardline]), path.map(print, "fields")),
+              ifBreak(hardline,line),
+              join(concat([",", line]), path.map(print, "fields")),
               options.trailingComma === "none" ? "" : ",",
+              dedent(ifBreak(hardline, line)),
             ])
           ),
-          hardline,
           "}",
-        ]);
+          ]);
         return multiline;
       }
     }
