@@ -134,6 +134,12 @@ function isBlockComment(comment) {
   return /^\-\-\[=*\[/.test(comment.raw);
 }
 
+function commentsHavePrettierIgnore(comments) {
+  return comments.find(comment =>
+    comment.value.includes("prettier-ignore")
+  )
+}
+
 module.exports = {
   handleComments,
   printDanglingComments,
@@ -144,4 +150,5 @@ module.exports = {
   isLeadingComment,
   isTrailingComment,
   isBlockComment,
+  commentsHavePrettierIgnore,
 };
