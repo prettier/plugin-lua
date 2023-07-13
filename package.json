@@ -1,6 +1,6 @@
 {
   "name": "@prettier/plugin-lua",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Prettier Lua Plugin",
   "repository": "prettier/plugin-lua",
   "author": "Suchipi <me@suchipi.com>",
@@ -39,4 +39,3 @@
     ]
   }
 }
-
