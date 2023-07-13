@@ -94,7 +94,10 @@ one_thing = { thing }
 
 one_keyed_thing = { keyed = thing }
 
-more_than_one_thing = { thing, thing }
+more_than_one_thing = {
+	thing,
+	thing
+}
 
 more_than_one_keyed_thing = {
 	keyed = thing,
@@ -114,11 +117,7 @@ computed_keys = {
 }
 
 crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = { b = { c = { d = { e = {
 						1,
 						2,
 						3,
@@ -136,13 +135,14 @@ crazy_nesting = {
 						15,
 						foo = bar,
 						["aaaaa!!!!"] = "aaaaa!!!!"
-					}
-				}
-			}
-		}
-	},
+					} } } } },
 	[{ please = "no" }] = { please = "yes" },
-	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6
+	},
 	[{
 		1,
 		2,
@@ -183,7 +183,10 @@ local one_thing = { thing }
 
 local one_keyed_thing = { keyed = thing }
 
-local more_than_one_thing = { thing, thing }
+local more_than_one_thing = {
+	thing,
+	thing
+}
 
 local more_than_one_keyed_thing = {
 	keyed = thing,
@@ -208,11 +211,7 @@ local computed_keys = {
 }
 
 local crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = { b = { c = { d = { e = {
 						1,
 						2,
 						3,
@@ -230,13 +229,14 @@ local crazy_nesting = {
 						15,
 						foo = bar,
 						["aaaaa!!!!"] = "aaaaa!!!!"
-					}
-				}
-			}
-		}
-	},
+					} } } } },
 	[{ please = "no" }] = { please = "yes" },
-	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6
+	},
 	[{
 		1,
 		2,
@@ -367,7 +367,10 @@ one_thing = { thing }
 
 one_keyed_thing = { keyed = thing }
 
-more_than_one_thing = { thing, thing }
+more_than_one_thing = {
+	thing,
+	thing,
+}
 
 more_than_one_keyed_thing = {
 	keyed = thing,
@@ -387,11 +390,7 @@ computed_keys = {
 }
 
 crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = { b = { c = { d = { e = {
 						1,
 						2,
 						3,
@@ -409,13 +408,14 @@ crazy_nesting = {
 						15,
 						foo = bar,
 						['aaaaa!!!!'] = 'aaaaa!!!!',
-					},
-				},
-			},
-		},
-	},
+					} } } } },
 	[{ please = 'no' }] = { please = 'yes' },
-	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6,
+	},
 	[{
 		1,
 		2,
@@ -456,7 +456,10 @@ local one_thing = { thing }
 
 local one_keyed_thing = { keyed = thing }
 
-local more_than_one_thing = { thing, thing }
+local more_than_one_thing = {
+	thing,
+	thing,
+}
 
 local more_than_one_keyed_thing = {
 	keyed = thing,
@@ -481,11 +484,7 @@ local computed_keys = {
 }
 
 local crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = { b = { c = { d = { e = {
 						1,
 						2,
 						3,
@@ -503,13 +502,14 @@ local crazy_nesting = {
 						15,
 						foo = bar,
 						['aaaaa!!!!'] = 'aaaaa!!!!',
-					},
-				},
-			},
-		},
-	},
+					} } } } },
 	[{ please = 'no' }] = { please = 'yes' },
-	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6,
+	},
 	[{
 		1,
 		2,
@@ -640,7 +640,10 @@ one_thing = {thing}
 
 one_keyed_thing = {keyed = thing}
 
-more_than_one_thing = {thing, thing}
+more_than_one_thing = {
+	thing,
+	thing
+}
 
 more_than_one_keyed_thing = {
 	keyed = thing,
@@ -660,11 +663,7 @@ computed_keys = {
 }
 
 crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = {b = {c = {d = {e = {
 						1,
 						2,
 						3,
@@ -682,13 +681,14 @@ crazy_nesting = {
 						15,
 						foo = bar,
 						["aaaaa!!!!"] = "aaaaa!!!!"
-					}
-				}
-			}
-		}
-	},
+					}}}}},
 	[{please = "no"}] = {please = "yes"},
-	[45.6] = {45.6, 45.6, 45.6, 45.6},
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6
+	},
 	[{
 		1,
 		2,
@@ -729,7 +729,10 @@ local one_thing = {thing}
 
 local one_keyed_thing = {keyed = thing}
 
-local more_than_one_thing = {thing, thing}
+local more_than_one_thing = {
+	thing,
+	thing
+}
 
 local more_than_one_keyed_thing = {
 	keyed = thing,
@@ -754,11 +757,7 @@ local computed_keys = {
 }
 
 local crazy_nesting = {
-	a = {
-		b = {
-			c = {
-				d = {
-					e = {
+	a = {b = {c = {d = {e = {
 						1,
 						2,
 						3,
@@ -776,13 +775,14 @@ local crazy_nesting = {
 						15,
 						foo = bar,
 						["aaaaa!!!!"] = "aaaaa!!!!"
-					}
-				}
-			}
-		}
-	},
+					}}}}},
 	[{please = "no"}] = {please = "yes"},
-	[45.6] = {45.6, 45.6, 45.6, 45.6},
+	[45.6] = {
+		45.6,
+		45.6,
+		45.6,
+		45.6
+	},
 	[{
 		1,
 		2,
