@@ -178,32 +178,20 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"suite",
-			"reset"
-		},
+		{ "suite", "reset" },
 		handler.suiteReset
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			"test",
-			"start"
-		},
+		{ "test", "start" },
 		handler.testStart,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
@@ -392,32 +380,20 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'suite',
-			'reset',
-		},
+		{ 'suite', 'reset', },
 		handler.suiteReset
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			'test',
-			'start',
-		},
+		{ 'test', 'start', },
 		handler.testStart,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
@@ -1234,68 +1210,41 @@ return function()
 		end
 
 		busted.subscribe(
-			{
-				"suite",
-				"reset"
-			},
+			{ "suite", "reset" },
 			handler.baseSuiteReset,
 			{ priority = 1 }
 		)
 		busted.subscribe(
-			{
-				"suite",
-				"start"
-			},
+			{ "suite", "start" },
 			handler.baseSuiteStart,
 			{ priority = 1 }
 		)
 		busted.subscribe(
-			{
-				"suite",
-				"end"
-			},
+			{ "suite", "end" },
 			handler.baseSuiteEnd,
 			{ priority = 1 }
 		)
 		busted.subscribe(
-			{
-				"test",
-				"start"
-			},
+			{ "test", "start" },
 			handler.baseTestStart,
-			{
-				priority = 1,
-				predicate = handler.cancelOnPending
-			}
+			{ priority = 1, predicate = handler.cancelOnPending }
 		)
 		busted.subscribe(
-			{
-				"test",
-				"end"
-			},
+			{ "test", "end" },
 			handler.baseTestEnd,
-			{
-				priority = 1,
-				predicate = handler.cancelOnPending
-			}
+			{ priority = 1, predicate = handler.cancelOnPending }
 		)
 		busted.subscribe({ "pending" }, handler.basePending, {
 			priority = 1,
 			predicate = handler.cancelOnPending
 		})
 		busted.subscribe(
-			{
-				"failure",
-				"it"
-			},
+			{ "failure", "it" },
 			handler.baseTestFailure,
 			{ priority = 1 }
 		)
 		busted.subscribe(
-			{
-				"error",
-				"it"
-			},
+			{ "error", "it" },
 			handler.baseTestError,
 			{ priority = 1 }
 		)
@@ -1663,68 +1612,41 @@ return function()
 		end
 
 		busted.subscribe(
-			{
-				'suite',
-				'reset',
-			},
+			{ 'suite', 'reset', },
 			handler.baseSuiteReset,
 			{priority = 1}
 		)
 		busted.subscribe(
-			{
-				'suite',
-				'start',
-			},
+			{ 'suite', 'start', },
 			handler.baseSuiteStart,
 			{priority = 1}
 		)
 		busted.subscribe(
-			{
-				'suite',
-				'end',
-			},
+			{ 'suite', 'end', },
 			handler.baseSuiteEnd,
 			{priority = 1}
 		)
 		busted.subscribe(
-			{
-				'test',
-				'start',
-			},
+			{ 'test', 'start', },
 			handler.baseTestStart,
-			{
-				priority = 1,
-				predicate = handler.cancelOnPending,
-			}
+			{ priority = 1, predicate = handler.cancelOnPending, }
 		)
 		busted.subscribe(
-			{
-				'test',
-				'end',
-			},
+			{ 'test', 'end', },
 			handler.baseTestEnd,
-			{
-				priority = 1,
-				predicate = handler.cancelOnPending,
-			}
+			{ priority = 1, predicate = handler.cancelOnPending, }
 		)
 		busted.subscribe({'pending'}, handler.basePending, {
 			priority = 1,
 			predicate = handler.cancelOnPending,
 		})
 		busted.subscribe(
-			{
-				'failure',
-				'it',
-			},
+			{ 'failure', 'it', },
 			handler.baseTestFailure,
 			{priority = 1}
 		)
 		busted.subscribe(
-			{
-				'error',
-				'it',
-			},
+			{ 'error', 'it', },
 			handler.baseTestError,
 			{priority = 1}
 		)
@@ -4069,10 +3991,7 @@ after_each(function()
 end)
 
 subscribe(
-	{
-		"suite",
-		"reset"
-	},
+	{ "suite", "reset" },
 	function()
 		assert(not cliArgs["fail-suite-reset"])
 		return nil, true
@@ -4080,10 +3999,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"suite",
-		"start"
-	},
+	{ "suite", "start" },
 	function()
 		assert(not cliArgs["fail-suite-start"])
 		return nil, true
@@ -4091,10 +4007,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"suite",
-		"end"
-	},
+	{ "suite", "end" },
 	function()
 		assert(not cliArgs["fail-suite-end"])
 		return nil, true
@@ -4102,10 +4015,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"file",
-		"start"
-	},
+	{ "file", "start" },
 	function()
 		assert(not cliArgs["fail-file-start"])
 		return nil, true
@@ -4113,10 +4023,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"file",
-		"end"
-	},
+	{ "file", "end" },
 	function()
 		assert(not cliArgs["fail-file-end"])
 		return nil, true
@@ -4124,10 +4031,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"describe",
-		"start"
-	},
+	{ "describe", "start" },
 	function()
 		assert(not cliArgs["fail-describe-start"])
 		return nil, true
@@ -4135,10 +4039,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"describe",
-		"end"
-	},
+	{ "describe", "end" },
 	function()
 		assert(not cliArgs["fail-describe-end"])
 		return nil, true
@@ -4146,10 +4047,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"test",
-		"start"
-	},
+	{ "test", "start" },
 	function()
 		assert(not cliArgs["fail-test-start"])
 		return nil, true
@@ -4157,10 +4055,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		"test",
-		"end"
-	},
+	{ "test", "end" },
 	function()
 		assert(not cliArgs["fail-test-end"])
 		return nil, true
@@ -4302,10 +4197,7 @@ after_each(function()
 end)
 
 subscribe(
-	{
-		'suite',
-		'reset',
-	},
+	{ 'suite', 'reset', },
 	function()
 		assert(not cliArgs['fail-suite-reset'])
 		return nil, true
@@ -4313,10 +4205,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'suite',
-		'start',
-	},
+	{ 'suite', 'start', },
 	function()
 		assert(not cliArgs['fail-suite-start'])
 		return nil, true
@@ -4324,10 +4213,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'suite',
-		'end',
-	},
+	{ 'suite', 'end', },
 	function()
 		assert(not cliArgs['fail-suite-end'])
 		return nil, true
@@ -4335,10 +4221,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'file',
-		'start',
-	},
+	{ 'file', 'start', },
 	function()
 		assert(not cliArgs['fail-file-start'])
 		return nil, true
@@ -4346,10 +4229,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'file',
-		'end',
-	},
+	{ 'file', 'end', },
 	function()
 		assert(not cliArgs['fail-file-end'])
 		return nil, true
@@ -4357,10 +4237,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'describe',
-		'start',
-	},
+	{ 'describe', 'start', },
 	function()
 		assert(not cliArgs['fail-describe-start'])
 		return nil, true
@@ -4368,10 +4245,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'describe',
-		'end',
-	},
+	{ 'describe', 'end', },
 	function()
 		assert(not cliArgs['fail-describe-end'])
 		return nil, true
@@ -4379,10 +4253,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'test',
-		'start',
-	},
+	{ 'test', 'start', },
 	function()
 		assert(not cliArgs['fail-test-start'])
 		return nil, true
@@ -4390,10 +4261,7 @@ subscribe(
 )
 
 subscribe(
-	{
-		'test',
-		'end',
-	},
+	{ 'test', 'end', },
 	function()
 		assert(not cliArgs['fail-test-end'])
 		return nil, true
@@ -4559,10 +4427,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
@@ -4635,10 +4500,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
@@ -6620,10 +6482,7 @@ end)
 
 describe("Tests shuffle commandline option", function()
 	for _, opt in
-		ipairs({
-			"--shuffle",
-			"--shuffle-tests"
-		})
+		ipairs({ "--shuffle", "--shuffle-tests" })
 	do
 		it("forces test shuffling for non-randomized tests, " .. opt, function()
 			local success, errcnt =
@@ -6636,10 +6495,7 @@ end)
 
 describe("Tests sort commandline option", function()
 	for _, opt in
-		ipairs({
-			"--sort",
-			"--sort-tests"
-		})
+		ipairs({ "--sort", "--sort-tests" })
 	do
 		it("sorts tests by name, " .. opt, function()
 			local success, errcnt =
@@ -8435,10 +8291,7 @@ end)
 
 describe('Tests shuffle commandline option', function()
 	for _, opt in
-		ipairs({
-			'--shuffle',
-			'--shuffle-tests',
-		})
+		ipairs({ '--shuffle', '--shuffle-tests', })
 	do
 		it('forces test shuffling for non-randomized tests, ' .. opt, function()
 			local success, errcnt =
@@ -8451,10 +8304,7 @@ end)
 
 describe('Tests sort commandline option', function()
 	for _, opt in
-		ipairs({
-			'--sort',
-			'--sort-tests',
-		})
+		ipairs({ '--sort', '--sort-tests', })
 	do
 		it('sorts tests by name, ' .. opt, function()
 			local success, errcnt =
@@ -9816,19 +9666,15 @@ return function(options)
 		return cliArgs
 	end
 
-	return {
-		set_name = function(self, name)
+	return { set_name = function(self, name)
 			appName = name
 			return cli:set_name(name)
-		end,
-		set_silent = function(self, name)
+		end, set_silent = function(self, name)
 			appName = name
 			return cli:set_silent(name)
-		end,
-		parse = function(self, args)
+		end, parse = function(self, args)
 			return parse(args)
-		end
-	}
+		end }
 end
 
 `;
@@ -10509,19 +10355,15 @@ return function(options)
 		return cliArgs
 	end
 
-	return {
-		set_name = function(self, name)
+	return { set_name = function(self, name)
 			appName = name
 			return cli:set_name(name)
-		end,
-		set_silent = function(self, name)
+		end, set_silent = function(self, name)
 			appName = name
 			return cli:set_silent(name)
-		end,
-		parse = function(self, args)
+		end, parse = function(self, args)
 			return parse(args)
-		end,
-	}
+		end, }
 end
 
 `;
@@ -11115,10 +10957,7 @@ describe("Tests command-line interface", function()
 		assert.is_same({}, args.Xoutput)
 		assert.is_same({}, args.Xhelper)
 		assert.is_same(
-			{
-				"lua",
-				"moonscript"
-			},
+			{ "lua", "moonscript" },
 			args.loaders
 		)
 	end)
@@ -11169,12 +11008,7 @@ describe("Tests command-line interface", function()
 
 	it("specify even more flags", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--lazy",
-			"--no-auto-insulate",
-			"-k",
-			"-R"
-		})
+		local args = cli:parse({ "--lazy", "--no-auto-insulate", "-k", "-R" })
 		assert.is_true(args.lazy)
 		assert.is_false(args["auto-insulate"])
 		assert.is_true(args.k)
@@ -11211,10 +11045,7 @@ describe("Tests command-line interface", function()
 
 	it("specify shuffle flags", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--shuffle-files",
-			"--shuffle-tests"
-		})
+		local args = cli:parse({ "--shuffle-files", "--shuffle-tests" })
 		assert.is_nil(args.shuffle)
 		assert.is_true(args["shuffle-files"])
 		assert.is_true(args["shuffle-tests"])
@@ -11250,10 +11081,7 @@ describe("Tests command-line interface", function()
 
 	it("specify shuffle and no-shuffle flags", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--shuffle",
-			"--no-shuffle-files"
-		})
+		local args = cli:parse({ "--shuffle", "--no-shuffle-files" })
 		assert.is_true(args.shuffle)
 		assert.is_false(args["shuffle-files"])
 		assert.is_true(args["shuffle-tests"])
@@ -11261,10 +11089,7 @@ describe("Tests command-line interface", function()
 
 	it("specify sort flags", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--sort-files",
-			"--sort-tests"
-		})
+		local args = cli:parse({ "--sort-files", "--sort-tests" })
 		assert.is_nil(args.sort)
 		assert.is_true(args["sort-files"])
 		assert.is_true(args["sort-tests"])
@@ -11300,10 +11125,7 @@ describe("Tests command-line interface", function()
 
 	it("specify sort and no-sort flags", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--sort",
-			"--no-sort-files"
-		})
+		local args = cli:parse({ "--sort", "--no-sort-files" })
 		assert.is_true(args.sort)
 		assert.is_false(args["sort-files"])
 		assert.is_true(args["sort-tests"])
@@ -11311,11 +11133,7 @@ describe("Tests command-line interface", function()
 
 	it("specify ROOT arg and --pattern", function()
 		local cli = require"busted.modules.cli"({ standalone = false })
-		local args = cli:parse({
-			"-p",
-			"match_files",
-			"root_is_here"
-		})
+		local args = cli:parse({ "-p", "match_files", "root_is_here" })
 		assert.is_same({ "root_is_here" }, args.ROOT)
 		assert.is_same({ "match_files" }, args.p)
 		assert.is_same({ "match_files" }, args.pattern)
@@ -11334,17 +11152,9 @@ describe("Tests command-line interface", function()
 
 	it("specify multiple root paths", function()
 		local cli = require"busted.modules.cli"({ standalone = false })
-		local args = cli:parse({
-			"root1_path",
-			"root2_path",
-			"root3_path"
-		})
+		local args = cli:parse({ "root1_path", "root2_path", "root3_path" })
 		assert.is_same(
-			{
-				"root1_path",
-				"root2_path",
-				"root3_path"
-			},
+			{ "root1_path", "root2_path", "root3_path" },
 			args.ROOT
 		)
 	end)
@@ -11412,11 +11222,7 @@ describe("Tests command-line interface", function()
 		assert.is_equal("output_handler", args.o)
 		assert.is_equal("output_handler", args.output)
 		assert.is_same(
-			{
-				"--flag",
-				"-f",
-				"--opt=val"
-			},
+			{ "--flag", "-f", "--opt=val" },
 			args.Xoutput
 		)
 	end)
@@ -11432,11 +11238,7 @@ describe("Tests command-line interface", function()
 		})
 		assert.is_equal("helper_script", args.helper)
 		assert.is_same(
-			{
-				"--flag",
-				"-f",
-				"--opt=val"
-			},
+			{ "--flag", "-f", "--opt=val" },
 			args.Xhelper
 		)
 	end)
@@ -11451,37 +11253,22 @@ describe("Tests command-line interface", function()
 			"--exclude-tags=etag2,etag3"
 		})
 		assert.is_same(
-			{
-				"tag1",
-				"tag2",
-				"tag3"
-			},
+			{ "tag1", "tag2", "tag3" },
 			args.t
 		)
 		assert.is_same(
-			{
-				"tag1",
-				"tag2",
-				"tag3"
-			},
+			{ "tag1", "tag2", "tag3" },
 			args.tags
 		)
 		assert.is_same(
-			{
-				"etag1",
-				"etag2",
-				"etag3"
-			},
+			{ "etag1", "etag2", "etag3" },
 			args["exclude-tags"]
 		)
 	end)
 
 	it("specify --filter and --filter-out", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--filter=_filt",
-			"--filter-out=_filterout"
-		})
+		local args = cli:parse({ "--filter=_filt", "--filter-out=_filterout" })
 		assert.is_same({ "_filt" }, args.filter)
 		assert.is_same({ "_filterout" }, args["filter-out"])
 	end)
@@ -11495,33 +11282,20 @@ describe("Tests command-line interface", function()
 			"--filter-out=_filterout2"
 		})
 		assert.is_same(
-			{
-				"_filt1",
-				"_filt2"
-			},
+			{ "_filt1", "_filt2" },
 			args.filter
 		)
 		assert.is_same(
-			{
-				"_filterout1",
-				"_filterout2"
-			},
+			{ "_filterout1", "_filterout2" },
 			args["filter-out"]
 		)
 	end)
 
 	it("specify --loaders", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"--loaders=load1,load2",
-			"--loaders=load3"
-		})
+		local args = cli:parse({ "--loaders=load1,load2", "--loaders=load3" })
 		assert.is_same(
-			{
-				"load1",
-				"load2",
-				"load3"
-			},
+			{ "load1", "load2", "load3" },
 			args.loaders
 		)
 	end)
@@ -11554,17 +11328,9 @@ describe("Tests command-line interface", function()
 
 	it("specify -e statement", function()
 		local cli = require"busted.modules.cli"()
-		local args = cli:parse({
-			"-e",
-			"statement1",
-			"-e",
-			"statement2"
-		})
+		local args = cli:parse({ "-e", "statement1", "-e", "statement2" })
 		assert.is_same(
-			{
-				"statement1",
-				"statement2"
-			},
+			{ "statement1", "statement2" },
 			args.e
 		)
 	end)
@@ -11625,50 +11391,29 @@ describe("Tests using .busted tasks", function()
 		assert.is_same({ "_spec%.lua$" }, args.pattern)
 		assert.is_same({ "_exclude" }, args["exclude-pattern"])
 		assert.is_same(
-			{
-				"tag11",
-				"tag22",
-				"tag33"
-			},
+			{ "tag11", "tag22", "tag33" },
 			args.t
 		)
 		assert.is_same(
-			{
-				"tag11",
-				"tag22",
-				"tag33"
-			},
+			{ "tag11", "tag22", "tag33" },
 			args.tags
 		)
 		assert.is_same(
-			{
-				"etag11",
-				"etag22",
-				"etag33"
-			},
+			{ "etag11", "etag22", "etag33" },
 			args["exclude-tags"]
 		)
 		assert.is_same({ "filt" }, args.filter)
 		assert.is_same({ "filt-out" }, args["filter-out"])
 		assert.is_same(
-			{
-				"-f",
-				"--flag"
-			},
+			{ "-f", "--flag" },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				"-v",
-				"--verbose"
-			},
+			{ "-v", "--verbose" },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				"terra",
-				"moonscript"
-			},
+			{ "terra", "moonscript" },
 			args.loaders
 		)
 	end)
@@ -11682,10 +11427,7 @@ describe("Tests using .busted tasks", function()
 			standalone = false,
 			output = defaultOutput
 		})
-		local args = cli:parse({
-			"--config-file",
-			"spec/.hidden/.busted"
-		})
+		local args = cli:parse({ "--config-file", "spec/.hidden/.busted" })
 		assert.is_equal(defaultOutput, args.o)
 		assert.is_equal(defaultOutput, args.output)
 		assert.is_same({ "specs" }, args.ROOT)
@@ -11729,50 +11471,29 @@ describe("Tests using .busted tasks", function()
 		assert.is_same({ "_spec%.lua$" }, args.pattern)
 		assert.is_same({ "_exclude" }, args["exclude-pattern"])
 		assert.is_same(
-			{
-				"tag11",
-				"tag22",
-				"tag33"
-			},
+			{ "tag11", "tag22", "tag33" },
 			args.t
 		)
 		assert.is_same(
-			{
-				"tag11",
-				"tag22",
-				"tag33"
-			},
+			{ "tag11", "tag22", "tag33" },
 			args.tags
 		)
 		assert.is_same(
-			{
-				"etag11",
-				"etag22",
-				"etag33"
-			},
+			{ "etag11", "etag22", "etag33" },
 			args["exclude-tags"]
 		)
 		assert.is_same({ "filt" }, args.filter)
 		assert.is_same({ "filt-out" }, args["filter-out"])
 		assert.is_same(
-			{
-				"-f",
-				"--flag"
-			},
+			{ "-f", "--flag" },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				"-v",
-				"--verbose"
-			},
+			{ "-v", "--verbose" },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				"terra",
-				"moonscript"
-			},
+			{ "terra", "moonscript" },
 			args.loaders
 		)
 	end)
@@ -11782,74 +11503,42 @@ describe("Tests using .busted tasks", function()
 			standalone = false,
 			output = defaultOutput
 		})
-		local args = cli:parse({
-			"--directory=spec/.hidden",
-			"--run=test"
-		})
+		local args = cli:parse({ "--directory=spec/.hidden", "--run=test" })
 		assert.is_same(
-			{
-				"_test1%.lua$",
-				"_test2%.lua$"
-			},
+			{ "_test1%.lua$", "_test2%.lua$" },
 			args.pattern
 		)
 		assert.is_same(
-			{
-				"_exclude1",
-				"_exclude2"
-			},
+			{ "_exclude1", "_exclude2" },
 			args["exclude-pattern"]
 		)
 		assert.is_same(
-			{
-				"filt1",
-				"filt2"
-			},
+			{ "filt1", "filt2" },
 			args.filter
 		)
 		assert.is_same(
-			{
-				"filt1-out",
-				"filt2-out"
-			},
+			{ "filt1-out", "filt2-out" },
 			args["filter-out"]
 		)
 		assert.is_same({ "tests" }, args.ROOT)
 		assert.is_same(
-			{
-				"test1",
-				"test2",
-				"test3"
-			},
+			{ "test1", "test2", "test3" },
 			args.tags
 		)
 		assert.is_same(
-			{
-				"etest1",
-				"etest2",
-				"etest3"
-			},
+			{ "etest1", "etest2", "etest3" },
 			args["exclude-tags"]
 		)
 		assert.is_same(
-			{
-				"-s",
-				"--sound"
-			},
+			{ "-s", "--sound" },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				"-t",
-				"--print"
-			},
+			{ "-t", "--print" },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				"lua",
-				"terra"
-			},
+			{ "lua", "terra" },
 			args.loaders
 		)
 	end)
@@ -11878,25 +11567,15 @@ describe("Tests using .busted tasks", function()
 		assert.is_same({ "fout" }, args["filter-out"])
 		assert.is_same({ "tag1" }, args.tags)
 		assert.is_same(
-			{
-				"etest1",
-				"etest2",
-				"etest3"
-			},
+			{ "etest1", "etest2", "etest3" },
 			args["exclude-tags"]
 		)
 		assert.is_same(
-			{
-				"-s",
-				"--sound"
-			},
+			{ "-s", "--sound" },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				"-t",
-				"--print"
-			},
+			{ "-t", "--print" },
 			args.Xhelper
 		)
 		assert.is_same({ "moonscript" }, args.loaders)
@@ -11970,10 +11649,7 @@ describe("Tests command-line parse errors", function()
 	it("with same tag for --tags and --exclude-tags", function()
 		local cli = require"busted.modules.cli"()
 		cli:set_name("myapp")
-		local args, err = cli:parse({
-			"--tags=tag1",
-			"--exclude-tags=tag1"
-		})
+		local args, err = cli:parse({ "--tags=tag1", "--exclude-tags=tag1" })
 		assert.is_nil(args)
 		assert.is_equal(
 			"myapp: error: Cannot use --tags and --exclude-tags for the same tags",
@@ -12573,10 +12249,7 @@ describe('Tests command-line interface', function()
 		assert.is_same({}, args.Xoutput)
 		assert.is_same({}, args.Xhelper)
 		assert.is_same(
-			{
-				'lua',
-				'moonscript',
-			},
+			{ 'lua', 'moonscript', },
 			args.loaders
 		)
 	end)
@@ -12627,12 +12300,7 @@ describe('Tests command-line interface', function()
 
 	it('specify even more flags', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--lazy',
-			'--no-auto-insulate',
-			'-k',
-			'-R',
-		})
+		local args = cli:parse({ '--lazy', '--no-auto-insulate', '-k', '-R', })
 		assert.is_true(args.lazy)
 		assert.is_false(args['auto-insulate'])
 		assert.is_true(args.k)
@@ -12669,10 +12337,7 @@ describe('Tests command-line interface', function()
 
 	it('specify shuffle flags', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--shuffle-files',
-			'--shuffle-tests',
-		})
+		local args = cli:parse({ '--shuffle-files', '--shuffle-tests', })
 		assert.is_nil(args.shuffle)
 		assert.is_true(args['shuffle-files'])
 		assert.is_true(args['shuffle-tests'])
@@ -12708,10 +12373,7 @@ describe('Tests command-line interface', function()
 
 	it('specify shuffle and no-shuffle flags', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--shuffle',
-			'--no-shuffle-files',
-		})
+		local args = cli:parse({ '--shuffle', '--no-shuffle-files', })
 		assert.is_true(args.shuffle)
 		assert.is_false(args['shuffle-files'])
 		assert.is_true(args['shuffle-tests'])
@@ -12719,10 +12381,7 @@ describe('Tests command-line interface', function()
 
 	it('specify sort flags', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--sort-files',
-			'--sort-tests',
-		})
+		local args = cli:parse({ '--sort-files', '--sort-tests', })
 		assert.is_nil(args.sort)
 		assert.is_true(args['sort-files'])
 		assert.is_true(args['sort-tests'])
@@ -12758,10 +12417,7 @@ describe('Tests command-line interface', function()
 
 	it('specify sort and no-sort flags', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--sort',
-			'--no-sort-files',
-		})
+		local args = cli:parse({ '--sort', '--no-sort-files', })
 		assert.is_true(args.sort)
 		assert.is_false(args['sort-files'])
 		assert.is_true(args['sort-tests'])
@@ -12769,11 +12425,7 @@ describe('Tests command-line interface', function()
 
 	it('specify ROOT arg and --pattern', function()
 		local cli = require'busted.modules.cli'({standalone = false})
-		local args = cli:parse({
-			'-p',
-			'match_files',
-			'root_is_here',
-		})
+		local args = cli:parse({ '-p', 'match_files', 'root_is_here', })
 		assert.is_same({'root_is_here'}, args.ROOT)
 		assert.is_same({'match_files'}, args.p)
 		assert.is_same({'match_files'}, args.pattern)
@@ -12792,17 +12444,9 @@ describe('Tests command-line interface', function()
 
 	it('specify multiple root paths', function()
 		local cli = require'busted.modules.cli'({standalone = false})
-		local args = cli:parse({
-			'root1_path',
-			'root2_path',
-			'root3_path',
-		})
+		local args = cli:parse({ 'root1_path', 'root2_path', 'root3_path', })
 		assert.is_same(
-			{
-				'root1_path',
-				'root2_path',
-				'root3_path',
-			},
+			{ 'root1_path', 'root2_path', 'root3_path', },
 			args.ROOT
 		)
 	end)
@@ -12870,11 +12514,7 @@ describe('Tests command-line interface', function()
 		assert.is_equal('output_handler', args.o)
 		assert.is_equal('output_handler', args.output)
 		assert.is_same(
-			{
-				'--flag',
-				'-f',
-				'--opt=val',
-			},
+			{ '--flag', '-f', '--opt=val', },
 			args.Xoutput
 		)
 	end)
@@ -12890,11 +12530,7 @@ describe('Tests command-line interface', function()
 		})
 		assert.is_equal('helper_script', args.helper)
 		assert.is_same(
-			{
-				'--flag',
-				'-f',
-				'--opt=val',
-			},
+			{ '--flag', '-f', '--opt=val', },
 			args.Xhelper
 		)
 	end)
@@ -12909,37 +12545,22 @@ describe('Tests command-line interface', function()
 			'--exclude-tags=etag2,etag3',
 		})
 		assert.is_same(
-			{
-				'tag1',
-				'tag2',
-				'tag3',
-			},
+			{ 'tag1', 'tag2', 'tag3', },
 			args.t
 		)
 		assert.is_same(
-			{
-				'tag1',
-				'tag2',
-				'tag3',
-			},
+			{ 'tag1', 'tag2', 'tag3', },
 			args.tags
 		)
 		assert.is_same(
-			{
-				'etag1',
-				'etag2',
-				'etag3',
-			},
+			{ 'etag1', 'etag2', 'etag3', },
 			args['exclude-tags']
 		)
 	end)
 
 	it('specify --filter and --filter-out', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--filter=_filt',
-			'--filter-out=_filterout',
-		})
+		local args = cli:parse({ '--filter=_filt', '--filter-out=_filterout', })
 		assert.is_same({'_filt'}, args.filter)
 		assert.is_same({'_filterout'}, args['filter-out'])
 	end)
@@ -12953,33 +12574,20 @@ describe('Tests command-line interface', function()
 			'--filter-out=_filterout2',
 		})
 		assert.is_same(
-			{
-				'_filt1',
-				'_filt2',
-			},
+			{ '_filt1', '_filt2', },
 			args.filter
 		)
 		assert.is_same(
-			{
-				'_filterout1',
-				'_filterout2',
-			},
+			{ '_filterout1', '_filterout2', },
 			args['filter-out']
 		)
 	end)
 
 	it('specify --loaders', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'--loaders=load1,load2',
-			'--loaders=load3',
-		})
+		local args = cli:parse({ '--loaders=load1,load2', '--loaders=load3', })
 		assert.is_same(
-			{
-				'load1',
-				'load2',
-				'load3',
-			},
+			{ 'load1', 'load2', 'load3', },
 			args.loaders
 		)
 	end)
@@ -13012,17 +12620,9 @@ describe('Tests command-line interface', function()
 
 	it('specify -e statement', function()
 		local cli = require'busted.modules.cli'()
-		local args = cli:parse({
-			'-e',
-			'statement1',
-			'-e',
-			'statement2',
-		})
+		local args = cli:parse({ '-e', 'statement1', '-e', 'statement2', })
 		assert.is_same(
-			{
-				'statement1',
-				'statement2',
-			},
+			{ 'statement1', 'statement2', },
 			args.e
 		)
 	end)
@@ -13083,50 +12683,29 @@ describe('Tests using .busted tasks', function()
 		assert.is_same({'_spec%.lua$'}, args.pattern)
 		assert.is_same({'_exclude'}, args['exclude-pattern'])
 		assert.is_same(
-			{
-				'tag11',
-				'tag22',
-				'tag33',
-			},
+			{ 'tag11', 'tag22', 'tag33', },
 			args.t
 		)
 		assert.is_same(
-			{
-				'tag11',
-				'tag22',
-				'tag33',
-			},
+			{ 'tag11', 'tag22', 'tag33', },
 			args.tags
 		)
 		assert.is_same(
-			{
-				'etag11',
-				'etag22',
-				'etag33',
-			},
+			{ 'etag11', 'etag22', 'etag33', },
 			args['exclude-tags']
 		)
 		assert.is_same({'filt'}, args.filter)
 		assert.is_same({'filt-out'}, args['filter-out'])
 		assert.is_same(
-			{
-				'-f',
-				'--flag',
-			},
+			{ '-f', '--flag', },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				'-v',
-				'--verbose',
-			},
+			{ '-v', '--verbose', },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				'terra',
-				'moonscript',
-			},
+			{ 'terra', 'moonscript', },
 			args.loaders
 		)
 	end)
@@ -13140,10 +12719,7 @@ describe('Tests using .busted tasks', function()
 			standalone = false,
 			output = defaultOutput,
 		})
-		local args = cli:parse({
-			'--config-file',
-			'spec/.hidden/.busted',
-		})
+		local args = cli:parse({ '--config-file', 'spec/.hidden/.busted', })
 		assert.is_equal(defaultOutput, args.o)
 		assert.is_equal(defaultOutput, args.output)
 		assert.is_same({'specs'}, args.ROOT)
@@ -13187,50 +12763,29 @@ describe('Tests using .busted tasks', function()
 		assert.is_same({'_spec%.lua$'}, args.pattern)
 		assert.is_same({'_exclude'}, args['exclude-pattern'])
 		assert.is_same(
-			{
-				'tag11',
-				'tag22',
-				'tag33',
-			},
+			{ 'tag11', 'tag22', 'tag33', },
 			args.t
 		)
 		assert.is_same(
-			{
-				'tag11',
-				'tag22',
-				'tag33',
-			},
+			{ 'tag11', 'tag22', 'tag33', },
 			args.tags
 		)
 		assert.is_same(
-			{
-				'etag11',
-				'etag22',
-				'etag33',
-			},
+			{ 'etag11', 'etag22', 'etag33', },
 			args['exclude-tags']
 		)
 		assert.is_same({'filt'}, args.filter)
 		assert.is_same({'filt-out'}, args['filter-out'])
 		assert.is_same(
-			{
-				'-f',
-				'--flag',
-			},
+			{ '-f', '--flag', },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				'-v',
-				'--verbose',
-			},
+			{ '-v', '--verbose', },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				'terra',
-				'moonscript',
-			},
+			{ 'terra', 'moonscript', },
 			args.loaders
 		)
 	end)
@@ -13240,74 +12795,42 @@ describe('Tests using .busted tasks', function()
 			standalone = false,
 			output = defaultOutput,
 		})
-		local args = cli:parse({
-			'--directory=spec/.hidden',
-			'--run=test',
-		})
+		local args = cli:parse({ '--directory=spec/.hidden', '--run=test', })
 		assert.is_same(
-			{
-				'_test1%.lua$',
-				'_test2%.lua$',
-			},
+			{ '_test1%.lua$', '_test2%.lua$', },
 			args.pattern
 		)
 		assert.is_same(
-			{
-				'_exclude1',
-				'_exclude2',
-			},
+			{ '_exclude1', '_exclude2', },
 			args['exclude-pattern']
 		)
 		assert.is_same(
-			{
-				'filt1',
-				'filt2',
-			},
+			{ 'filt1', 'filt2', },
 			args.filter
 		)
 		assert.is_same(
-			{
-				'filt1-out',
-				'filt2-out',
-			},
+			{ 'filt1-out', 'filt2-out', },
 			args['filter-out']
 		)
 		assert.is_same({'tests'}, args.ROOT)
 		assert.is_same(
-			{
-				'test1',
-				'test2',
-				'test3',
-			},
+			{ 'test1', 'test2', 'test3', },
 			args.tags
 		)
 		assert.is_same(
-			{
-				'etest1',
-				'etest2',
-				'etest3',
-			},
+			{ 'etest1', 'etest2', 'etest3', },
 			args['exclude-tags']
 		)
 		assert.is_same(
-			{
-				'-s',
-				'--sound',
-			},
+			{ '-s', '--sound', },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				'-t',
-				'--print',
-			},
+			{ '-t', '--print', },
 			args.Xhelper
 		)
 		assert.is_same(
-			{
-				'lua',
-				'terra',
-			},
+			{ 'lua', 'terra', },
 			args.loaders
 		)
 	end)
@@ -13336,25 +12859,15 @@ describe('Tests using .busted tasks', function()
 		assert.is_same({'fout'}, args['filter-out'])
 		assert.is_same({'tag1'}, args.tags)
 		assert.is_same(
-			{
-				'etest1',
-				'etest2',
-				'etest3',
-			},
+			{ 'etest1', 'etest2', 'etest3', },
 			args['exclude-tags']
 		)
 		assert.is_same(
-			{
-				'-s',
-				'--sound',
-			},
+			{ '-s', '--sound', },
 			args.Xoutput
 		)
 		assert.is_same(
-			{
-				'-t',
-				'--print',
-			},
+			{ '-t', '--print', },
 			args.Xhelper
 		)
 		assert.is_same({'moonscript'}, args.loaders)
@@ -13428,10 +12941,7 @@ describe('Tests command-line parse errors', function()
 	it('with same tag for --tags and --exclude-tags', function()
 		local cli = require'busted.modules.cli'()
 		cli:set_name('myapp')
-		local args, err = cli:parse({
-			'--tags=tag1',
-			'--exclude-tags=tag1',
-		})
+		local args, err = cli:parse({ '--tags=tag1', '--exclude-tags=tag1', })
 		assert.is_nil(args)
 		assert.is_equal(
 			'myapp: error: Cannot use --tags and --exclude-tags for the same tags',
@@ -13513,8 +13023,7 @@ return {
   execute = require 'pl.utils'.execute,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	getfenv = getfenv or function(f)
+return { getfenv = getfenv or function(f)
 		f = (type(f) == "function" and f or debug.getinfo(f + 1, "f").func)
 		local name, value
 		local up = 0
@@ -13525,8 +13034,7 @@ return {
 		until name == "_ENV" or name == nil
 
 		return name and value or _G
-	end,
-	setfenv = setfenv or function(f, t)
+	end, setfenv = setfenv or function(f, t)
 		f = (type(f) == "function" and f or debug.getinfo(f + 1, "f").func)
 		local name
 		local up = 0
@@ -13551,10 +13059,10 @@ return {
 		if f ~= 0 then
 			return f
 		end
-	end,
-	loadstring = loadstring or load,
-	unpack = table.unpack or unpack,
-	exit = function(code, force)
+	end, loadstring = loadstring or load, unpack = table.unpack or unpack, exit = function(
+	code,
+		force
+	)
 		if not force and code ~= 0 and _VERSION:match("^Lua 5%.[12]$") then
 			error()
 		elseif code ~= 0 then
@@ -13585,9 +13093,7 @@ return {
 			end
 		end
 		os.exit(code, true)
-	end,
-	execute = require"pl.utils".execute
-}
+	end, execute = require"pl.utils".execute }
 
 `;
 
@@ -13662,8 +13168,7 @@ return {
   execute = require 'pl.utils'.execute,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	getfenv = getfenv or function(f)
+return { getfenv = getfenv or function(f)
 		f = (type(f) == 'function' and f or debug.getinfo(f + 1, 'f').func)
 		local name, value
 		local up = 0
@@ -13674,8 +13179,7 @@ return {
 		until name == '_ENV' or name == nil
 
 		return name and value or _G
-	end,
-	setfenv = setfenv or function(f, t)
+	end, setfenv = setfenv or function(f, t)
 		f = (type(f) == 'function' and f or debug.getinfo(f + 1, 'f').func)
 		local name
 		local up = 0
@@ -13700,10 +13204,10 @@ return {
 		if f ~= 0 then
 			return f
 		end
-	end,
-	loadstring = loadstring or load,
-	unpack = table.unpack or unpack,
-	exit = function(code, force)
+	end, loadstring = loadstring or load, unpack = table.unpack or unpack, exit = function(
+	code,
+		force
+	)
 		if not force and code ~= 0 and _VERSION:match('^Lua 5%.[12]$') then
 			error()
 		elseif code ~= 0 then
@@ -13734,9 +13238,7 @@ return {
 			end
 		end
 		os.exit(code, true)
-	end,
-	execute = require'pl.utils'.execute,
-}
+	end, execute = require'pl.utils'.execute, }
 
 `;
 
@@ -14397,10 +13899,7 @@ end
 return function()
 	local context = {}
 
-	local data = {
-		descriptor = "suite",
-		attributes = {}
-	}
+	local data = { descriptor = "suite", attributes = {} }
 	local parents = {}
 	local children = {}
 	local stack = {}
@@ -14468,10 +13967,7 @@ return function()
 		end
 
 		function ref.clear()
-			data = {
-				descriptor = "suite",
-				attributes = {}
-			}
+			data = { descriptor = "suite", attributes = {} }
 			parents = {}
 			children = {}
 			stack = {}
@@ -14684,10 +14180,7 @@ end
 return function()
 	local context = {}
 
-	local data = {
-		descriptor = 'suite',
-		attributes = {},
-	}
+	local data = { descriptor = 'suite', attributes = {}, }
 	local parents = {}
 	local children = {}
 	local stack = {}
@@ -14755,10 +14248,7 @@ return function()
 		end
 
 		function ref.clear()
-			data = {
-				descriptor = 'suite',
-				attributes = {},
-			}
+			data = { descriptor = 'suite', attributes = {}, }
 			parents = {}
 			children = {}
 			stack = {}
@@ -15140,26 +14630,15 @@ local pretty = require"pl.pretty"
 local system = require"system"
 local throw = error
 
-local failureMt = {
-	__index = {},
-	__tostring = function(e)
+local failureMt = { __index = {}, __tostring = function(e)
 		return tostring(e.message)
-	end,
-	__type = "failure"
-}
+	end, __type = "failure" }
 
-local failureMtNoString = {
-	__index = {},
-	__type = "failure"
-}
+local failureMtNoString = { __index = {}, __type = "failure" }
 
-local pendingMt = {
-	__index = {},
-	__tostring = function(p)
+local pendingMt = { __index = {}, __tostring = function(p)
 		return p.message
-	end,
-	__type = "pending"
-}
+	end, __type = "pending" }
 
 local function errortype(obj)
 	local mt = debug.getmetatable(obj)
@@ -15346,10 +14825,7 @@ return function()
 			-- failure in a support function (i.e. before_each/after_each or
 			-- setup/teardown).
 			busted.publish(
-				{
-					status,
-					element.descriptor
-				},
+				{ status, element.descriptor },
 				element,
 				busted.context.parent(element),
 				message,
@@ -15431,10 +14907,7 @@ return function()
 
 			local publish = function(f)
 				busted.publish(
-					{
-						"register",
-						descriptor
-					},
+					{ "register", descriptor },
 					name,
 					f,
 					trace,
@@ -15454,10 +14927,7 @@ return function()
 		busted.export(edescriptor, publisher)
 
 		busted.subscribe(
-			{
-				"register",
-				descriptor
-			},
+			{ "register", descriptor },
 			function(name, fn, trace, attributes)
 				local ctx = busted.context.get()
 				local plugin = {
@@ -15835,26 +15305,15 @@ local pretty = require'pl.pretty'
 local system = require'system'
 local throw = error
 
-local failureMt = {
-	__index = {},
-	__tostring = function(e)
+local failureMt = { __index = {}, __tostring = function(e)
 		return tostring(e.message)
-	end,
-	__type = 'failure',
-}
+	end, __type = 'failure', }
 
-local failureMtNoString = {
-	__index = {},
-	__type = 'failure',
-}
+local failureMtNoString = { __index = {}, __type = 'failure', }
 
-local pendingMt = {
-	__index = {},
-	__tostring = function(p)
+local pendingMt = { __index = {}, __tostring = function(p)
 		return p.message
-	end,
-	__type = 'pending',
-}
+	end, __type = 'pending', }
 
 local function errortype(obj)
 	local mt = debug.getmetatable(obj)
@@ -16041,10 +15500,7 @@ return function()
 			-- failure in a support function (i.e. before_each/after_each or
 			-- setup/teardown).
 			busted.publish(
-				{
-					status,
-					element.descriptor,
-				},
+				{ status, element.descriptor, },
 				element,
 				busted.context.parent(element),
 				message,
@@ -16126,10 +15582,7 @@ return function()
 
 			local publish = function(f)
 				busted.publish(
-					{
-						'register',
-						descriptor,
-					},
+					{ 'register', descriptor, },
 					name,
 					f,
 					trace,
@@ -16149,10 +15602,7 @@ return function()
 		busted.export(edescriptor, publisher)
 
 		busted.subscribe(
-			{
-				'register',
-				descriptor,
-			},
+			{ 'register', descriptor, },
 			function(name, fn, trace, attributes)
 				local ctx = busted.context.get()
 				local plugin = {
@@ -19016,12 +18466,9 @@ M.new = function(done_callback)
 		ordered = true -- default for sign off of tokens
 	}
 
-	return setmetatable(obj, {
-		__call = function(self, ...)
+	return setmetatable(obj, { __call = function(self, ...)
 			self:_done(...)
-		end,
-		__index = M
-	})
+		end, __index = M })
 end
 
 return M
@@ -19280,12 +18727,9 @@ M.new = function(done_callback)
 		ordered = true, -- default for sign off of tokens
 	}
 
-	return setmetatable(obj, {
-		__call = function(self, ...)
+	return setmetatable(obj, { __call = function(self, ...)
 			self:_done(...)
-		end,
-		__index = M,
-	})
+		end, __index = M, })
 end
 
 return M
@@ -19587,10 +19031,7 @@ return function(context)
 
 	local env = setmetatable(
 		{},
-		{
-			__index = __index,
-			__newindex = __newindex
-		}
+		{ __index = __index, __newindex = __newindex }
 	)
 
 	function environment.wrap(fn)
@@ -19691,10 +19132,7 @@ return function(context)
 
 	local env = setmetatable(
 		{},
-		{
-			__index = __index,
-			__newindex = __newindex,
-		}
+		{ __index = __index, __newindex = __newindex, }
 	)
 
 	function environment.wrap(fn)
@@ -20048,10 +19486,7 @@ return function(busted)
 				root = busted.context.get()
 				busted.safe_publish(
 					"suite",
-					{
-						"suite",
-						"reset"
-					},
+					{ "suite", "reset" },
 					root,
 					i,
 					runs
@@ -20068,10 +19503,7 @@ return function(busted)
 			local seed = (busted.randomize and busted.randomseed or nil)
 			if busted.safe_publish(
 				"suite",
-				{
-					"suite",
-					"start"
-				},
+				{ "suite", "start" },
 				root,
 				i,
 				runs,
@@ -20085,10 +19517,7 @@ return function(busted)
 			end
 			busted.safe_publish(
 				"suite",
-				{
-					"suite",
-					"end"
-				},
+				{ "suite", "end" },
 				root,
 				i,
 				runs
@@ -20225,10 +19654,7 @@ return function(busted)
 				root = busted.context.get()
 				busted.safe_publish(
 					'suite',
-					{
-						'suite',
-						'reset',
-					},
+					{ 'suite', 'reset', },
 					root,
 					i,
 					runs
@@ -20245,10 +19671,7 @@ return function(busted)
 			local seed = (busted.randomize and busted.randomseed or nil)
 			if busted.safe_publish(
 				'suite',
-				{
-					'suite',
-					'start',
-				},
+				{ 'suite', 'start', },
 				root,
 				i,
 				runs,
@@ -20262,10 +19685,7 @@ return function(busted)
 			end
 			busted.safe_publish(
 				'suite',
-				{
-					'suite',
-					'end',
-				},
+				{ 'suite', 'end', },
 				root,
 				i,
 				runs
@@ -20746,10 +20166,7 @@ describe('tests require "busted"', function()
 		local unsub = unsubscribe(sub.id, { "export_test" })
 		publish({ "export_test" }, "new_value1", "new_value2")
 		assert.is_same(
-			{
-				"value1",
-				"value2"
-			},
+			{ "value1", "value2" },
 			foo
 		)
 		assert.is_equal(sub, unsub)
@@ -20956,10 +20373,7 @@ describe('tests require "busted"', function()
 		local unsub = unsubscribe(sub.id, {'export_test'})
 		publish({'export_test'}, 'new_value1', 'new_value2')
 		assert.is_same(
-			{
-				'value1',
-				'value2',
-			},
+			{ 'value1', 'value2', },
 			foo
 		)
 		assert.is_equal(sub, unsub)
@@ -21532,10 +20946,7 @@ return function()
 				return nil, true
 			end
 			busted.publish(
-				{
-					"register",
-					descriptor
-				},
+				{ "register", descriptor },
 				name,
 				noop,
 				...
@@ -21551,10 +20962,7 @@ return function()
 			if options[name] and options[name] ~= "" then
 				for _, descriptor in ipairs(descriptors) do
 					busted.subscribe(
-						{
-							"register",
-							descriptor
-						},
+						{ "register", descriptor },
 						fn,
 						{ priority = 1 }
 					)
@@ -21569,10 +20977,7 @@ return function()
 						return fn(descriptor, ...)
 					end
 					busted.subscribe(
-						{
-							"register",
-							descriptor
-						},
+						{ "register", descriptor },
 						f,
 						{ priority = 1 }
 					)
@@ -21582,174 +20987,106 @@ return function()
 
 		if options.list then
 			busted.subscribe(
-				{
-					"suite",
-					"start"
-				},
+				{ "suite", "start" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"suite",
-					"end"
-				},
+				{ "suite", "end" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"file",
-					"start"
-				},
+				{ "file", "start" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"file",
-					"end"
-				},
+				{ "file", "end" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"describe",
-					"start"
-				},
+				{ "describe", "start" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"describe",
-					"end"
-				},
+				{ "describe", "end" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"test",
-					"start"
-				},
+				{ "test", "start" },
 				ignoreAll,
 				{ priority = 1 }
 			)
 			busted.subscribe(
-				{
-					"test",
-					"end"
-				},
+				{ "test", "end" },
 				printTestName,
 				{ priority = 1 }
 			)
 			applyDescFilter(
-				{
-					"setup",
-					"teardown",
-					"before_each",
-					"after_each"
-				},
+				{ "setup", "teardown", "before_each", "after_each" },
 				"list",
 				stubOut
 			)
 			applyDescFilter(
-				{
-					"lazy_setup",
-					"lazy_teardown"
-				},
+				{ "lazy_setup", "lazy_teardown" },
 				"list",
 				stubOut
 			)
 			applyDescFilter(
-				{
-					"strict_setup",
-					"strict_teardown"
-				},
+				{ "strict_setup", "strict_teardown" },
 				"list",
 				stubOut
 			)
 			applyDescFilter(
-				{
-					"it",
-					"pending"
-				},
+				{ "it", "pending" },
 				"list",
 				stubOut
 			)
 		end
 
 		applyFilter(
-			{
-				"lazy_setup",
-				"lazy_teardown"
-			},
+			{ "lazy_setup", "lazy_teardown" },
 			"nokeepgoing",
 			skipOnError
 		)
 		applyFilter(
-			{
-				"strict_setup",
-				"strict_teardown"
-			},
+			{ "strict_setup", "strict_teardown" },
 			"nokeepgoing",
 			skipOnError
 		)
 		applyFilter(
-			{
-				"setup",
-				"teardown",
-				"before_each",
-				"after_each"
-			},
+			{ "setup", "teardown", "before_each", "after_each" },
 			"nokeepgoing",
 			skipOnError
 		)
 		applyFilter(
-			{
-				"file",
-				"describe",
-				"it",
-				"pending"
-			},
+			{ "file", "describe", "it", "pending" },
 			"nokeepgoing",
 			skipOnError
 		)
 
 		-- The following filters are applied in reverse order
 		applyFilter(
-			{
-				"it",
-				"pending"
-			},
+			{ "it", "pending" },
 			"filter",
 			filterNames
 		)
 		applyFilter(
-			{
-				"describe",
-				"it",
-				"pending"
-			},
+			{ "describe", "it", "pending" },
 			"filterOut",
 			filterOutNames
 		)
 		applyFilter(
-			{
-				"it",
-				"pending"
-			},
+			{ "it", "pending" },
 			"tags",
 			filterTags
 		)
 		applyFilter(
-			{
-				"describe",
-				"it",
-				"pending"
-			},
+			{ "describe", "it", "pending" },
 			"excludeTags",
 			filterExcludeTags
 		)
@@ -21973,10 +21310,7 @@ return function()
 				return nil, true
 			end
 			busted.publish(
-				{
-					'register',
-					descriptor,
-				},
+				{ 'register', descriptor, },
 				name,
 				noop,
 				...
@@ -21992,10 +21326,7 @@ return function()
 			if options[name] and options[name] ~= '' then
 				for _, descriptor in ipairs(descriptors) do
 					busted.subscribe(
-						{
-							'register',
-							descriptor,
-						},
+						{ 'register', descriptor, },
 						fn,
 						{priority = 1}
 					)
@@ -22010,10 +21341,7 @@ return function()
 						return fn(descriptor, ...)
 					end
 					busted.subscribe(
-						{
-							'register',
-							descriptor,
-						},
+						{ 'register', descriptor, },
 						f,
 						{priority = 1}
 					)
@@ -22023,174 +21351,106 @@ return function()
 
 		if options.list then
 			busted.subscribe(
-				{
-					'suite',
-					'start',
-				},
+				{ 'suite', 'start', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'suite',
-					'end',
-				},
+				{ 'suite', 'end', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'file',
-					'start',
-				},
+				{ 'file', 'start', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'file',
-					'end',
-				},
+				{ 'file', 'end', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'describe',
-					'start',
-				},
+				{ 'describe', 'start', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'describe',
-					'end',
-				},
+				{ 'describe', 'end', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'test',
-					'start',
-				},
+				{ 'test', 'start', },
 				ignoreAll,
 				{priority = 1}
 			)
 			busted.subscribe(
-				{
-					'test',
-					'end',
-				},
+				{ 'test', 'end', },
 				printTestName,
 				{priority = 1}
 			)
 			applyDescFilter(
-				{
-					'setup',
-					'teardown',
-					'before_each',
-					'after_each',
-				},
+				{ 'setup', 'teardown', 'before_each', 'after_each', },
 				'list',
 				stubOut
 			)
 			applyDescFilter(
-				{
-					'lazy_setup',
-					'lazy_teardown',
-				},
+				{ 'lazy_setup', 'lazy_teardown', },
 				'list',
 				stubOut
 			)
 			applyDescFilter(
-				{
-					'strict_setup',
-					'strict_teardown',
-				},
+				{ 'strict_setup', 'strict_teardown', },
 				'list',
 				stubOut
 			)
 			applyDescFilter(
-				{
-					'it',
-					'pending',
-				},
+				{ 'it', 'pending', },
 				'list',
 				stubOut
 			)
 		end
 
 		applyFilter(
-			{
-				'lazy_setup',
-				'lazy_teardown',
-			},
+			{ 'lazy_setup', 'lazy_teardown', },
 			'nokeepgoing',
 			skipOnError
 		)
 		applyFilter(
-			{
-				'strict_setup',
-				'strict_teardown',
-			},
+			{ 'strict_setup', 'strict_teardown', },
 			'nokeepgoing',
 			skipOnError
 		)
 		applyFilter(
-			{
-				'setup',
-				'teardown',
-				'before_each',
-				'after_each',
-			},
+			{ 'setup', 'teardown', 'before_each', 'after_each', },
 			'nokeepgoing',
 			skipOnError
 		)
 		applyFilter(
-			{
-				'file',
-				'describe',
-				'it',
-				'pending',
-			},
+			{ 'file', 'describe', 'it', 'pending', },
 			'nokeepgoing',
 			skipOnError
 		)
 
 		-- The following filters are applied in reverse order
 		applyFilter(
-			{
-				'it',
-				'pending',
-			},
+			{ 'it', 'pending', },
 			'filter',
 			filterNames
 		)
 		applyFilter(
-			{
-				'describe',
-				'it',
-				'pending',
-			},
+			{ 'describe', 'it', 'pending', },
 			'filterOut',
 			filterOutNames
 		)
 		applyFilter(
-			{
-				'it',
-				'pending',
-			},
+			{ 'it', 'pending', },
 			'tags',
 			filterTags
 		)
 		applyFilter(
-			{
-				'describe',
-				'it',
-				'pending',
-			},
+			{ 'describe', 'it', 'pending', },
 			'excludeTags',
 			filterExcludeTags
 		)
@@ -23012,68 +22272,41 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"suite",
-			"reset"
-		},
+		{ "suite", "reset" },
 		handler.suiteReset
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"start"
-		},
+		{ "suite", "start" },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			"file",
-			"start"
-		},
+		{ "file", "start" },
 		handler.fileStart
 	)
 	busted.subscribe(
-		{
-			"file",
-			"end"
-		},
+		{ "file", "end" },
 		handler.fileEnd
 	)
 	busted.subscribe(
-		{
-			"test",
-			"start"
-		},
+		{ "test", "start" },
 		handler.testStart,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"it"
-		},
+		{ "failure", "it" },
 		handler.testFailure
 	)
 	busted.subscribe(
-		{
-			"error",
-			"it"
-		},
+		{ "error", "it" },
 		handler.testError
 	)
 	busted.subscribe({ "failure" }, handler.error)
@@ -23699,68 +22932,41 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'suite',
-			'reset',
-		},
+		{ 'suite', 'reset', },
 		handler.suiteReset
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'start',
-		},
+		{ 'suite', 'start', },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			'file',
-			'start',
-		},
+		{ 'file', 'start', },
 		handler.fileStart
 	)
 	busted.subscribe(
-		{
-			'file',
-			'end',
-		},
+		{ 'file', 'end', },
 		handler.fileEnd
 	)
 	busted.subscribe(
-		{
-			'test',
-			'start',
-		},
+		{ 'test', 'start', },
 		handler.testStart,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'it',
-		},
+		{ 'failure', 'it', },
 		handler.testFailure
 	)
 	busted.subscribe(
-		{
-			'error',
-			'it',
-		},
+		{ 'error', 'it', },
 		handler.testError
 	)
 	busted.subscribe({'failure'}, handler.error)
@@ -23824,14 +23030,8 @@ return function()
 
 		if not success then
 			busted.publish(
-				{
-					"error",
-					"helper"
-				},
-				{
-					descriptor = "helper",
-					name = helper
-				},
+				{ "error", "helper" },
+				{ descriptor = "helper", name = helper },
 				nil,
 				err,
 				{}
@@ -23897,14 +23097,8 @@ return function()
 
 		if not success then
 			busted.publish(
-				{
-					'error',
-					'helper',
-				},
-				{
-					descriptor = 'helper',
-					name = helper,
-				},
+				{ 'error', 'helper', },
+				{ descriptor = 'helper', name = helper, },
 				nil,
 				err,
 				{}
@@ -24061,20 +23255,14 @@ local function init(busted)
 		busted.wrap(file.run)
 		if busted.safe_publish(
 			"file",
-			{
-				"file",
-				"start"
-			},
+			{ "file", "start" },
 			file
 		) then
 			block.execute("file", file)
 		end
 		busted.safe_publish(
 			"file",
-			{
-				"file",
-				"end"
-			},
+			{ "file", "end" },
 			file
 		)
 	end
@@ -24083,10 +23271,7 @@ local function init(busted)
 		local parent = busted.context.parent(describe)
 		if busted.safe_publish(
 			"describe",
-			{
-				"describe",
-				"start"
-			},
+			{ "describe", "start" },
 			describe,
 			parent
 		) then
@@ -24094,10 +23279,7 @@ local function init(busted)
 		end
 		busted.safe_publish(
 			"describe",
-			{
-				"describe",
-				"end"
-			},
+			{ "describe", "end" },
 			describe,
 			parent
 		)
@@ -24128,10 +23310,7 @@ local function init(busted)
 			local status = busted.status("success")
 			if busted.safe_publish(
 				"test",
-				{
-					"test",
-					"start"
-				},
+				{ "test", "start" },
 				element,
 				parent
 			) then
@@ -24145,10 +23324,7 @@ local function init(busted)
 			end
 			busted.safe_publish(
 				"test",
-				{
-					"test",
-					"end"
-				},
+				{ "test", "end" },
 				element,
 				parent,
 				tostring(status)
@@ -24163,10 +23339,7 @@ local function init(busted)
 		local status = "pending"
 		if not busted.safe_publish(
 			"it",
-			{
-				"test",
-				"start"
-			},
+			{ "test", "start" },
 			element,
 			parent
 		) then
@@ -24174,10 +23347,7 @@ local function init(busted)
 		end
 		busted.safe_publish(
 			"it",
-			{
-				"test",
-				"end"
-			},
+			{ "test", "end" },
 			element,
 			parent,
 			status
@@ -24247,14 +23417,11 @@ return setmetatable(
 	{ __call = function(self, busted)
 			init(busted)
 
-			return setmetatable(self, {
-				__index = function(self, key)
+			return setmetatable(self, { __index = function(self, key)
 					return busted.api[key]
-				end,
-				__newindex = function(self, key, value)
+				end, __newindex = function(self, key, value)
 					error("Attempt to modify busted")
-				end
-			})
+				end })
 		end }
 )
 
@@ -24404,20 +23571,14 @@ local function init(busted)
 		busted.wrap(file.run)
 		if busted.safe_publish(
 			'file',
-			{
-				'file',
-				'start',
-			},
+			{ 'file', 'start', },
 			file
 		) then
 			block.execute('file', file)
 		end
 		busted.safe_publish(
 			'file',
-			{
-				'file',
-				'end',
-			},
+			{ 'file', 'end', },
 			file
 		)
 	end
@@ -24426,10 +23587,7 @@ local function init(busted)
 		local parent = busted.context.parent(describe)
 		if busted.safe_publish(
 			'describe',
-			{
-				'describe',
-				'start',
-			},
+			{ 'describe', 'start', },
 			describe,
 			parent
 		) then
@@ -24437,10 +23595,7 @@ local function init(busted)
 		end
 		busted.safe_publish(
 			'describe',
-			{
-				'describe',
-				'end',
-			},
+			{ 'describe', 'end', },
 			describe,
 			parent
 		)
@@ -24471,10 +23626,7 @@ local function init(busted)
 			local status = busted.status('success')
 			if busted.safe_publish(
 				'test',
-				{
-					'test',
-					'start',
-				},
+				{ 'test', 'start', },
 				element,
 				parent
 			) then
@@ -24488,10 +23640,7 @@ local function init(busted)
 			end
 			busted.safe_publish(
 				'test',
-				{
-					'test',
-					'end',
-				},
+				{ 'test', 'end', },
 				element,
 				parent,
 				tostring(status)
@@ -24506,10 +23655,7 @@ local function init(busted)
 		local status = 'pending'
 		if not busted.safe_publish(
 			'it',
-			{
-				'test',
-				'start',
-			},
+			{ 'test', 'start', },
 			element,
 			parent
 		) then
@@ -24517,10 +23663,7 @@ local function init(busted)
 		end
 		busted.safe_publish(
 			'it',
-			{
-				'test',
-				'end',
-			},
+			{ 'test', 'end', },
 			element,
 			parent,
 			status
@@ -24590,14 +23733,11 @@ return setmetatable(
 	{__call = function(self, busted)
 			init(busted)
 
-			return setmetatable(self, {
-				__index = function(self, key)
+			return setmetatable(self, { __index = function(self, key)
 					return busted.api[key]
-				end,
-				__newindex = function(self, key, value)
+				end, __newindex = function(self, key, value)
 					error('Attempt to modify busted')
-				end,
-			})
+				end, })
 		end}
 )
 
@@ -25842,10 +24982,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 
@@ -25899,10 +25036,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 
@@ -26221,47 +25355,29 @@ return function(options)
 
 	busted.subscribe({ "exit" }, handler.exit)
 	busted.subscribe(
-		{
-			"suite",
-			"start"
-		},
+		{ "suite", "start" },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			"test",
-			"start"
-		},
+		{ "test", "start" },
 		handler.testStart,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"error",
-			"it"
-		},
+		{ "error", "it" },
 		handler.errorTest
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"it"
-		},
+		{ "failure", "it" },
 		handler.failureTest
 	)
 	busted.subscribe({ "error" }, handler.error)
@@ -26582,47 +25698,29 @@ return function(options)
 
 	busted.subscribe({'exit'}, handler.exit)
 	busted.subscribe(
-		{
-			'suite',
-			'start',
-		},
+		{ 'suite', 'start', },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			'test',
-			'start',
-		},
+		{ 'test', 'start', },
 		handler.testStart,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'error',
-			'it',
-		},
+		{ 'error', 'it', },
 		handler.errorTest
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'it',
-		},
+		{ 'failure', 'it', },
 		handler.failureTest
 	)
 	busted.subscribe({'error'}, handler.error)
@@ -26992,14 +26090,8 @@ ret.load = function(busted, filename)
 	local file, err = moonscript.loadfile(filename)
 	if not file then
 		busted.publish(
-			{
-				"error",
-				"file"
-			},
-			{
-				descriptor = "file",
-				name = filename
-			},
+			{ "error", "file" },
+			{ descriptor = "file", name = filename },
 			nil,
 			err,
 			{}
@@ -27229,14 +26321,8 @@ ret.load = function(busted, filename)
 	local file, err = moonscript.loadfile(filename)
 	if not file then
 		busted.publish(
-			{
-				'error',
-				'file',
-			},
-			{
-				descriptor = 'file',
-				name = filename,
-			},
+			{ 'error', 'file', },
+			{ descriptor = 'file', name = filename, },
 			nil,
 			err,
 			{}
@@ -27437,10 +26523,7 @@ return {
   output = nil,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	standalone = true,
-	output = nil
-}
+return { standalone = true, output = nil }
 
 `;
 
@@ -27450,10 +26533,7 @@ return {
   output = nil,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	standalone = true,
-	output = nil,
-}
+return { standalone = true, output = nil, }
 
 `;
 
@@ -27523,14 +26603,8 @@ return function()
 
 		if not success then
 			busted.publish(
-				{
-					"error",
-					"output"
-				},
-				{
-					descriptor = "output",
-					name = output
-				},
+				{ "error", "output" },
+				{ descriptor = "output", name = output },
 				nil,
 				err,
 				{}
@@ -27616,14 +26690,8 @@ return function()
 
 		if not success then
 			busted.publish(
-				{
-					'error',
-					'output',
-				},
-				{
-					descriptor = 'output',
-					name = output,
-				},
+				{ 'error', 'output', },
+				{ descriptor = 'output', name = output, },
 				nil,
 				err,
 				{}
@@ -28005,53 +27073,32 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"start"
-		},
+		{ "suite", "start" },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			"error",
-			"file"
-		},
+		{ "error", "file" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"file"
-		},
+		{ "failure", "file" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"error",
-			"describe"
-		},
+		{ "error", "describe" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"describe"
-		},
+		{ "failure", "describe" },
 		handler.error
 	)
 
@@ -28406,53 +27453,32 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'start',
-		},
+		{ 'suite', 'start', },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			'error',
-			'file',
-		},
+		{ 'error', 'file', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'file',
-		},
+		{ 'failure', 'file', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'error',
-			'describe',
-		},
+		{ 'error', 'describe', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'describe',
-		},
+		{ 'failure', 'describe', },
 		handler.error
 	)
 
@@ -28832,34 +27858,12 @@ describe("Order of tests ran", function()
 	end)
 
 	it("randomized with known random seed: 3210", function()
-		local t = {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10
-		}
+		local t = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 		assert.are.same(shuffle(t, 3210), orderfixed1)
 	end)
 
 	it("randomized with known random seed: 56789", function()
-		local t = {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10
-		}
+		local t = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 		assert.are.same(shuffle(t, 56789), orderfixed2)
 	end)
 end)
@@ -29065,34 +28069,12 @@ describe('Order of tests ran', function()
 	end)
 
 	it('randomized with known random seed: 3210', function()
-		local t = {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10,
-		}
+		local t = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, }
 		assert.are.same(shuffle(t, 3210), orderfixed1)
 	end)
 
 	it('randomized with known random seed: 56789', function()
-		local t = {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10,
-		}
+		local t = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, }
 		assert.are.same(shuffle(t, 56789), orderfixed2)
 	end)
 end)
@@ -29602,10 +28584,7 @@ return function(options)
 	local quitOnError = not cliArgs["keep-going"]
 
 	busted.subscribe(
-		{
-			"error",
-			"output"
-		},
+		{ "error", "output" },
 		function(element, parent, message)
 			io.stderr:write(
 				appName .. ": error: Cannot load output library: " .. element.name .. "\\n" .. message .. "\\n"
@@ -29615,10 +28594,7 @@ return function(options)
 	)
 
 	busted.subscribe(
-		{
-			"error",
-			"helper"
-		},
+		{ "error", "helper" },
 		function(element, parent, message)
 			io.stderr:write(
 				appName .. ": error: Cannot load helper script: " .. element.name .. "\\n" .. message .. "\\n"
@@ -30037,10 +29013,7 @@ return function(options)
 	local quitOnError = not cliArgs['keep-going']
 
 	busted.subscribe(
-		{
-			'error',
-			'output',
-		},
+		{ 'error', 'output', },
 		function(element, parent, message)
 			io.stderr:write(
 				appName .. ': error: Cannot load output library: ' .. element.name .. '\\n' .. message .. '\\n'
@@ -30050,10 +29023,7 @@ return function(options)
 	)
 
 	busted.subscribe(
-		{
-			'error',
-			'helper',
-		},
+		{ 'error', 'helper', },
 		function(element, parent, message)
 			io.stderr:write(
 				appName .. ': error: Cannot load helper script: ' .. element.name .. '\\n' .. message .. '\\n'
@@ -30245,10 +29215,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 
@@ -30335,10 +29302,7 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 
@@ -30393,10 +29357,7 @@ return function(busted)
 		-- Setup test file to be compatible with live coding
 		if info.func then
 			local file = setmetatable(
-				{
-					getTrace = getTrace,
-					rewriteMessage = nil
-				},
+				{ getTrace = getTrace, rewriteMessage = nil },
 				{ __call = info.func }
 			)
 
@@ -30455,10 +29416,7 @@ return function(busted)
 		-- Setup test file to be compatible with live coding
 		if info.func then
 			local file = setmetatable(
-				{
-					getTrace = getTrace,
-					rewriteMessage = nil,
-				},
+				{ getTrace = getTrace, rewriteMessage = nil, },
 				{__call = info.func}
 			)
 
@@ -30531,40 +29489,29 @@ end
 
 return function(inital_status)
 	local objstat = get_status(inital_status)
-	local obj = {
-		success = function(self)
+	local obj = { success = function(self)
 			return (objstat == "success")
-		end,
-		pending = function(self)
+		end, pending = function(self)
 			return (objstat == "pending")
-		end,
-		failure = function(self)
+		end, failure = function(self)
 			return (objstat == "failure")
-		end,
-		error = function(self)
+		end, error = function(self)
 			return (objstat == "error")
-		end,
-		get = function(self)
+		end, get = function(self)
 			return objstat
-		end,
-		set = function(self, status)
+		end, set = function(self, status)
 			objstat = get_status(status)
-		end,
-		update = function(self, status)
+		end, update = function(self, status)
 			-- prefer current failure/error status over new status
 			status = get_status(status)
 			if objstat == "success" or (objstat == "pending" and status ~= "success") then
 				objstat = status
 			end
-		end
-	}
+		end }
 
-	return setmetatable(obj, {
-		__index = {},
-		__tostring = function(self)
+	return setmetatable(obj, { __index = {}, __tostring = function(self)
 			return objstat
-		end
-	})
+		end })
 end
 
 `;
@@ -30629,40 +29576,29 @@ end
 
 return function(inital_status)
 	local objstat = get_status(inital_status)
-	local obj = {
-		success = function(self)
+	local obj = { success = function(self)
 			return (objstat == 'success')
-		end,
-		pending = function(self)
+		end, pending = function(self)
 			return (objstat == 'pending')
-		end,
-		failure = function(self)
+		end, failure = function(self)
 			return (objstat == 'failure')
-		end,
-		error = function(self)
+		end, error = function(self)
 			return (objstat == 'error')
-		end,
-		get = function(self)
+		end, get = function(self)
 			return objstat
-		end,
-		set = function(self, status)
+		end, set = function(self, status)
 			objstat = get_status(status)
-		end,
-		update = function(self, status)
+		end, update = function(self, status)
 			-- prefer current failure/error status over new status
 			status = get_status(status)
 			if objstat == 'success' or (objstat == 'pending' and status ~= 'success') then
 				objstat = status
 			end
-		end,
-	}
+		end, }
 
-	return setmetatable(obj, {
-		__index = {},
-		__tostring = function(self)
+	return setmetatable(obj, { __index = {}, __tostring = function(self)
 			return objstat
-		end,
-	})
+		end, })
 end
 
 `;
@@ -30922,14 +29858,8 @@ ret.load = function(busted, filename)
 	local file, err = terralib.loadfile(filename)
 	if not file then
 		busted.publish(
-			{
-				"error",
-				"file"
-			},
-			{
-				descriptor = "file",
-				name = filename
-			},
+			{ "error", "file" },
+			{ descriptor = "file", name = filename },
 			nil,
 			err,
 			{}
@@ -30989,14 +29919,8 @@ ret.load = function(busted, filename)
 	local file, err = terralib.loadfile(filename)
 	if not file then
 		busted.publish(
-			{
-				'error',
-				'file',
-			},
-			{
-				descriptor = 'file',
-				name = filename,
-			},
+			{ 'error', 'file', },
+			{ descriptor = 'file', name = filename, },
 			nil,
 			err,
 			{}
@@ -31199,10 +30123,7 @@ return function(busted, loaders)
 
 			if testFile then
 				local file = setmetatable(
-					{
-						getTrace = getTrace,
-						rewriteMessage = rewriteMessage
-					},
+					{ getTrace = getTrace, rewriteMessage = rewriteMessage },
 					{ __call = testFile }
 				)
 
@@ -31422,10 +30343,7 @@ return function(busted, loaders)
 
 			if testFile then
 				local file = setmetatable(
-					{
-						getTrace = getTrace,
-						rewriteMessage = rewriteMessage,
-					},
+					{ getTrace = getTrace, rewriteMessage = rewriteMessage, },
 					{__call = testFile}
 				)
 
@@ -32181,53 +31099,32 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			"test",
-			"end"
-		},
+		{ "test", "end" },
 		handler.testEnd,
 		{ predicate = handler.cancelOnPending }
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"start"
-		},
+		{ "suite", "start" },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			"suite",
-			"end"
-		},
+		{ "suite", "end" },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			"error",
-			"file"
-		},
+		{ "error", "file" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"file"
-		},
+		{ "failure", "file" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"error",
-			"describe"
-		},
+		{ "error", "describe" },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			"failure",
-			"describe"
-		},
+		{ "failure", "describe" },
 		handler.error
 	)
 
@@ -32624,53 +31521,32 @@ return function(options)
 	end
 
 	busted.subscribe(
-		{
-			'test',
-			'end',
-		},
+		{ 'test', 'end', },
 		handler.testEnd,
 		{predicate = handler.cancelOnPending}
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'start',
-		},
+		{ 'suite', 'start', },
 		handler.suiteStart
 	)
 	busted.subscribe(
-		{
-			'suite',
-			'end',
-		},
+		{ 'suite', 'end', },
 		handler.suiteEnd
 	)
 	busted.subscribe(
-		{
-			'error',
-			'file',
-		},
+		{ 'error', 'file', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'file',
-		},
+		{ 'failure', 'file', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'error',
-			'describe',
-		},
+		{ 'error', 'describe', },
 		handler.error
 	)
 	busted.subscribe(
-		{
-			'failure',
-			'describe',
-		},
+		{ 'failure', 'describe', },
 		handler.error
 	)
 
@@ -32718,8 +31594,7 @@ return {
   end,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	copy_interpreter_args = function(arguments)
+return { copy_interpreter_args = function(arguments)
 		-- copy non-positive command-line args auto-inserted by Lua interpreter
 		if arguments and _G.arg then
 			local i = 0
@@ -32728,9 +31603,7 @@ return {
 				i = i - 1
 			end
 		end
-	end,
-	split = require"pl.utils".split,
-	shuffle = function(t, seed)
+	end, split = require"pl.utils".split, shuffle = function(t, seed)
 		if seed then
 			math.randomseed(seed)
 		end
@@ -32741,8 +31614,7 @@ return {
 			n = n - 1
 		end
 		return t
-	end,
-	urandom = function()
+	end, urandom = function()
 		local f = io.open("/dev/urandom", "rb")
 		if not f then
 			return nil
@@ -32755,8 +31627,7 @@ return {
 			value = value * 256 + v
 		end
 		return value
-	end
-}
+	end }
 
 `;
 
@@ -32799,8 +31670,7 @@ return {
   end,
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-return {
-	copy_interpreter_args = function(arguments)
+return { copy_interpreter_args = function(arguments)
 		-- copy non-positive command-line args auto-inserted by Lua interpreter
 		if arguments and _G.arg then
 			local i = 0
@@ -32809,9 +31679,7 @@ return {
 				i = i - 1
 			end
 		end
-	end,
-	split = require'pl.utils'.split,
-	shuffle = function(t, seed)
+	end, split = require'pl.utils'.split, shuffle = function(t, seed)
 		if seed then
 			math.randomseed(seed)
 		end
@@ -32822,8 +31690,7 @@ return {
 			n = n - 1
 		end
 		return t
-	end,
-	urandom = function()
+	end, urandom = function()
 		local f = io.open('/dev/urandom', 'rb')
 		if not f then
 			return nil
@@ -32836,8 +31703,7 @@ return {
 			value = value * 256 + v
 		end
 		return value
-	end,
-}
+	end, }
 
 `;
 

@@ -94,15 +94,9 @@ one_thing = { thing }
 
 one_keyed_thing = { keyed = thing }
 
-more_than_one_thing = {
-	thing,
-	thing
-}
+more_than_one_thing = { thing, thing }
 
-more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing
-}
+more_than_one_keyed_thing = { keyed = thing, keyed = thing }
 
 computed_keys = {
 	[1.0] = "one!",
@@ -137,12 +131,7 @@ crazy_nesting = {
 						["aaaaa!!!!"] = "aaaaa!!!!"
 					} } } } },
 	[{ please = "no" }] = { please = "yes" },
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
 	[{
 		1,
 		2,
@@ -183,15 +172,9 @@ local one_thing = { thing }
 
 local one_keyed_thing = { keyed = thing }
 
-local more_than_one_thing = {
-	thing,
-	thing
-}
+local more_than_one_thing = { thing, thing }
 
-local more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing
-}
+local more_than_one_keyed_thing = { keyed = thing, keyed = thing }
 
 local computed_keys = {
 	[1.0] = "one!",
@@ -231,12 +214,7 @@ local crazy_nesting = {
 						["aaaaa!!!!"] = "aaaaa!!!!"
 					} } } } },
 	[{ please = "no" }] = { please = "yes" },
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
 	[{
 		1,
 		2,
@@ -367,15 +345,9 @@ one_thing = { thing }
 
 one_keyed_thing = { keyed = thing }
 
-more_than_one_thing = {
-	thing,
-	thing,
-}
+more_than_one_thing = { thing, thing, }
 
-more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing,
-}
+more_than_one_keyed_thing = { keyed = thing, keyed = thing, }
 
 computed_keys = {
 	[1.0] = 'one!',
@@ -410,12 +382,7 @@ crazy_nesting = {
 						['aaaaa!!!!'] = 'aaaaa!!!!',
 					} } } } },
 	[{ please = 'no' }] = { please = 'yes' },
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6,
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6, },
 	[{
 		1,
 		2,
@@ -456,15 +423,9 @@ local one_thing = { thing }
 
 local one_keyed_thing = { keyed = thing }
 
-local more_than_one_thing = {
-	thing,
-	thing,
-}
+local more_than_one_thing = { thing, thing, }
 
-local more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing,
-}
+local more_than_one_keyed_thing = { keyed = thing, keyed = thing, }
 
 local computed_keys = {
 	[1.0] = 'one!',
@@ -504,12 +465,7 @@ local crazy_nesting = {
 						['aaaaa!!!!'] = 'aaaaa!!!!',
 					} } } } },
 	[{ please = 'no' }] = { please = 'yes' },
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6,
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6, },
 	[{
 		1,
 		2,
@@ -640,15 +596,9 @@ one_thing = {thing}
 
 one_keyed_thing = {keyed = thing}
 
-more_than_one_thing = {
-	thing,
-	thing
-}
+more_than_one_thing = { thing, thing }
 
-more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing
-}
+more_than_one_keyed_thing = { keyed = thing, keyed = thing }
 
 computed_keys = {
 	[1.0] = "one!",
@@ -683,12 +633,7 @@ crazy_nesting = {
 						["aaaaa!!!!"] = "aaaaa!!!!"
 					}}}}},
 	[{please = "no"}] = {please = "yes"},
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
 	[{
 		1,
 		2,
@@ -729,15 +674,9 @@ local one_thing = {thing}
 
 local one_keyed_thing = {keyed = thing}
 
-local more_than_one_thing = {
-	thing,
-	thing
-}
+local more_than_one_thing = { thing, thing }
 
-local more_than_one_keyed_thing = {
-	keyed = thing,
-	keyed = thing
-}
+local more_than_one_keyed_thing = { keyed = thing, keyed = thing }
 
 local computed_keys = {
 	[1.0] = "one!",
@@ -777,12 +716,7 @@ local crazy_nesting = {
 						["aaaaa!!!!"] = "aaaaa!!!!"
 					}}}}},
 	[{please = "no"}] = {please = "yes"},
-	[45.6] = {
-		45.6,
-		45.6,
-		45.6,
-		45.6
-	},
+	[45.6] = { 45.6, 45.6, 45.6, 45.6 },
 	[{
 		1,
 		2,

@@ -197,10 +197,7 @@ local a, b, c, d, e, f = (...)
 local a, b, c, d, e, f = ..., (b())
 local a, b, c, d, e, f = ..., b(), (c())
 
-local a = {
-	a = a(),
-	(b())
-}
+local a = { a = a(), (b()) }
 
 function you_need_me_1()
 	return (a())
@@ -471,10 +468,7 @@ local a, b, c, d, e, f = (...)
 local a, b, c, d, e, f = ..., (b())
 local a, b, c, d, e, f = ..., b(), (c())
 
-local a = {
-	a = a(),
-	(b()),
-}
+local a = { a = a(), (b()), }
 
 function you_need_me_1()
 	return (a())
