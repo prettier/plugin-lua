@@ -1,5 +1,5 @@
 <p align="center">
-    🚧 &nbsp;Work in Progress!&nbsp;🚧
+    🚧 &nbsp;Not Actively Maintained&nbsp;🚧
 </p>
 
 <div align="center">
@@ -11,9 +11,9 @@
 
 <h2 align="center">Prettier Lua Plugin</h2>
 
-## WORK IN PROGRESS
+## Unfinished
 
-Please note that this plugin is currently in alpha stage and still under active development. We encourage everyone to try it and give feedback, but we don't recommend it for production use yet.
+Please note that this plugin is currently unfinished. We don't recommend it for production use.
 
 ## Intro
 
